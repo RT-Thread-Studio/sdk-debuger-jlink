@@ -1,4 +1,4 @@
-  AppVersion = 62002
+  AppVersion = 65001
   FileVersion = 2
 [GENERAL]
   ConnectMode = 0
@@ -72,7 +72,7 @@
   EndianMode = 0
   ChipName = "Silicon Labs EFR32BG1BxxxF256"
 [FLASH]
-  aRangeSel[1] = 0-129
+  aRangeSel[1] = 0-127
   BankName = "Internal flash"
   BankSelMode = 1
   BaseAddr = 0x00000000
@@ -84,8 +84,10 @@
   AutoPerformsStartApp = 0
   AutoPerformsUnsecure = 0
   AutoPerformsVerify = 1
+  EnableFixedVTref = 0
   EnableTargetPower = 0
-  EraseType = 2
+  EraseType = 1
+  FixedVTref = 0x00000CE4
   MonitorVTref = 0
   MonitorVTrefMax = 0x0000157C
   MonitorVTrefMin = 0x000003E8
@@ -103,3 +105,7 @@
   TimeoutProgram = 0x00002710
   TimeoutVerify = 0x00002710
   VerifyType = 1
+[PERFORMANCE]
+  DisableSkipBlankDataOnProgram = 0x00000000
+  PerfromBlankCheckPriorEraseChip = 0x00000001
+  PerfromBlankCheckPriorEraseSelectedSectors = 0x00000001

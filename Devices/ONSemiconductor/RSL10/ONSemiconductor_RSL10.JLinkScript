@@ -97,7 +97,7 @@ int SoftwareReset(U32 aircr_value)
         end_time = JLINK_GetTime() + 1000;
         do {
             is_halted = JLINK_TARGET_IsHalted();
-            timeout   = end_time < JLINK_GetTime()
+            timeout   = end_time < JLINK_GetTime();
         } while ( is_halted==0 && timeout==0 );
 
         if(is_halted == -1)
