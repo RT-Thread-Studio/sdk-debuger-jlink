@@ -1,12 +1,7 @@
 /*********************************************************************
-*                SEGGER MICROCONTROLLER SYSTEME GmbH                 *
-*        Solutions for real time microcontroller applications        *
-**********************************************************************
-*                                                                    *
-*        (C) 2004-2019    SEGGER Microcontroller Systeme GmbH        *
-*                                                                    *
-*      Internet: www.segger.com    Support:  support@segger.com      *
-*                                                                    *
+*                   (c) SEGGER Microcontroller GmbH                  *
+*                        The Embedded Experts                        *
+*                           www.segger.com                           *
 **********************************************************************
 ----------------------------------------------------------------------
 */
