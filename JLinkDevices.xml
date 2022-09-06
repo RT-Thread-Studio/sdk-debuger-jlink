@@ -1360,8 +1360,15 @@
    <ChipInfo Vendor="O2Micro" Name="OZ93510F160LN" Core="JLINK_CORE_CORTEX_M0" />
    <FlashBankInfo Name="QSPI Flash" BaseAddr="0x60000000" MaxSize="0x00020000" Loader="Devices/O2Micro/O2Micro_OZ93510F160LN_QSPI.elf" LoaderType="FLASH_ALGO_TYPE_OPEN" />
   </Device>
+  <!--                                    -->
+  <!-- Synwit                             -->
+  <!--                                    -->  
   <Device>
-    <ChipInfo Vendor="Synwit" Name="SWM320XE" Core="JLINK_CORE_CORTEX_M4" WorkRAMAddr="0x20000000" WorkRAMSize="0x20000" />
+    <ChipInfo Vendor="Synwit" Name="SWM32SRET6" Core="JLINK_CORE_CORTEX_M4" WorkRAMAddr="0x20000000" WorkRAMSize="0x20000" />
     <FlashBankInfo Name="Internal Flash" BaseAddr="0x00000000" MaxSize="0x80000" Loader="Devices/Synwit/SWM320xE.FLM" LoaderType="FLASH_ALGO_TYPE_OPEN" AlwaysPresent="1"/>
+  </Device> 
+  <Device>
+    <ChipInfo Vendor="Synwit" Name="SWM34SVET6" Core="JLINK_CORE_CORTEX_M33" WorkRAMAddr="0x20000000" WorkRAMSize="0x20000" />
+    <FlashBankInfo Name="Internal Flash" BaseAddr="0x00000000" MaxSize="0x80000" Loader="Devices/Synwit/SWM341xE.FLM" LoaderType="FLASH_ALGO_TYPE_OPEN" AlwaysPresent="1"/>
   </Device> 
 </DataBase>
