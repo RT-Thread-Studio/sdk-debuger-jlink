@@ -189,6 +189,122 @@ div.divider-global:nth-of-type(even) {
   </div>
 <div id="features" class="divider-global">
   <div class="container">
+    <h2>Version V7.52 (2021-07-27)</h2>
+    <div>
+      <h3>DLL</h3>
+      <ol>
+        <li> Added native background memory access for Renesas RZ/A2M series so things like SEGGER RTT work without stop mode. </li>
+        <li> Raspberry RP2040 improved SPI flash programmng speed. </li>
+        <li> Added new reset strategy: Reset + Halt after bootloader using watchpoint. (https://wiki.segger.com/Reset_and_Halt_After_Bootloader) </li>
+        <li> Added new J-Link Command String which can be uesed to specify the watchpoint address when using Reset + Halt after bootloader reset strategy.   </li>
+        <li> Added debug support for Microchip SAMA7G54. </li>
+        <li> STM32U5 devices: Flash programming did not work properly when Trustzone was enabled and some sectors were set to non-secure while others were secure. Fixed. </li>
+        <li> Added debug and internal flash programming support for Maxim MAX32655 series device. </li>
+        <li> STM32L5: Flash programming did not work properly when Trustzone was enabled and some sectors were set to non-secure while others were secure. Fixed. </li>
+        <li> ST STM32H7Axx series devices flash signal delay during flash programming. Fixed. </li>
+        <li> Microchip ATSAML10 and ATSAML11 series devices added internal data flash programming support. </li>
+        <li> NXP i.MXRT116x Cortex-M4 debug: Software breakpoints did not work correctly in case the LMem caches were enabled. Fixed. </li>
+        <li> NXP i.MXRT116x series: Connect sequence to the Cortex-M4 failed under certain circumstances. Fixed. </li>
+        <li> Windows: When selecting a J-Link before opening a connection to it (e.g. in the &quot;emulator selection&quot; dialog), the web control panel tray icon was already visible and redirected to an incorrect address. Fixed. </li>
+        <li> Microchip SAM9X60 series devices were handled as ARM920T based while they are ARM926EJ-S based. Fixed. </li>
+        <li> GigaDevice GD32F450xx series devices working RAM size, fixed. </li>
+        <li> Added debug support for Syntacore SCR3 (RV32) device/core. </li>
+        <li> Added debug and flash programming support for NXP MKE12Z series. </li>
+        <li> Some device aliases were missing for the NXP MKE13Z series. Fixed. </li>
+        <li> NXP i.MXRT116x series: Some devices passed by ARM KEIL MDK were not detected correctly. Fixed. </li>
+        <li> GigaDevice GD32F450xx series devices: Due to wrong RAM size in MCU database, flash programming could fail. Fixed. </li>
+        <li> NXP iMXRT11xx devices: The available QSPI memory range for FLEXSPI1 was falsly set to 64 MB instead of 256 MB. Fixed. </li>
+        <li> Added debug support for SiLabs BGM220P device series. </li>
+        <li> Added flash programming support for SiLabs BGM220P device series. </li>
+      </ol>
+      <h3>Flash programming</h3>
+      <ol>
+        <li> Cortex-A/R: During flash programming, CPSR.F was forcefully set to 0 which could lead to problems on devices with support for non-maskable FIQs (NMFI) like bthe Xilinx Zynq 7000 series devices. Fixed. </li>
+      </ol>
+      <h3>J-Flash</h3>
+      <ol>
+        <li> If a data file path in a J-Flash project file was a relative path, J-Flash would change the project settings to contain the absolute path and notify this as a project change to the user. Fixed. </li>
+        <li> GigaDevice GD32F450xx series devices: Due to wrong RAM size in MCU database, flash programming and reading of more than 128 KB of flash at once, could fail. Fixed. </li>
+      </ol>
+      <h3>J-Link EDU Mini V1</h3>
+      <ol>
+        <li> RISC-V: RTT stop mode did not work. Fixed. </li>
+      </ol>
+      <h3>J-Link EDU/BASE/PLUS V10</h3>
+      <ol>
+        <li> RISC-V: RTT stop mode did not work. Fixed. </li>
+      </ol>
+      <h3>J-Link EDU/BASE/PLUS V11</h3>
+      <ol>
+        <li> RISC-V: RTT stop mode did not work. Fixed. </li>
+      </ol>
+      <h3>J-Link PRO V4</h3>
+      <ol>
+        <li> RISC-V: RTT stop mode did not work. Fixed. </li>
+      </ol>
+      <h3>J-Link PRO V5</h3>
+      <ol>
+        <li> RISC-V: RTT stop mode did not work. Fixed. </li>
+      </ol>
+      <h3>J-Link ULTRA+ V4</h3>
+      <ol>
+        <li> RISC-V: RTT stop mode did not work. Fixed. </li>
+      </ol>
+      <h3>J-Link ULTRA+ V5</h3>
+      <ol>
+        <li> RISC-V: RTT stop mode did not work. Fixed. </li>
+      </ol>
+      <h3>J-Link WiFi V1</h3>
+      <ol>
+        <li> RISC-V: RTT stop mode did not work. Fixed. </li>
+      </ol>
+      <h3>J-Link-OB-K22-RISCV</h3>
+      <ol>
+        <li> RISC-V: RTT stop mode did not work. Fixed. </li>
+      </ol>
+      <h3>J-Link-OB-K22-SiFive</h3>
+      <ol>
+        <li> RISC-V: RTT stop mode did not work. Fixed. </li>
+      </ol>
+      <h3>J-Trace PRO Cortex-M V1</h3>
+      <ol>
+        <li> nCS was released by accident when executing init/exit steps in J-Flash SPI. Fixed. </li>
+      </ol>
+      <h3>Open Flash Loader</h3>
+      <ol>
+        <li> Cortex-A/R: During flash programming, CPSR.F was forcefully set to 0 which could lead to problems on devices with support for non-maskable FIQs (NMFI) like bthe Xilinx Zynq 7000 series devices. Fixed. </li>
+      </ol>
+      <h3>RTT Viewer</h3>
+      <ol>
+        <li> If there are &lt; 2 recent devices, the device selection combobox will not show a selection button anymore. </li>
+      </ol>
+      <h3>Registration</h3>
+      <ol>
+        <li> The window title did not contain the correct product name (missing spaces) and was missing the version number as well as the company name. Fixed. </li>
+        <li> Updated GUI. </li>
+        <li> Updated J-Link picture. </li>
+        <li> Added &quot;nickname&quot; column to J-Link table. </li>
+        <li> Added button to refresh list. </li>
+        <li> The window was not resizable. Fixed. </li>
+        <li> Depending on the desktop resolution, some text was cut off. Fixed. </li>
+        <li> Registering products did not work, log always reported &quot;Multiple selections detected&quot;. Fixed. </li>
+        <li> Updated J-Link picture so it also contains J-Trace and Flasher. </li>
+        <li> Updated references to &quot;J-Link&quot; or similar to say &quot;probes and programmers&quot; instead. </li>
+      </ol>
+      <h3>SDK</h3>
+      <ol>
+        <li> Windows: Added sample projects for handling multiple J-Link connections at once: MultiConnection_ChildProc, MultiConnection_ParentProc, MultiConnection_DLLCopies. </li>
+        <li> JLINKARM_EMU_SelectIPBySN() did not work reliably, causing the following JLINKARM_Open() call to return error. Fixed. </li>
+      </ol>
+      <h3>UM08002</h3>
+      <ol>
+        <li> Added chapter &quot;Handling multiple connections at once&quot;. </li>
+      </ol>
+    </div>
+  </div>
+</div>
+<div id="features" class="divider-global">
+  <div class="container">
     <h2>Version V7.50a (2021-07-08)</h2>
     <div>
       <h3>DLL</h3>
