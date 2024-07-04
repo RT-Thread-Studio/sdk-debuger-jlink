@@ -187,6 +187,1647 @@ div.divider-global:nth-of-type(even) {
   </div>
 <div id="features" class="divider-global">
   <div class="container">
+    <h2>Version V7.96q (2024-06-28)</h2>
+    <h3>Highlights:</h3>
+    <h4>Configurator</h4>
+    <ol>
+      <li>Added options to enable/disable the FTP, Web, and Telnet server.</li>
+    </ol>
+    <h3>Other changes:</h3>
+    <h4>Device Support</h4>
+    <ol>
+      <li>Renesas RA4M2, RA4M3, RA6M4, RA6M5, RA6E1, RA4E1: Added out of the box SWO support.</li>
+    </ol>
+  </div>
+</div>
+<div id="features" class="divider-global">
+  <div class="container">
+    <h2>Version V7.96p (2024-06-27)</h2>
+    <h4>Device Support</h4>
+    <ol>
+      <li>ST STM32U5 devices series: Programming of internal flash memory could fail. Fixed.</li>
+    </ol>
+    <h4>J-Flash SPI</h4>
+    <ol>
+      <li>Chip Erase could not be executed when using a manual configuration. Fixed.</li>
+    </ol>
+  </div>
+</div>
+<div id="features" class="divider-global">
+  <div class="container">
+    <h2>Version V7.96o (2024-06-26)</h2>
+    <h3>Highlights:</h3>
+    <h4>Device Support</h4>
+    <ol>
+      <li>GigaDevice GD32F5: Added debug and flash programming support (https://wiki.segger.com/GigaDevice_GD32F5).</li>
+      <li>GigaDevice GD32A490: Added debug and flash programming support (https://wiki.segger.com/GigaDevice_GD32A4).</li>
+      <li>XHCS HC32L19x: Added debug and flash programming support(https://wiki.segger.com/XHSC_HC32L19x).</li>
+      <li>NXP MCX C: Added debug and flash programming support (https://wiki.segger.com/NXP_MCX_C).</li>
+      <li>NXP MCX W: Added debug and flash programming support (https://wiki.segger.com/NXP_MCX_W).</li>
+    </ol>
+    <h3>Other changes:</h3>
+    <h4>Device Support</h4>
+    <ol>
+      <li>TI CC2340: Under certain circumstances (e.g. target power removed while programming), flash programming could hung in stand-alone mode operation. Fixed.</li>
+      <li>TI CC2340: Connect to a locked device could fail. Fixed.</li>
+      <li>Geehy G32A series: The device was detected as unkown device when connecting via JTAG. Fixed.</li>
+      <li>Renesas R9A02G021: Programming of config flash area did not work. Fixed.</li>
+      <li>Infineon Traveo T2G: Programming the flash memory could fail due to a timeout. Fixed.</li>
+      <li>CVA BlueWhale CVM012x: Added debug and flash programming support (https://wiki.segger.com/CVA_BlueWhale_CVM012x).</li>
+      <li>ST STM32H7Ax: Readout protection level was reset on every flash access by J-Flash. Fixed.</li>
+    </ol>
+    <h4>Firmware</h4>
+    <ol>
+      <li>ARMv8-A/R (e.g. Cortex-A53, Cortex-R52): Increased module version to 13: AArch64: Wrong value could be returned for SP, SP_EL0, SP_EL1, SP_EL2, SP_EL3 depending on active exception level (EL) and stack pointer selection (PSTATE.SP). Fixed.</li>
+      <li>J-Link EDU Mini V1: ARMv8-A/R: Rebuilt firmware with ARMv8-A/R module version 13.</li>
+      <li>J-Link EDU/BASE/PLUS V12: ARMv8-A/R: Rebuilt firmware with ARMv8-A/R module version 13.</li>
+      <li>J-Link ULTRA+ V5: ARMv8-A/R: Rebuilt firmware with ARMv8-A/R module version 13.</li>
+      <li>J-Link ULTRA+ V5-1: ARMv8-A/R: Rebuilt firmware with ARMv8-A/R module version 13.</li>
+      <li>J-Link ULTRA+ V6: ARMv8-A/R: Rebuilt firmware with ARMv8-A/R module version 13.</li>
+      <li>J-Link PRO V5: ARMv8-A/R: Rebuilt firmware with ARMv8-A/R module version 13.</li>
+      <li>J-Link PRO V5-1: ARMv8-A/R: Rebuilt firmware with ARMv8-A/R module version 13.</li>
+      <li>J-Link PRO V6: ARMv8-A/R: Rebuilt firmware with ARMv8-A/R module version 13.</li>
+      <li>J-Link PRO PoE V6: ARMv8-A/R: Rebuilt firmware with ARMv8-A/R module version 13.</li>
+      <li>J-Link WiFi V1: ARMv8-A/R: Rebuilt firmware with ARMv8-A/R module version 13.</li>
+      <li>J-Link WiFi V2: ARMv8-A/R: Rebuilt firmware with ARMv8-A/R module version 13.</li>
+      <li>J-Trace PRO V3 Cortex: ARMv8-A/R: Rebuilt firmware with ARMv8-A/R module version 13.</li>
+      <li>J-Trace PRO V3: ARMv8-A/R: Rebuilt firmware with ARMv8-A/R module version 13.</li>
+      <li>Flasher ARM V5: ARMv8-A/R: Rebuilt firmware with ARMv8-A/R module version 13.</li>
+      <li>Flasher ARM V5-1: ARMv8-A/R: Rebuilt firmware with ARMv8-A/R module version 13.</li>
+      <li>Flasher ARM V6: ARMv8-A/R: Rebuilt firmware with ARMv8-A/R module version 13.</li>
+      <li>Flasher PRO V5: ARMv8-A/R: Rebuilt firmware with ARMv8-A/R module version 13.</li>
+      <li>Flasher PRO V5-1: ARMv8-A/R: Rebuilt firmware with ARMv8-A/R module version 13.</li>
+      <li>Flasher PRO V6: ARMv8-A/R: Rebuilt firmware with ARMv8-A/R module version 13.</li>
+      <li>Flasher PRO XL V5: ARMv8-A/R: Rebuilt firmware with ARMv8-A/R module version 13.</li>
+      <li>Flasher PRO XL V5-1: ARMv8-A/R: Rebuilt firmware with ARMv8-A/R module version 13.</li>
+      <li>Flasher PRO XL V6: ARMv8-A/R: Rebuilt firmware with ARMv8-A/R module version 13.</li>
+      <li>Flasher Compact V5: ARMv8-A/R: Rebuilt firmware with ARMv8-A/R module version 13.</li>
+      <li>Flasher Portable PLUS V5: ARMv8-A/R: Rebuilt firmware with ARMv8-A/R module version 13.</li>
+      <li>J-Link-OB-RA4M2-Full: ARMv8-A/R: Rebuilt firmware with ARMv8-A/R module version 13.</li>
+      <li>J-Link-OB-K22-Cortex-A: ARMv8-A/R: Rebuilt firmware with ARMv8-A/R module version 13.</li>
+      <li>J-Link-OB-nRF5340-NordicSemi: Added WinUSB (driverless) mode support.</li>
+      <li>J-Link-OB-K22-NordicSemi: Added WinUSB (driverless) mode support.</li>
+      <li>J-Link-OB-SAM3U128-NordicSemi: Added WinUSB (driverless) mode support.</li>
+    </ol>
+    <h4>GDB Server</h4>
+    <ol>
+      <li>ARMv8.1-M (e.g. Cortex-M85): Added support for Pointer Authentication and Branch Target Identification Extension (PACBTI) registers.</li>
+    </ol>
+    <h4>U-Flash</h4>
+    <ol>
+      <li>In certain cases flash banks were not correctly parsed when opening a project. Fixed.</li>
+      <li>The serial number of the connected Flasher can now optionally be saved in the project file.</li>
+      <li>U-Flash sometimes showed its GUI although &quot;-exit&quot; was specified on the command line. Fixed.</li>
+      <li>SEGGER PinControl: PinControl did not start. Fixed.</li>
+      <li>Added EEPROM Writer for Mitsubishi.</li>
+      <li>Microchip PIC12LF1552: Added Device.</li>
+      <li>Renesas RX62T: Added family device support via UART interface.</li>
+      <li>Renesas RX66T. Added family device support.</li>
+      <li>Added support for Renesas V850 uPD70F345x.</li>
+    </ol>
+  </div>
+</div>
+<div id="features" class="divider-global">
+  <div class="container">
+    <h2>Version V7.96n (2024-06-20)</h2>
+    <h4>Commander</h4>
+    <ol>
+      <li>Added command &quot;BootMode&quot; (https://wiki.segger.com/J-Link_Commander#BootMode).</li>
+    </ol>
+    <h4>DLL</h4>
+    <ol>
+      <li>RISC-V: J-Link would attempt to read optional register DSCRATCH0 even if it is not available. Fixed.</li>
+      <li>RISC-V: Added support for DSCRATCH1 register.</li>
+    </ol>
+    <h4>Device Support</h4>
+    <ol>
+      <li>NXP NCJ29D5: Programming of TX configuration flash failed. Fixed.</li>
+      <li>Cmsemicon CMS32H6157: Added debug and flash programming support.</li>
+    </ol>
+    <h4>Firmware</h4>
+    <ol>
+      <li>Flasher ARM V5: Terminal: #SELECT: The identification of project type (CFG/UNI) was inaccurate. Project files were always identified as UNI if the name contained a period. Fixed.</li>
+      <li>Flasher ARM V5-1: Terminal: #SELECT: The identification of project type (CFG/UNI) was inaccurate. Project files were always identified as UNI if the name contained a period. Fixed.</li>
+      <li>Flasher ARM V6: Terminal: #SELECT: The identification of project type (CFG/UNI) was inaccurate. Project files were always identified as UNI if the name contained a period. Fixed.</li>
+      <li>Flasher PRO V5: Terminal: #SELECT: The identification of project type (CFG/UNI) was inaccurate. Project files were always identified as UNI if the name contained a period. Fixed.</li>
+      <li>Flasher PRO V5-1: Terminal: #SELECT: The identification of project type (CFG/UNI) was inaccurate. Project files were always identified as UNI if the name contained a period. Fixed.</li>
+      <li>Flasher PRO V6: Terminal: #SELECT: The identification of project type (CFG/UNI) was inaccurate. Project files were always identified as UNI if the name contained a period. Fixed.</li>
+      <li>Flasher PRO XL V5: Terminal: #SELECT: The identification of project type (CFG/UNI) was inaccurate. Project files were always identified as UNI if the name contained a period. Fixed.</li>
+      <li>Flasher PRO XL V5-1: Terminal: #SELECT: The identification of project type (CFG/UNI) was inaccurate. Project files were always identified as UNI if the name contained a period. Fixed.</li>
+      <li>Flasher PRO XL V6: Terminal: #SELECT: The identification of project type (CFG/UNI) was inaccurate. Project files were always identified as UNI if the name contained a period. Fixed.</li>
+      <li>Flasher Compact V5: Terminal: #SELECT: The identification of project type (CFG/UNI) was inaccurate. Project files were always identified as UNI if the name contained a period. Fixed.</li>
+      <li>Flasher Portable PLUS V5: Terminal: #SELECT: The identification of project type (CFG/UNI) was inaccurate. Project files were always identified as UNI if the name contained a period. Fixed.</li>
+      <li>Flasher ARM V5: Added stand-alone mode support for RAMLess based flash loaders (e.g. CC2340).</li>
+      <li>Flasher ARM V5-1: Added stand-alone mode support for RAMLess based flash loaders (e.g. CC2340).</li>
+      <li>Flasher ARM V6: Added stand-alone mode support for RAMLess based flash loaders (e.g. CC2340).</li>
+      <li>Flasher PRO V5: Added stand-alone mode support for RAMLess based flash loaders (e.g. CC2340).</li>
+      <li>Flasher PRO V5-1: Added stand-alone mode support for RAMLess based flash loaders (e.g. CC2340).</li>
+      <li>Flasher PRO V6: Added stand-alone mode support for RAMLess based flash loaders (e.g. CC2340).</li>
+      <li>Flasher PRO XL V5: Added stand-alone mode support for RAMLess based flash loaders (e.g. CC2340).</li>
+      <li>Flasher PRO XL V5-1: Added stand-alone mode support for RAMLess based flash loaders (e.g. CC2340).</li>
+      <li>Flasher PRO XL V6: Added stand-alone mode support for RAMLess based flash loaders (e.g. CC2340).</li>
+      <li>Flasher Compact V5: Added stand-alone mode support for RAMLess based flash loaders (e.g. CC2340).</li>
+      <li>Flasher Portable PLUS V5: Added stand-alone mode support for RAMLess based flash loaders (e.g. CC2340).</li>
+    </ol>
+    <h4>Flasher Package</h4>
+    <ol>
+      <li>Windows: Added Microsoft redistributable DLL files to shipment.</li>
+    </ol>
+    <h4>J-Flash</h4>
+    <ol>
+      <li>Parallel NOR flash: Numonyx M58WR series flash devices did not work correctly. Fixed.</li>
+      <li>Enabled the download of RAMLess based flash loaders to the Flasher.</li>
+    </ol>
+    <h4>J-Link Package</h4>
+    <ol>
+      <li>Windows: Added Microsoft redistributable DLL files to shipment.</li>
+    </ol>
+    <h4>U-Flash</h4>
+    <ol>
+      <li>When downloading a batch containing a J-Flash project, J-Flash did not automatically close. Fixed.</li>
+    </ol>
+  </div>
+</div>
+<div id="features" class="divider-global">
+  <div class="container">
+    <h2>Version V7.96m (2024-06-19)</h2>
+    <h3>Highlights:</h3>
+    <h4>Device Support</h4>
+    <ol>
+      <li>GigaDevice GD32L235: Added debug and flash programming support (https://wiki.segger.com/GigaDevice_GD32L235).</li>
+      <li>TI CC2340R2: Added debug and flash programming support (https://wiki.segger.com/TI_CC2340).</li>
+      <li>HPMicro HPM6330xCEx, HPM6364xDCx: Added debug and (QSPI) flash programming support (https://wiki.segger.com/HPMicro_HPM63).</li>
+      <li>HPMicro HPM6454, HPM64A0, HPM64G0: Added debug and (QSPI) flash programming support (https://wiki.segger.com/HPMicro_HPM64).</li>
+      <li>HPMicro HPM6E devices series: Added debug and (QSPI) flash programming support (https://wiki.segger.com/HPMicro_HPM6E).</li>
+    </ol>
+    <h4>Trace</h4>
+    <ol>
+      <li>Published out-of-the-box trace example for Renesas RA8D1: https://www.segger.com/products/debug-probes/j-trace/technology/tested-devices/</li>
+      <li>Published out-of-the-box trace example for Renesas RA4M3: https://www.segger.com/products/debug-probes/j-trace/technology/tested-devices/</li>
+      <li>Published out-of-the-box trace example for NXP LPC1766: https://www.segger.com/products/debug-probes/j-trace/technology/tested-devices/</li>
+    </ol>
+    <h3>Other changes:</h3>
+    <h4>Device Support</h4>
+    <ol>
+      <li>ST STM32H74x, STM32H75x devices series: Under certain circumstances standalone flash programming could fail. Fixed.</li>
+      <li>NXP iMX95 series: Incorrect AP map configuration for Cortex-M33 and Cortex-M7. Fixed.</li>
+      <li>Microchip PIC32CX1025SG: Debugging / flash programming did not work in case of reset extension phase was active. Fixed.</li>
+    </ol>
+    <h4>Firmware</h4>
+    <ol>
+      <li>J-Link-OB-RA4M2-Full: RISC-V: Added support for Cadence Xtensa based cores.</li>
+      <li>Flasher ARM V5: Stand-alone mode: Reset could erroneously fail on ARMv8-M based cores when using JTAG as target interface (e.g. Renesas RA8 series). Fixed.</li>
+      <li>Flasher ARM V5-1: Stand-alone mode: Reset could erroneously fail on ARMv8-M based cores when using JTAG as target interface (e.g. Renesas RA8 series). Fixed.</li>
+      <li>Flasher ARM V6: Stand-alone mode: Reset could erroneously fail on ARMv8-M based cores when using JTAG as target interface (e.g. Renesas RA8 series). Fixed.</li>
+      <li>Flasher PRO V5: Stand-alone mode: Reset could erroneously fail on ARMv8-M based cores when using JTAG as target interface (e.g. Renesas RA8 series). Fixed.</li>
+      <li>Flasher PRO V5-1: Stand-alone mode: Reset could erroneously fail on ARMv8-M based cores when using JTAG as target interface (e.g. Renesas RA8 series). Fixed.</li>
+      <li>Flasher PRO V6: Stand-alone mode: Reset could erroneously fail on ARMv8-M based cores when using JTAG as target interface (e.g. Renesas RA8 series). Fixed.</li>
+      <li>Flasher PRO XL V5: Stand-alone mode: Reset could erroneously fail on ARMv8-M based cores when using JTAG as target interface (e.g. Renesas RA8 series). Fixed.</li>
+      <li>Flasher PRO XL V5-1: Stand-alone mode: Reset could erroneously fail on ARMv8-M based cores when using JTAG as target interface (e.g. Renesas RA8 series). Fixed.</li>
+      <li>Flasher PRO XL V6: Stand-alone mode: Reset could erroneously fail on ARMv8-M based cores when using JTAG as target interface (e.g. Renesas RA8 series). Fixed.</li>
+      <li>Flasher Compact V5: Stand-alone mode: Reset could erroneously fail on ARMv8-M based cores when using JTAG as target interface (e.g. Renesas RA8 series). Fixed.</li>
+      <li>Flasher Portable PLUS V5: Stand-alone mode: Reset could erroneously fail on ARMv8-M based cores when using JTAG as target interface (e.g. Renesas RA8 series). Fixed.</li>
+      <li>Flasher Hub-12 V1: Stand-alone mode: Reset could erroneously fail on ARMv8-M based cores when using JTAG as target interface (e.g. Renesas RA8 series). Fixed.</li>
+      <li>Flasher Hub-4 V1: Stand-alone mode: Reset could erroneously fail on ARMv8-M based cores when using JTAG as target interface (e.g. Renesas RA8 series). Fixed.</li>
+      <li>Flasher ARM V5: Stand-alone mode: ARMv8-M: Reset could fail in case of an non secure application was running on the device. Fixed.</li>
+      <li>Flasher ARM V5-1: Stand-alone mode: ARMv8-M: Reset could fail in case of an non secure application was running on the device. Fixed.</li>
+      <li>Flasher ARM V6: Stand-alone mode: ARMv8-M: Reset could fail in case of an non secure application was running on the device. Fixed.</li>
+      <li>Flasher PRO V5: Stand-alone mode: ARMv8-M: Reset could fail in case of an non secure application was running on the device. Fixed.</li>
+      <li>Flasher PRO V5-1: Stand-alone mode: ARMv8-M: Reset could fail in case of an non secure application was running on the device. Fixed.</li>
+      <li>Flasher PRO V6: Stand-alone mode: ARMv8-M: Reset could fail in case of an non secure application was running on the device. Fixed.</li>
+      <li>Flasher PRO XL V5: Stand-alone mode: ARMv8-M: Reset could fail in case of an non secure application was running on the device. Fixed.</li>
+      <li>Flasher PRO XL V5-1: Stand-alone mode: ARMv8-M: Reset could fail in case of an non secure application was running on the device. Fixed.</li>
+      <li>Flasher PRO XL V6: Stand-alone mode: ARMv8-M: Reset could fail in case of an non secure application was running on the device. Fixed.</li>
+      <li>Flasher Compact V5: Stand-alone mode: ARMv8-M: Reset could fail in case of an non secure application was running on the device. Fixed.</li>
+      <li>Flasher Portable PLUS V5: Stand-alone mode: ARMv8-M: Reset could fail in case of an non secure application was running on the device. Fixed.</li>
+      <li>Flasher Hub-12 V1: Stand-alone mode: ARMv8-M: Reset could fail in case of an non secure application was running on the device. Fixed.</li>
+      <li>Flasher Hub-4 V1: Stand-alone mode: ARMv8-M: Reset could fail in case of an non secure application was running on the device. Fixed.</li>
+      <li>Flasher Hub-12 V1: Added terminal command #RMDIR: https://wiki.segger.com/Flasher_Hub_-_Remote_control#Command_.23RMDIR .</li>
+      <li>Flasher Hub-4 V1: Added terminal command #RMDIR: https://wiki.segger.com/Flasher_Hub_-_Remote_control#Command_.23RMDIR .</li>
+      <li>Flasher Hub-12 V1: Improved speed when removing files and folders from a module by removing the respective &quot;MODULE.*&quot; folder.</li>
+      <li>Flasher Hub-4 V1: Improved speed when removing files and folders from a module by removing the respective &quot;MODULE.*&quot; folder.</li>
+      <li>Flasher Hub-12 V1: Removing the &quot;All modules&quot; folder now removes all files and folders from all connected modules.</li>
+      <li>Flasher Hub-4 V1: Removing the &quot;All modules&quot; folder now removes all files and folders from all connected modules.</li>
+      <li>Flasher ARM V5: Flasher.ini file was generated with a trailing NULL character, causing Windows 11 Notepad to misinterpret it. Fixed.</li>
+      <li>Flasher ARM V5-1: Flasher.ini file was generated with a trailing NULL character, causing Windows 11 Notepad to misinterpret it. Fixed.</li>
+      <li>Flasher ARM V6: Flasher.ini file was generated with a trailing NULL character, causing Windows 11 Notepad to misinterpret it. Fixed.</li>
+      <li>Flasher PRO V5: Flasher.ini file was generated with a trailing NULL character, causing Windows 11 Notepad to misinterpret it. Fixed.</li>
+      <li>Flasher PRO V5-1: Flasher.ini file was generated with a trailing NULL character, causing Windows 11 Notepad to misinterpret it. Fixed.</li>
+      <li>Flasher PRO V6: Flasher.ini file was generated with a trailing NULL character, causing Windows 11 Notepad to misinterpret it. Fixed.</li>
+      <li>Flasher PRO XL V5: Flasher.ini file was generated with a trailing NULL character, causing Windows 11 Notepad to misinterpret it. Fixed.</li>
+      <li>Flasher PRO XL V5-1: Flasher.ini file was generated with a trailing NULL character, causing Windows 11 Notepad to misinterpret it. Fixed.</li>
+      <li>Flasher PRO XL V6: Flasher.ini file was generated with a trailing NULL character, causing Windows 11 Notepad to misinterpret it. Fixed.</li>
+      <li>Flasher Compact V5: Flasher.ini file was generated with a trailing NULL character, causing Windows 11 Notepad to misinterpret it. Fixed.</li>
+      <li>Flasher Portable PLUS V5: Flasher.ini file was generated with a trailing NULL character, causing Windows 11 Notepad to misinterpret it. Fixed.</li>
+      <li>Flasher Hub-12 V1: Wrong contents were displayed for the &apos;MODULE.024&apos; folder. Introduced in V7.96l. Fixed.</li>
+      <li>Flasher Hub-4 V1: Wrong contents were displayed for the &apos;MODULE.024&apos; folder. Introduced in V7.96l. Fixed.</li>
+    </ol>
+    <h4>U-Flash</h4>
+    <ol>
+      <li>Moved the memory map selection to the project settigns dialog.</li>
+      <li>Microchip PIC18FxxK22: Some config words and mask wrong. Fixed.</li>
+      <li>Microchip ATXMega: Complete rework of ATMega family support. Added new devices including JTAG support.</li>
+    </ol>
+  </div>
+</div>
+<div id="features" class="divider-global">
+  <div class="container">
+    <h2>Version V7.96l (2024-06-12)</h2>
+    <h3>Highlights:</h3>
+    <h4>Device Support</h4>
+    <ol>
+      <li>AmbiqMicro Apollo4 Lite AMAP42KL-KBR: Added debug &amp; flash programming support.</li>
+      <li>AmbiqMicro Apollo4 Blue Lite AMA4B2KL-KXR: Added debug &amp; flash programming support.</li>
+      <li>NXP iMX93 series: Added debug support for the Cortex-A55 and Cortex-M33 cores (https://wiki.segger.com/NXP_i.MX_93).</li>
+      <li>NXP iMX95 series: Added debug support for the Cortex-A55, Cortex-M33 and Cortex-M7 cores (https://wiki.segger.com/NXP_i.MX_95).</li>
+    </ol>
+    <h3>Other changes:</h3>
+    <h4>DLL</h4>
+    <ol>
+      <li>DLL could crash if an error occurred during the execution of JLINKARM_ExecCommand() (e.g., when a given script file was not found). Fixed.</li>
+    </ol>
+    <h4>Device Support</h4>
+    <ol>
+      <li>AlifSemi E3/E5/E7 device series: Changed J-Links WorkRAM to 0x20000000.</li>
+      <li>TI TMS570LS10106/206: Flash functions (Erase, Programming, Verify, Read, ...) failed. Fixed.</li>
+      <li>Renesas RZ/T2M: Increased max. CFI NOR flash size to 32MB.</li>
+      <li>NXP S32K310: Added debug and flash programming support (https://wiki.segger.com/NXP_S32K3xx).</li>
+      <li>GigaDevice GD32E235: Added debug and flash programming support(https://wiki.segger.com/GigaDevice_GD32E2).</li>
+    </ol>
+    <h4>Firmware</h4>
+    <ol>
+      <li>Flasher Hub-12 V1: FTP and Web clients (&apos;Files&apos; tab) now see Flasher Hub file system contents unfiltered.</li>
+      <li>Flasher Hub-4 V1: FTP and Web clients (&apos;Files&apos; tab) now see Flasher Hub file system contents unfiltered.</li>
+      <li>Flasher Hub-12 V1: FTP and Web clients (&apos;Files&apos; tab) can now work on the Flasher Hub file system without restrictions (e.g. upload files into root folder).</li>
+      <li>Flasher Hub-4 V1: FTP and Web clients (&apos;Files&apos; tab) can now work on the Flasher Hub file system without restrictions (e.g. upload files into root folder).</li>
+      <li>Flasher Hub-12 V1: WebIF: &quot;Files&quot; tab: The &quot;Logs&quot; folder could not be removed. Fixed.</li>
+      <li>Flasher Hub-4 V1: WebIF: &quot;Files&quot; tab: The &quot;Logs&quot; folder could not be removed. Fixed.</li>
+      <li>Flasher Hub-12 V1: WebIF: &quot;Files&quot; tab: For some paths (e.g. root folder), uploading files and folders was not enabled. Fixed.</li>
+      <li>Flasher Hub-4 V1: WebIF: &quot;Files&quot; tab: For some paths (e.g. root folder), uploading files and folders was not enabled. Fixed.</li>
+      <li>Flasher Hub-12 V1: Added terminal command #FLIST: https://wiki.segger.com/Flasher_Hub_-_Remote_control#Command_.23FLIST .</li>
+      <li>Flasher Hub-4 V1: Added terminal command #FLIST: https://wiki.segger.com/Flasher_Hub_-_Remote_control#Command_.23FLIST .</li>
+      <li>Flasher Hub-12 V1: Added terminal command #FOPEN: https://wiki.segger.com/Flasher_Hub_-_Remote_control#Command_.23FOPEN .</li>
+      <li>Flasher Hub-4 V1: Added terminal command #FOPEN: https://wiki.segger.com/Flasher_Hub_-_Remote_control#Command_.23FOPEN .</li>
+      <li>Flasher Hub-12 V1: Added terminal command #FCLOSE: https://wiki.segger.com/Flasher_Hub_-_Remote_control#Command_.23FCLOSE .</li>
+      <li>Flasher Hub-4 V1: Added terminal command #FCLOSE: https://wiki.segger.com/Flasher_Hub_-_Remote_control#Command_.23FCLOSE .</li>
+      <li>Flasher Hub-12 V1: Added terminal command #FWRITE: https://wiki.segger.com/Flasher_Hub_-_Remote_control#Command_.23FWRITE .</li>
+      <li>Flasher Hub-4 V1: Added terminal command #FWRITE: https://wiki.segger.com/Flasher_Hub_-_Remote_control#Command_.23FWRITE .</li>
+      <li>Flasher Hub-12 V1: Added terminal command #FREAD: https://wiki.segger.com/Flasher_Hub_-_Remote_control#Command_.23FREAD .</li>
+      <li>Flasher Hub-4 V1: Added terminal command #FREAD: https://wiki.segger.com/Flasher_Hub_-_Remote_control#Command_.23FREAD .</li>
+      <li>Flasher Hub-12 V1: Added terminal command #FSIZE: https://wiki.segger.com/Flasher_Hub_-_Remote_control#Command_.23FSIZE .</li>
+      <li>Flasher Hub-4 V1: Added terminal command #FSIZE: https://wiki.segger.com/Flasher_Hub_-_Remote_control#Command_.23FSIZE .</li>
+      <li>Flasher Hub-12 V1: Added terminal command #FDELETE: https://wiki.segger.com/Flasher_Hub_-_Remote_control#Command_.23FDELETE .</li>
+      <li>Flasher Hub-4 V1: Added terminal command #FDELETE: https://wiki.segger.com/Flasher_Hub_-_Remote_control#Command_.23FDELETE .</li>
+      <li>Flasher Hub-12 V1: Added terminal command #FCRC: https://wiki.segger.com/Flasher_Hub_-_Remote_control#Command_.23FCRC .</li>
+      <li>Flasher Hub-4 V1: Added terminal command #FCRC: https://wiki.segger.com/Flasher_Hub_-_Remote_control#Command_.23FCRC .</li>
+      <li>Flasher Hub-12 V1: Added terminal command #MKDIR: https://wiki.segger.com/Flasher_Hub_-_Remote_control#Command_.23MKDIR .</li>
+      <li>Flasher Hub-4 V1: Added terminal command #MKDIR: https://wiki.segger.com/Flasher_Hub_-_Remote_control#Command_.23MKDIR .</li>
+      <li>Flasher Hub-12 V1: Implemented terminal command #FFORMAT: https://wiki.segger.com/Flasher_Hub_-_Remote_control#Command_.23FFORMAT .</li>
+      <li>Flasher Hub-4 V1: Implemented terminal command #FFORMAT: https://wiki.segger.com/Flasher_Hub_-_Remote_control#Command_.23FFORMAT .</li>
+      <li>Flasher Hub-12 V1: Renamed feature from &quot;Module terminal server&quot; to &quot;Status port&quot;.</li>
+      <li>Flasher Hub-4 V1: Renamed feature from &quot;Module terminal server&quot; to &quot;Status port&quot;.</li>
+      <li>J-Link ULTRA+ V5: VCOM: Baudrate calculation for higher baudrates (&gt; 5 MBaud) did not work correctly and produced a big deviation (&gt; 2.5%). Fixed.</li>
+      <li>J-Link ULTRA+ V5-1: VCOM: Baudrate calculation for higher baudrates (&gt; 5 MBaud) did not work correctly and produced a big deviation (&gt; 2.5%). Fixed.</li>
+      <li>J-Link ULTRA+ V6: VCOM: Baudrate calculation for higher baudrates (&gt; 5 MBaud) did not work correctly and produced a big deviation (&gt; 2.5%). Fixed.</li>
+      <li>J-Link PRO V5: VCOM: Baudrate calculation for higher baudrates (&gt; 5 MBaud) did not work correctly and produced a big deviation (&gt; 2.5%). Fixed.</li>
+      <li>J-Link PRO V5-1: VCOM: Baudrate calculation for higher baudrates (&gt; 5 MBaud) did not work correctly and produced a big deviation (&gt; 2.5%). Fixed.</li>
+      <li>J-Link PRO V6: VCOM: Baudrate calculation for higher baudrates (&gt; 5 MBaud) did not work correctly and produced a big deviation (&gt; 2.5%). Fixed.</li>
+      <li>J-Link PRO PoE V6: VCOM: Baudrate calculation for higher baudrates (&gt; 5 MBaud) did not work correctly and produced a big deviation (&gt; 2.5%). Fixed.</li>
+      <li>Flasher Hub-12 V1: WebIF: &quot;Configuration &gt; Flasher Hub&quot;: Uploading a firmware update file did not work correctly if a path other than the root path was selected in the &quot;Files&quot; tab. Fixed.</li>
+      <li>Flasher Hub-4 V1: WebIF: &quot;Configuration &gt; Flasher Hub&quot;: Uploading a firmware update file did not work correctly if a path other than the root path was selected in the &quot;Files&quot; tab. Fixed.</li>
+      <li>Flasher Hub-12 V1: WebIF: &quot;Files&quot; tab: When the current folder was on a module that was busy (e.g. UART port enabled), no warning message was shown. Fixed.</li>
+      <li>Flasher Hub-4 V1: WebIF: &quot;Files&quot; tab: When the current folder was on a module that was busy (e.g. UART port enabled), no warning message was shown. Fixed.</li>
+      <li>Flasher ARM V5: Stand-alone mode: Other default SPI timeouts were used than in host-based mode. Fixed.</li>
+      <li>Flasher ARM V5-1: Stand-alone mode: Other default SPI timeouts were used than in host-based mode. Fixed.</li>
+      <li>Flasher ARM V6: Stand-alone mode: Other default SPI timeouts were used than in host-based mode. Fixed.</li>
+      <li>Flasher PRO V5: Stand-alone mode: Other default SPI timeouts were used than in host-based mode. Fixed.</li>
+      <li>Flasher PRO V5-1: Stand-alone mode: Other default SPI timeouts were used than in host-based mode. Fixed.</li>
+      <li>Flasher PRO V6: Stand-alone mode: Other default SPI timeouts were used than in host-based mode. Fixed.</li>
+      <li>Flasher PRO XL V5: Stand-alone mode: Other default SPI timeouts were used than in host-based mode. Fixed.</li>
+      <li>Flasher PRO XL V5-1: Stand-alone mode: Other default SPI timeouts were used than in host-based mode. Fixed.</li>
+      <li>Flasher PRO XL V6: Stand-alone mode: Other default SPI timeouts were used than in host-based mode. Fixed.</li>
+      <li>Flasher Compact V5: Stand-alone mode: Other default SPI timeouts were used than in host-based mode. Fixed.</li>
+      <li>Flasher Portable PLUS V5: Stand-alone mode: Other default SPI timeouts were used than in host-based mode. Fixed.</li>
+      <li>Flasher Hub-12 V1: Stand-alone mode: Other default SPI timeouts were used than in host-based mode. Fixed.</li>
+      <li>Flasher Hub-4 V1: Stand-alone mode: Other default SPI timeouts were used than in host-based mode. Fixed.</li>
+      <li>Flasher Hub-12 V1: Terminal: Running the #FCRC command on a file under &quot;All modules&quot; now calculates the CRC for the given file on each connected module.</li>
+      <li>Flasher Hub-4 V1: Terminal: Running the #FCRC command on a file under &quot;All modules&quot; now calculates the CRC for the given file on each connected module.</li>
+      <li>Flasher Hub-12 V1: WebIF: After submitting a form (e.g. saving the Flasher Hub configuration) and refreshing the page in the browser, the last form was resubmitted. Fixed.</li>
+      <li>Flasher Hub-4 V1: WebIF: After submitting a form (e.g. saving the Flasher Hub configuration) and refreshing the page in the browser, the last form was resubmitted. Fixed.</li>
+    </ol>
+    <h4>J-Flash</h4>
+    <ol>
+      <li>Added link to SEGGER Wiki to error message box that is shown when selected data does not fit into the selected sectors.</li>
+    </ol>
+    <h4>J-Flash SPI</h4>
+    <ol>
+      <li>Host-based mode: Fixed timeouts were always used, although overwrite timeouts were configured. Fixed.</li>
+    </ol>
+    <h4>U-Flash</h4>
+    <ol>
+      <li>Microchip ATMega: Added device support for ATMega64A. ISP and JTAG.</li>
+      <li>If only one Flasher is connected, it will automatically be selected in CLI mode, if necessary.</li>
+      <li>Added version info to log.</li>
+    </ol>
+  </div>
+</div>
+<div id="features" class="divider-global">
+  <div class="container">
+    <h2>Version V7.96k (2024-06-05)</h2>
+    <h3>Highlights:</h3>
+    <h4>Device Support</h4>
+    <ol>
+      <li>Nuvoton KM1M0DF: Added debug and flash programming support (https://wiki.segger.com/Nuvoton_KM1M0DF).</li>
+      <li>Infineon WLC: Added debug and flash programming support (https://wiki.segger.com/Infineon_WLC).</li>
+      <li>Nuvoton KM1M7CF: Added debug and flash programming support (https://wiki.segger.com/Nuvoton_KM1M7CF).</li>
+    </ol>
+    <h3>Other changes:</h3>
+    <h4>DLL</h4>
+    <ol>
+      <li>MacOS: In some cases, a J-Link could show a nickname even though no nickname is configured. Fixed.</li>
+      <li>&quot;SuppressGUI&quot; command string did not suppress device selection dialog. Fixed.</li>
+    </ol>
+    <h4>Device Support</h4>
+    <ol>
+      <li>Puya PY25Q16HB: QSPI flash loaders did not detect the flash. Fixed.</li>
+      <li>Puya P25Q32: QSPI flash loaders were using incorrect flash size (16 Mbit instead of 32 Mbit). Fixed.</li>
+    </ol>
+    <h4>Firmware</h4>
+    <ol>
+      <li>Flasher ARM V5: Stand-alone mode: J-Flash projects: Max. number of flash banks lifted from 5 to 256.</li>
+      <li>Flasher ARM V5-1: Stand-alone mode: J-Flash projects: Max. number of flash banks lifted from 5 to 256.</li>
+      <li>Flasher ARM V6: Stand-alone mode: J-Flash projects: Max. number of flash banks lifted from 5 to 256.</li>
+      <li>Flasher PRO V5: Stand-alone mode: J-Flash projects: Max. number of flash banks lifted from 5 to 256.</li>
+      <li>Flasher PRO V5-1: Stand-alone mode: J-Flash projects: Max. number of flash banks lifted from 5 to 256.</li>
+      <li>Flasher PRO V6: Stand-alone mode: J-Flash projects: Max. number of flash banks lifted from 5 to 256.</li>
+      <li>Flasher PRO XL V5: Stand-alone mode: J-Flash projects: Max. number of flash banks lifted from 5 to 256.</li>
+      <li>Flasher PRO XL V5-1: Stand-alone mode: J-Flash projects: Max. number of flash banks lifted from 5 to 256.</li>
+      <li>Flasher PRO XL V6: Stand-alone mode: J-Flash projects: Max. number of flash banks lifted from 5 to 256.</li>
+      <li>Flasher Compact V5: Stand-alone mode: J-Flash projects: Max. number of flash banks lifted from 5 to 256.</li>
+      <li>Flasher Portable PLUS V5: Stand-alone mode: J-Flash projects: Max. number of flash banks lifted from 5 to 256.</li>
+      <li>Flasher Hub-12 V1: Enabled terminal via USB BULK (e.g. FlasherControl utility).</li>
+      <li>Flasher Hub-4 V1: Enabled terminal via USB BULK (e.g. FlasherControl utility).</li>
+      <li>Flasher Portable PLUS V5: Some PCode reports were forwarded to a file instead of an ASCII terminal. Fixed.</li>
+    </ol>
+    <h4>U-Flash</h4>
+    <ol>
+      <li>Microchip PIC18LFxxxx devices added.</li>
+      <li>Some config words were wrong in PIC18Fxxxx family. Fixed.</li>
+      <li>In certain cases the loader was not correctly displayed in the &quot;device info&quot; tab. Fixed.</li>
+      <li>In certain cases selecting programming modules caused the application to crash. Fixed.</li>
+      <li>Infineon PSoC 1: Added programming support for CY8C21434 via ISSP.</li>
+    </ol>
+  </div>
+</div>
+<div id="features" class="divider-global">
+  <div class="container">
+    <h2>Version V7.96j (2024-05-29)</h2>
+    <h3>Highlights:</h3>
+    <h4>Device Support</h4>
+    <ol>
+      <li>ST STM32H7S3/S7/R3/R7: Added debug and flash (User &amp; XSPI2) programming support (https://wiki.segger.com/ST_STM32H7).</li>
+      <li>NXP QN9080D: Added flash programming support.</li>
+      <li>Microchip PolarFire SOC series: Added debug support for RISC-V E51 and U54 cores (https://wiki.segger.com/Microchip_PolarFire_SOC).</li>
+    </ol>
+    <h3>Other changes:</h3>
+    <h4>DLL</h4>
+    <ol>
+      <li>Using HSS with exactly 16 variables would cause a crash. Fixed.</li>
+      <li>RISC-V: Added support for RISC-V JTAG TAPs with != 5-bit IRLen.</li>
+      <li>Microchip PolarFire RISC-V TAP was not detected as a known CPU-TAP. Fixed.</li>
+    </ol>
+    <h4>Device Support</h4>
+    <ol>
+      <li>ST STM32H7: Programming the internal program flash with D-Cache enabled could (erroneously) lead to verification errors caused by improper cache handling. Fixed.</li>
+      <li>Infineon PSoC4: Attach was not possible because the acquisition sequence (+ reset) was executed always on connect. Changed to execute it only if necessary (standard connect not possible).</li>
+      <li>NXP S32K3xx: In multi-core setups with multiple sessions to different cores involved, flash programming could fail with &quot;Failed to preserve target RAM @ 0x20000000-0x20007FFF&quot; error. Fixed.</li>
+    </ol>
+    <h4>DnD Conditioner</h4>
+    <ol>
+      <li>Command-line description was incorrect. Fixed.</li>
+    </ol>
+    <h4>Firmware</h4>
+    <ol>
+      <li>Flasher Hub-12 V1: Implemented UART Port: https://wiki.segger.com/Flasher_Hub_-_UART_Port .</li>
+      <li>Flasher Hub-4 V1: Implemented UART Port: https://wiki.segger.com/Flasher_Hub_-_UART_Port .</li>
+      <li>Flasher Hub-12 V1: Added terminal command #RESTART: https://wiki.segger.com/Flasher_Hub_-_Remote_control#Command_.23RESTART .</li>
+      <li>Flasher Hub-4 V1: Added terminal command #RESTART: https://wiki.segger.com/Flasher_Hub_-_Remote_control#Command_.23RESTART .</li>
+      <li>Flasher Hub-12 V1: Terminal via RS-232: For the #BAUDRATE command, no error was returned for baud rates greater than 1 MBd. Fixed.</li>
+      <li>Flasher Hub-4 V1: Terminal via RS-232: For the #BAUDRATE command, no error was returned for baud rates greater than 1 MBd. Fixed.</li>
+      <li>Flasher ARM V5: Terminal via RS-232: For the #BAUDRATE command, no error was returned for baud rates greater than 1 MBd. Fixed.</li>
+      <li>Flasher ARM V5-1: Terminal via RS-232: For the #BAUDRATE command, no error was returned for baud rates greater than 1 MBd. Fixed.</li>
+      <li>Flasher ARM V6: Terminal via RS-232: For the #BAUDRATE command, no error was returned for baud rates greater than 1 MBd. Fixed.</li>
+      <li>Flasher PRO V5: Terminal via RS-232: For the #BAUDRATE command, no error was returned for baud rates greater than 1 MBd. Fixed.</li>
+      <li>Flasher PRO V5-1: Terminal via RS-232: For the #BAUDRATE command, no error was returned for baud rates greater than 1 MBd. Fixed.</li>
+      <li>Flasher PRO V6: Terminal via RS-232: For the #BAUDRATE command, no error was returned for baud rates greater than 1 MBd. Fixed.</li>
+      <li>Flasher PRO XL V5: Terminal via RS-232: For the #BAUDRATE command, no error was returned for baud rates greater than 1 MBd. Fixed.</li>
+      <li>Flasher PRO XL V5-1: Terminal via RS-232: For the #BAUDRATE command, no error was returned for baud rates greater than 1 MBd. Fixed.</li>
+      <li>Flasher PRO XL V6: Terminal via RS-232: For the #BAUDRATE command, no error was returned for baud rates greater than 1 MBd. Fixed.</li>
+      <li>RISC-V: Increased module version to 3: Added support for RISC-V JTAG TAPs with != 5-bit IRLen.</li>
+      <li>J-Link EDU Mini V1: RISC-V: Rebuilt firmware with RISC-V module version 3.</li>
+      <li>J-Link EDU/BASE/PLUS V12: RISC-V: Rebuilt firmware with RISC-V module version 3.</li>
+      <li>J-Link ULTRA+ V5: RISC-V: Rebuilt firmware with RISC-V module version 3.</li>
+      <li>J-Link ULTRA+ V5-1: RISC-V: Rebuilt firmware with RISC-V module version 3.</li>
+      <li>J-Link ULTRA+ V6: RISC-V: Rebuilt firmware with RISC-V module version 3.</li>
+      <li>J-Link PRO V5: RISC-V: Rebuilt firmware with RISC-V module version 3.</li>
+      <li>J-Link PRO V5-1: RISC-V: Rebuilt firmware with RISC-V module version 3.</li>
+      <li>J-Link PRO V6: RISC-V: Rebuilt firmware with RISC-V module version 3.</li>
+      <li>J-Link PRO PoE V6: RISC-V: Rebuilt firmware with RISC-V module version 3.</li>
+      <li>J-Link WiFi V1: RISC-V: Rebuilt firmware with RISC-V module version 3.</li>
+      <li>J-Link WiFi V2: RISC-V: Rebuilt firmware with RISC-V module version 3.</li>
+      <li>J-Trace PRO V3 Cortex: RISC-V: Rebuilt firmware with RISC-V module version 3.</li>
+      <li>J-Trace PRO V3: RISC-V: Rebuilt firmware with RISC-V module version 3.</li>
+      <li>Flasher ARM V5: RISC-V: Rebuilt firmware with RISC-V module version 3.</li>
+      <li>Flasher ARM V5-1: RISC-V: Rebuilt firmware with RISC-V module version 3.</li>
+      <li>Flasher ARM V6: RISC-V: Rebuilt firmware with RISC-V module version 3.</li>
+      <li>Flasher PRO V5: RISC-V: Rebuilt firmware with RISC-V module version 3.</li>
+      <li>Flasher PRO V5-1: RISC-V: Rebuilt firmware with RISC-V module version 3.</li>
+      <li>Flasher PRO V6: RISC-V: Rebuilt firmware with RISC-V module version 3.</li>
+      <li>Flasher PRO XL V5: RISC-V: Rebuilt firmware with RISC-V module version 3.</li>
+      <li>Flasher PRO XL V5-1: RISC-V: Rebuilt firmware with RISC-V module version 3.</li>
+      <li>Flasher PRO XL V6: RISC-V: Rebuilt firmware with RISC-V module version 3.</li>
+      <li>Flasher Compact V5: RISC-V: Rebuilt firmware with RISC-V module version 3.</li>
+      <li>Flasher Portable PLUS V5: RISC-V: Rebuilt firmware with RISC-V module version 3.</li>
+      <li>J-Link-OB-RA4M2-Renesas: RISC-V: Rebuilt firmware with RISC-V module version 3.</li>
+      <li>J-Link-OB-RA4M2-Full: RISC-V: Rebuilt firmware with RISC-V module version 3.</li>
+      <li>J-Link-OB-K22-RISCV: RISC-V: Rebuilt firmware with RISC-V module version 3.</li>
+      <li>MCU-Link-OB: UART transfers with high baud rates (&gt;= 115200) could lead to dropped bytes. Fixed.</li>
+      <li>MCU-Link: UART transfers with high baud rates (&gt;= 115200) could lead to dropped bytes. Fixed.</li>
+      <li>Flasher ARM V5: U-Flash: Under special circumstances, HWUART interface was not working properly (internal race condition). Fixed.</li>
+      <li>Flasher ARM V5-1: RISC-V: Under special circumstances, HWUART interface was not working properly (internal race condition). Fixed.</li>
+      <li>Flasher ARM V6: RISC-V: Under special circumstances, HWUART interface was not working properly (internal race condition). Fixed.</li>
+      <li>Flasher PRO V5: RISC-V: Under special circumstances, HWUART interface was not working properly (internal race condition). Fixed.</li>
+      <li>Flasher PRO V5-1: RISC-V: Under special circumstances, HWUART interface was not working properly (internal race condition). Fixed.</li>
+      <li>Flasher PRO V6: RISC-V: Under special circumstances, HWUART interface was not working properly (internal race condition). Fixed.</li>
+      <li>Flasher PRO XL V5: RISC-V: Under special circumstances, HWUART interface was not working properly (internal race condition). Fixed.</li>
+      <li>Flasher PRO XL V5-1: RISC-V: Under special circumstances, HWUART interface was not working properly (internal race condition). Fixed.</li>
+      <li>Flasher PRO XL V6: RISC-V: Under special circumstances, HWUART interface was not working properly (internal race condition). Fixed.</li>
+      <li>Flasher Compact V5: RISC-V: Under special circumstances, HWUART interface was not working properly (internal race condition). Fixed.</li>
+      <li>Flasher Portable PLUS V5: RISC-V: Under special circumstances, HWUART interface was not working properly (internal race condition). Fixed.</li>
+    </ol>
+    <h4>GDB Server</h4>
+    <ol>
+      <li>Cortex-M: Registers s0-s31 could be exposed twice. Fixed.</li>
+    </ol>
+    <h4>J-Flash</h4>
+    <ol>
+      <li>When uploading files from a Flasher to the host using the Flasher file dialog (File -&gt; &quot;Show files on Flasher...&quot;), the progress dialog text was incorrect. Fixed.</li>
+    </ol>
+    <h4>J-Flash SPI</h4>
+    <ol>
+      <li>GUI: When uploading files from a Flasher to the host using the Flasher file dialog (File -&gt; &quot;Show files on Flasher...&quot;), the progress dialog text was incorrect. Fixed.</li>
+    </ol>
+    <h4>J-Link Package</h4>
+    <ol>
+      <li>Linux: TGZ binary archive: J-Scope was missing. Fixed.</li>
+    </ol>
+    <h4>J-Run</h4>
+    <ol>
+      <li>The PC and SP were not set in some cases. Fixed.</li>
+    </ol>
+    <h4>J-Scope</h4>
+    <ol>
+      <li>When the sampling buffer was full while sampling with RTT, previous timestamps were overwritten. Fixed.</li>
+    </ol>
+    <h4>U-Flash</h4>
+    <ol>
+      <li>Added J-Flash devices to U-Flash.</li>
+      <li>TI MSP430: Added programming support for MSP430FR2533 via SBW.</li>
+    </ol>
+  </div>
+</div>
+<div id="features" class="divider-global">
+  <div class="container">
+    <h2>Version V7.96i (2024-05-22)</h2>
+    <h3>Highlights:</h3>
+    <h4>Device Support</h4>
+    <ol>
+      <li>NXP NCJ29D5: Added flash programming support for Rx, Tx and custom configuration(https://wiki.segger.com/NXP_NCJ29D5).</li>
+      <li>GigaDevice GD32A503/513x: Added flash programming support for Option Byte 1 (https://wiki.segger.com/GigaDevice_GD32A5).</li>
+      <li>GigaDevice GD32A503/513x: Added flash programming support for Data Flash (https://wiki.segger.com/GigaDevice_GD32A5).</li>
+    </ol>
+    <h4>Trace</h4>
+    <ol>
+      <li>Published out-of-the-box trace example for ST STM32H757: https://www.segger.com/products/debug-probes/j-trace/technology/tested-devices/</li>
+      <li>Published out-of-the-box trace example for Silicon Labs EFR32MG24: https://www.segger.com/products/debug-probes/j-trace/technology/tested-devices/</li>
+    </ol>
+    <h3>Other changes:</h3>
+    <h4>Device Support</h4>
+    <ol>
+      <li>Renesas RZ/T2L: Flash programming for XSPI1 did not work. Fixed.</li>
+      <li>Geehy G32A1465: Program flash size was incorrect (512 KB instead of 1024 KB). Fixed.</li>
+    </ol>
+    <h4>Firmware</h4>
+    <ol>
+      <li>Flasher Hub-12 V1: NULL packet handling when communicating with modules was not correct, which could lead to USB timeouts. Fixed.</li>
+      <li>Flasher Hub-4 V1: NULL packet handling when communicating with modules was not correct, which could lead to USB timeouts. Fixed.</li>
+      <li>Flasher Hub-4 V1: WebIF: Updated Flasher Hub picture.</li>
+      <li>Flasher Hub-12 V1: WebIF: Updated Flasher Compact picture.</li>
+      <li>Flasher Hub-4 V1: WebIF: Updated Flasher Compact picture.</li>
+    </ol>
+    <h4>J-Flash Lite</h4>
+    <ol>
+      <li>A white box was floating in the top left corner of the main window. Introduced in V7.96h. Fixed.</li>
+    </ol>
+    <h4>MISC</h4>
+    <ol>
+      <li>PCode_DevPro_ST_STM32U0.pex script file was missing in shipment package. Fixed.</li>
+    </ol>
+    <h4>U-Flash</h4>
+    <ol>
+      <li>Renesas M16C: Added some error messages during startup sequence.</li>
+      <li>Renesas RX63: In the password entry the rows and columns were mixed up. Fixed.</li>
+    </ol>
+  </div>
+</div>
+<div id="features" class="divider-global">
+  <div class="container">
+    <h2>Version V7.96h (2024-05-15)</h2>
+    <h3>Highlights:</h3>
+    <h4>Device Provisioner</h4>
+    <ol>
+      <li>ST STM32U031/073/083 series: Added support for option-bytes programming, password management and device locking/unlocking (https://wiki.segger.com/ST_STM32U0_Option_Bytes_Programming)</li>
+      <li>ST STM32H523/533 series: Added life-cycle management and provisioning support (https://wiki.segger.com/ST_STM32H5_Security_Product_Lifecycle).</li>
+    </ol>
+    <h4>Device Support</h4>
+    <ol>
+      <li>Microchip SAMA7D65: Added debug support.</li>
+      <li>Infineon PMG1-B1 CYPM1115/1116: Added debug and flash programming support (https://wiki.segger.com/Infineon_PMG1).</li>
+      <li>Macronix MX25V4035F: Added flash programming support.</li>
+      <li>ISSI IS25LP02G: Added flash programming support.</li>
+    </ol>
+    <h4>J-Flash SPI</h4>
+    <ol>
+      <li>Added support for SPI EEPROM with 3 address byte mode (e.g. M95M01).</li>
+      <li>Macronix MX25V4035F: Added flash programming support.</li>
+      <li>ISSI IS25LP02G: Added flash programming support.</li>
+    </ol>
+    <h3>Other changes:</h3>
+    <h4>Device Support</h4>
+    <ol>
+      <li>AlifSemi E1: Previous fix for OSPI flash loader not handling flash sizes &gt; 64 MB correctly was incomplete. Fixed.</li>
+      <li>Qorvo QPG5072: Programming failed because chip was not correct identified. Fixed.</li>
+      <li>Renesas RA2A2: Depending on the application running on the target, the data flash could not be programmed. Fixed.</li>
+      <li>TI MSPM0: Connect failed in case of the low power mode was active (e.g. 10 second after reset release in case of flash was empty). Fixed.</li>
+    </ol>
+    <h4>J-Flash SPI</h4>
+    <ol>
+      <li>When changing the flash type (e.g. SPI NOR flash --&gt; SPI EEPROM), the default settings were not loaded. Fixed.</li>
+    </ol>
+    <h4>U-Flash</h4>
+    <ol>
+      <li>The &quot;Send batch to Flasher&quot; button stayed disabled in certain cases. Fixed.</li>
+      <li>In certain cases it was not possible to save the project from the file menu. Introduced in V7.96g. Fixed.</li>
+      <li>Added &quot;Create support package&quot; to the &quot;Help&quot; menu.</li>
+    </ol>
+  </div>
+</div>
+<div id="features" class="divider-global">
+  <div class="container">
+    <h2>Version V7.96g (2024-05-08)</h2>
+    <h3>Highlights:</h3>
+    <h4>Device Support</h4>
+    <ol>
+      <li>Microchip SAMA7G54: Added device support for SAMA7G54D1G and SAMA7G54D2G.</li>
+      <li>NXP iMX8MNano series: Added debug support for the Cortex-A53 cores (https://wiki.segger.com/NXP_i.MX_8M_Nano).</li>
+      <li>Macronix MX25UW25645G: Added flash programming support for SPIFI flash loaders.</li>
+      <li>Macronix MX66UW1G45G: Added flash programming support for SPIFI flash loaders.</li>
+      <li>GigaDevice GD32A513: Added debug and flash programming support (https://wiki.segger.com/GigaDevice_GD32A5).</li>
+      <li>GigaDevice GD32W515 : Added debug and flash programming support (https://wiki.segger.com/GigaDevice_GD32W515).</li>
+      <li>ST STM32U031/073/083 series: Added debug and flash programming support (https://wiki.segger.com/ST_STM32U0).</li>
+    </ol>
+    <h4>Trace</h4>
+    <ol>
+      <li>Published out-of-the-box trace example for ST STM32H563 series: https://www.segger.com/products/debug-probes/j-trace/technology/tested-devices/</li>
+      <li>Published out-of-the-box trace example for Nuvoton KM1M4BF and KM1M7AF: https://www.segger.com/products/debug-probes/j-trace/technology/tested-devices/</li>
+    </ol>
+    <h3>Other changes:</h3>
+    <h4>DLL</h4>
+    <ol>
+      <li>ARMv8-M: Under special circumstances, the DLL erroneously assumed that the reset has confused the core. Fixed.</li>
+      <li>ARMv8-M: In case of reset is not allowed (switching from non-secure debug to secure debug is prohibited and reset in non-secure debug is disabled), reset returned an error (https://wiki.segger.com/J-Link_ARMv8-M#Non-secure_debug_access). Fixed.</li>
+    </ol>
+    <h4>Device Support</h4>
+    <ol>
+      <li>Renesas S7G2 device series: Blank checking of option-setting memory could return wrong result (Introduced with V7.92e). Fixed.</li>
+      <li>AlifSemi E1: OSPI flash loader did not handle flash sizes &gt; 64 MB. Fixed.</li>
+      <li>NXP S32K396: Added debug and flash programming support (https://wiki.segger.com/NXP_S32K3xx).</li>
+      <li>ST STM32H74xx, STM32H75xx device series: Added QSPI flash programming support for pin configuration &quot;CLK@PB2_nCS@PB6_D0@PD11_D1@PD12_D2@PE2_D3@PD13&quot;.</li>
+      <li>Added support for Fidelix FM25M4AA.</li>
+      <li>Artery AT32A403/F403/F407: Added RAM @ 0x20000000 (96 KB) to RTT auto-search ranges to make RTT working out-of-the-box if RTT control block is placed in this RAM section.</li>
+      <li>Artery AT32F413: Added RAM @ 0x20000000 (64 KB) to RTT auto-search ranges to make RTT working out-of-the-box if RTT control block is placed in this RAM section.</li>
+      <li>GigaDevice GD32H7: In case of DTCM RAM was disabled, flash programming failed. Fixed.</li>
+      <li>GigaDevice GD32F310/GD32F330/GD32F350: Added option byte flash programming support.</li>
+      <li>Microchip PIC32CX: Added debug and flash programming support for PIC32CX1025SG41064 (https://wiki.segger.com/Microchip_PIC32CX).</li>
+      <li>Renesas RA8x1: Under certain circumstances, reset failed in non-secure debug. Fixed.</li>
+      <li>ST SR5E1E5: Added debug and flash programming support (https://wiki.segger.com/J-Link_ST_SR5E1).</li>
+    </ol>
+    <h4>Firmware</h4>
+    <ol>
+      <li>Flasher Hub-12 V1: WebIF: Saving a Flasher Hub configuration while one or more modules were busy could lead to some modules being stuck with &quot;Configuration&quot; as their activity. Fixed.</li>
+      <li>Flasher Hub-4 V1: WebIF: Saving a Flasher Hub configuration while one or more modules were busy could lead to some modules being stuck with &quot;Configuration&quot; as their activity. Fixed.</li>
+      <li>Flasher ARM V5: Stand-alone mode: Programming / Verifying could fail if target device had multiple flash banks and more than 1 bank was programmed (e.g. Renesas RA6M4 and RA series in general). Fixed.</li>
+      <li>Flasher ARM V5-1: Stand-alone mode: Programming / Verifying could fail if target device had multiple flash banks and more than 1 bank was programmed (e.g. Renesas RA6M4 and RA series in general). Fixed.</li>
+      <li>Flasher ARM V6: Stand-alone mode: Programming / Verifying could fail if target device had multiple flash banks and more than 1 bank was programmed (e.g. Renesas RA6M4 and RA series in general). Fixed.</li>
+      <li>Flasher PRO V5: Stand-alone mode: Programming / Verifying could fail if target device had multiple flash banks and more than 1 bank was programmed (e.g. Renesas RA6M4 and RA series in general). Fixed.</li>
+      <li>Flasher PRO V5-1: Stand-alone mode: Programming / Verifying could fail if target device had multiple flash banks and more than 1 bank was programmed (e.g. Renesas RA6M4 and RA series in general). Fixed.</li>
+      <li>Flasher PRO V6: Stand-alone mode: Programming / Verifying could fail if target device had multiple flash banks and more than 1 bank was programmed (e.g. Renesas RA6M4 and RA series in general). Fixed.</li>
+      <li>Flasher PRO XL V5: Stand-alone mode: Programming / Verifying could fail if target device had multiple flash banks and more than 1 bank was programmed (e.g. Renesas RA6M4 and RA series in general). Fixed.</li>
+      <li>Flasher PRO XL V5-1: Stand-alone mode: Programming / Verifying could fail if target device had multiple flash banks and more than 1 bank was programmed (e.g. Renesas RA6M4 and RA series in general). Fixed.</li>
+      <li>Flasher PRO XL V6: Stand-alone mode: Programming / Verifying could fail if target device had multiple flash banks and more than 1 bank was programmed (e.g. Renesas RA6M4 and RA series in general). Fixed.</li>
+      <li>Flasher Compact V5: Stand-alone mode: Programming / Verifying could fail if target device had multiple flash banks and more than 1 bank was programmed (e.g. Renesas RA6M4 and RA series in general). Fixed.</li>
+      <li>Flasher Portable PLUS V5: Stand-alone mode: Programming / Verifying could fail if target device had multiple flash banks and more than 1 bank was programmed (e.g. Renesas RA6M4 and RA series in general). Fixed.</li>
+    </ol>
+    <h4>GDB Server</h4>
+    <ol>
+      <li>-noGUI command line option did not disable all J-Link DLL dialogs. Fixed.</li>
+      <li>ARMv8.1-M (e.g. Cortex-M85): Added support for M-profile Vector Extension (also known as Helium) registers vpr, p0, q0-q7.</li>
+    </ol>
+    <h4>J-Flash</h4>
+    <ol>
+      <li>Chip Erase did not work for STM32H7xxxI series dual bank devices. Fixed.</li>
+    </ol>
+    <h4>J-Flash SPI</h4>
+    <ol>
+      <li>PC-based mode: Programming pages with single SPI failed if no &quot;Init commands&quot; were specified. Introduced with V7.96c. Fixed.</li>
+    </ol>
+    <h4>J-Flash SPI CL</h4>
+    <ol>
+      <li>PC-based mode: Programming pages with single SPI failed if no &quot;Init commands&quot; were specified. Introduced with V7.96c. Fixed.</li>
+    </ol>
+    <h4>J-Run</h4>
+    <ol>
+      <li>J-Run was experiencing issues when Thumb-bit was set on Semihosting address. Fixed.</li>
+      <li>J-Run could have had unexpected behavior because it did not set the program counter. Fixed.</li>
+    </ol>
+    <h4>J-Scope</h4>
+    <ol>
+      <li>J-Scope erroneously tried to halt the target MCU when sampling was stopped. Fixed.</li>
+    </ol>
+    <h4>STM32 Utility</h4>
+    <ol>
+      <li>STM32L4: PCROP_RDP was not reset correctly. Fixed.</li>
+      <li>STM32L4: STM32L4+ devices: PCROPxER was not reset correctly. Fixed.</li>
+      <li>STM32U5 devices: Application would hang up on selection. Fixed.</li>
+    </ol>
+    <h4>U-Flash</h4>
+    <ol>
+      <li> dsPIC33EPxxxGM_GP_MCxxx. Project failed if UIDS in DAT file and verification is enabled. Fixed.</li>
+      <li>Silabs C8051: Rework of PCode. Many families and devices added.</li>
+      <li>Espressif ESP32: Programming support for new devices.</li>
+      <li>Adesto SPI-FLASH: Rework of PCode. Sector Erase speed increased.</li>
+      <li>Added &quot;default device selection&quot; to &quot;batch project&quot; tab.</li>
+      <li>&quot;Single project&quot; or &quot;Batch project&quot; tabs now gets disabled, if a project of the other type is open.</li>
+      <li>Renamed &quot;normal view&quot; to &quot;extended view&quot;.</li>
+      <li>Device selection: If a device was previously selected, it will be highlighted, when the dialog is reopened.</li>
+    </ol>
+  </div>
+</div>
+<div id="features" class="divider-global">
+  <div class="container">
+    <h2>Version V7.96f (2024-04-24)</h2>
+    <h3>Highlights:</h3>
+    <h4>Device Support</h4>
+    <ol>
+      <li>ST STM32U5Fxxx device series: Added debug &amp; flash programming support.</li>
+    </ol>
+    <h3>Other changes:</h3>
+    <h4>DLL</h4>
+    <ol>
+      <li>Setting the &quot;SuppressControlPanel&quot; command string did not work and the control panel was created nonetheless. Fixed.</li>
+      <li>Setting the &quot;SuppressGUI&quot; command string did not suppress the control panel. Fixed.</li>
+    </ol>
+    <h4>Device Support</h4>
+    <ol>
+      <li>Renesas S7G2 device series: Programming an application image with option-setting memory could lead to manipulated program flash memory. Fixed.</li>
+      <li>TDK Micronas HVC5xxx device series: Improved erase speed for main flash.</li>
+      <li>I2C_EEPROM: Alias names added for the all generic I2C devices.</li>
+      <li>ST STM32F7 devices series: Flash size for QSPI flashes was erroneously limited to 64 MB instead of 256 MB. Fixed.</li>
+      <li>STM32F2xx: The erase operation could fail due too short timeout. Introduced with V7.94a. Fixed.</li>
+      <li>Microchip PIC32MZ: Programming could fail due to wrong cache handling. Fixed.</li>
+    </ol>
+    <h4>Firmware</h4>
+    <ol>
+      <li>Flasher Hub-4 V1: WebIF: The Flasher Hub-12 image was displayed instead of that for Flasher Hub-4. Fixed.</li>
+      <li>Flasher Hub-12 V1: WebIF: Changed image that depicts a web session to show the Flasher product icon instead of Flasher Hub-12.</li>
+      <li>Flasher Hub-4 V1: WebIF: Changed image that depicts a web session to show the Flasher product icon instead of Flasher Hub-12.</li>
+      <li>ARMv8-A/R: Increased module version to 12 (CPU_CORTEX_AR_ARMV8.c): When making use of zoned memory accesses on the debug AP (e.g. for trace init), the debug session could be messed up (further go, halt, ... requests did no longer work). Fixed.</li>
+      <li>J-Link EDU Mini V1: Rebuilt firmware with ARMv8-A/R module version 12.</li>
+      <li>J-Link EDU/BASE/PLUS V12: Rebuilt firmware with ARMv8-A/R module version 12.</li>
+      <li>J-Link ULTRA+ V5: Rebuilt firmware with ARMv8-A/R module version 12.</li>
+      <li>J-Link ULTRA+ V5-1: Rebuilt firmware with ARMv8-A/R module version 12.</li>
+      <li>J-Link ULTRA+ V6: Rebuilt firmware with ARMv8-A/R module version 12.</li>
+      <li>J-Link PRO V5: Rebuilt firmware with ARMv8-A/R module version 12.</li>
+      <li>J-Link PRO V5-1: Rebuilt firmware with ARMv8-A/R module version 12.</li>
+      <li>J-Link PRO V6: Rebuilt firmware with ARMv8-A/R module version 12.</li>
+      <li>J-Link PRO PoE V6: Rebuilt firmware with ARMv8-A/R module version 12.</li>
+      <li>J-Link WiFi V1: Rebuilt firmware with ARMv8-A/R module version 12.</li>
+      <li>J-Link WiFi V2: Rebuilt firmware with ARMv8-A/R module version 12.</li>
+      <li>J-Trace PRO V3 Cortex: Rebuilt firmware with ARMv8-A/R module version 12.</li>
+      <li>J-Trace PRO V3: Rebuilt firmware with ARMv8-A/R module version 12.</li>
+      <li>Flasher ARM V5: Rebuilt firmware with ARMv8-A/R module version 12.</li>
+      <li>Flasher ARM V5-1: Rebuilt firmware with ARMv8-A/R module version 12.</li>
+      <li>Flasher ARM V6: Rebuilt firmware with ARMv8-A/R module version 12.</li>
+      <li>Flasher PRO V5: Rebuilt firmware with ARMv8-A/R module version 12.</li>
+      <li>Flasher PRO V5-1: Rebuilt firmware with ARMv8-A/R module version 12.</li>
+      <li>Flasher PRO V6: Rebuilt firmware with ARMv8-A/R module version 12.</li>
+      <li>Flasher PRO XL V5: Rebuilt firmware with ARMv8-A/R module version 12.</li>
+      <li>Flasher PRO XL V5-1: Rebuilt firmware with ARMv8-A/R module version 12.</li>
+      <li>Flasher PRO XL V6: Rebuilt firmware with ARMv8-A/R module version 12.</li>
+      <li>Flasher Compact V5: Rebuilt firmware with ARMv8-A/R module version 12.</li>
+      <li>Flasher Portable PLUS V5: Rebuilt firmware with ARMv8-A/R module version 12.</li>
+      <li>J-Link-OB-K22-CortexA: Rebuilt firmware with ARMv8-A/R module version 12.</li>
+      <li>J-Link-OB-RA4M2-Renesas: Rebuilt firmware with ARMv8-A/R module version 12.</li>
+      <li>J-Link-OB-RA4M2-Full: Rebuilt firmware with ARMv8-A/R module version 12.</li>
+      <li>J-Link-OB-S124: Rebuilt firmware with ARMv8-A/R module version 12.</li>
+      <li>Flasher Hub-4 V1: WebIF: Modules could be selected for firmware update when they were busy. Fixed.</li>
+      <li>Flasher Hub-12 V1: WebIF: Modules could be selected for firmware update when they were busy. Fixed.</li>
+      <li>Flasher Hub-12 V1: WebIF: Updating the firmware of modules connected behind external USB hubs did not work. Fixed.</li>
+      <li>Flasher Hub-4 V1: WebIF: Updating the firmware of modules connected behind external USB hubs did not work. Fixed.</li>
+    </ol>
+    <h4>J-Flash SPI</h4>
+    <ol>
+      <li>Programming in PC-based mode took more time (ca. 200ms) due to gaps between phases (e.g. between Erase and Program). Fixed.</li>
+      <li>Checking the data to be programmed if it fits into the target memroy was slow (especially for SPI flashes with many sectors), causing gaps between phases (e.g. before Program). Fixed.</li>
+      <li>Block protection was cleared even if it was cleared before already (e.g. by a prior Erase), wasting time. Fixed.</li>
+    </ol>
+    <h4>J-Flash SPI CL</h4>
+    <ol>
+      <li>Checking the data to be programmed if it fits into the target memroy was slow (especially for SPI flashes with many sectors), causing gaps between phases (e.g. before Program). Fixed.</li>
+      <li>Block protection was cleared even if it was cleared before already (e.g. by a prior Erase), wasting time. Fixed.</li>
+    </ol>
+    <h4>J-Scope</h4>
+    <ol>
+      <li>J-Scope: Added functionality to Highlight a symbol by selecting it in the symbol table.</li>
+    </ol>
+    <h4>U-Flash</h4>
+    <ol>
+      <li>The selected memory map was not correctly set, when opening a project. Fixed.</li>
+      <li>Added a &quot;save project&quot; button to the batch project view.</li>
+      <li>&quot;Add new project&quot; button sometimes did not work correctly. Fixed.</li>
+      <li>Opening a project did not clear the batch composer. Fixed.</li>
+      <li>Opening a batch project now switches to the batch project tab.</li>
+      <li>Opening a single project now switches to the single project tab.</li>
+    </ol>
+  </div>
+</div>
+<div id="features" class="divider-global">
+  <div class="container">
+    <h2>Version V7.96e (2024-04-17)</h2>
+    <h3>Highlights:</h3>
+    <h4>Device Support</h4>
+    <ol>
+      <li>SiliconLabs EFM32PG28: Added debug and flash programming support.</li>
+      <li>ST STM32H523/533 series: Added debug and flash programming support (https://wiki.segger.com/ST_STM32H5).</li>
+    </ol>
+    <h3>Other changes:</h3>
+    <h4>DLL</h4>
+    <ol>
+      <li>Xilinx Zynq UltraScale+: Added debug support for Cortex-A53 cores (https://wiki.segger.com/Xilinx_Zynq_UltraScalePlus).</li>
+      <li>Web control panel: Commander tab: Improved visuals.</li>
+    </ol>
+    <h4>Device Support</h4>
+    <ol>
+      <li>ST STM32H74xx/STM32H75xx: Added support for pin configuration &quot;CLK@PF10_nCS@PB10_D0@PF8_D1@PF9_D2@PF7_D3@PF6&quot;.</li>
+      <li>NXP JN5189 series: By erasing a single flash sector, the following sector was also erased. Fixed.</li>
+      <li>NXP QN9090 series: By erasing a single flash sector, the following sector was also erased. Fixed.</li>
+      <li>NXP K32W061/41 series: Internal flash: By erasing a single flash sector, the following sector was also erased. Fixed.</li>
+      <li>NXP S32K3xx: Improved device specific handling to initialize the ECC RAM init only on first connect.</li>
+      <li>NXP S32K3xx: Improved device specific handling to support connecting to devices where the main core is disabled.</li>
+      <li>NXP S32K3xx: Improved device specific handling to initialize the ECC RAM not only when connecting to the main core but also to the other cores.</li>
+      <li>Renesas RA8x1: Data flash size was incorrect (1920 KB instead of 2016 KB). Fixed.</li>
+      <li>ST STM32F7 device series: Added support for pin configuration &quot;CLK@PB2_nCS@PB6_D0@PC9_D1@PD12_D2@PE2_D3@PA1&quot;.</li>
+      <li>Renesas RA8x1: Under special circumstances (DLM == OEM_PL2 or DLM == OEM_PL1), flash programming could fail. Fixed.</li>
+      <li>Renesas DA1470x: Flash reading/verification did not work correctly with flash devices with size more than 128 Mbit(32-bit adressing mode). Fixed.</li>
+      <li>Renesas RZ/V2H: Some peripherals did not work properly due to an improper initialization on connect. Fixed.</li>
+      <li>MindMotion MM32SPIN028: Flash programming failed due to an incorrect target RAM size. Fixed.</li>
+      <li>Renesas RA device series: ALeRASE ID code authentication failed in Flasher standalone mode. Fixed.</li>
+      <li>AmbiqMicro Apollo 1 devices series: Under certain circumstances, flash operation (erase, program) would fail. Fixed.</li>
+    </ol>
+    <h4>Firmware</h4>
+    <ol>
+      <li>Flasher Hub-12 V1: WebIF: &quot;Programming&quot; tab: Current programming status was displayed in all uppercase. Fixed.</li>
+      <li>Flasher Hub-4 V1: WebIF: &quot;Programming&quot; tab: Current programming status was displayed in all uppercase. Fixed.</li>
+      <li>Flasher Hub-12 V1: WebIF: Updated GUI of navigation bar.</li>
+      <li>Flasher Hub-4 V1: WebIF: Updated GUI of navigation bar.</li>
+      <li>J-Link OB-K22-CortexA: If drag &amp; drop enabled: The J-Link stuck in a reset loop when connected to a computer with macOS Sonoma 14.4. Fixed.</li>
+      <li>J-Link OB-K22-CortexM: If drag &amp; drop enabled: The J-Link stuck in a reset loop when connected to a computer with macOS Sonoma 14.4. Fixed.</li>
+      <li>J-Link OB-K22-RISCV: If drag &amp; drop enabled: The J-Link stuck in a reset loop when connected to a computer with macOS Sonoma 14.4. Fixed.</li>
+      <li>J-Link OB-K22-Full: If drag &amp; drop enabled: The J-Link stuck in a reset loop when connected to a computer with macOS Sonoma 14.4. Fixed.</li>
+      <li>J-Link OB-K22-Qorvo: If drag &amp; drop enabled: The J-Link stuck in a reset loop when connected to a computer with macOS Sonoma 14.4. Fixed.</li>
+      <li>J-Link-OB-K22-NordicSemi: If drag &amp; drop enabled: The J-Link stuck in a reset loop when connected to a computer with macOS Sonoma 14.4. Fixed.</li>
+      <li>J-Link OB RA4M2-Renesas: If drag &amp; drop enabled: The J-Link stuck in a reset loop when connected to a computer with macOS Sonoma 14.4. Fixed.</li>
+      <li>J-Link OB RA4M2-CortexM: If drag &amp; drop enabled: The J-Link stuck in a reset loop when connected to a computer with macOS Sonoma 14.4. Fixed.</li>
+      <li>J-Link OB RA4M2-RISCV: If drag &amp; drop enabled: The J-Link stuck in a reset loop when connected to a computer with macOS Sonoma 14.4. Fixed.</li>
+      <li>J-Link OB RA4M2-Full: If drag &amp; drop enabled: The J-Link stuck in a reset loop when connected to a computer with macOS Sonoma 14.4. Fixed.</li>
+      <li>J-Link-OB-SAM3U128-V1: If drag &amp; drop enabled: The J-Link stuck in a reset loop when connected to a computer with macOS Sonoma 14.4. Fixed.</li>
+      <li>J-Link-OB-SAM3U128-V3: If drag &amp; drop enabled: The J-Link stuck in a reset loop when connected to a computer with macOS Sonoma 14.4. Fixed.</li>
+      <li>J-Link-OB-SAM3U128-V2-NordicSemi: If drag &amp; drop enabled: The J-Link stuck in a reset loop when connected to a computer with macOS Sonoma 14.4. Fixed.</li>
+      <li>J-Link-OB-STM32F072-Qorvo: If drag &amp; drop enabled: The J-Link stuck in a reset loop when connected to a computer with macOS Sonoma 14.4. Fixed.</li>
+      <li>J-Link-OB-nRF5340-NordicSemi: If drag &amp; drop enabled: The J-Link stuck in a reset loop when connected to a computer with macOS Sonoma 14.4. Fixed.</li>
+      <li>Flasher Hub-12 V1: Lifted number of max. supported modules from 12 to 24.</li>
+      <li>Flasher Hub-4 V1: Lifted number of max. supported modules from 12 to 24.</li>
+      <li>Flasher Hub-12 V1: WebIF &quot;Files&quot; tab: Deleting all files and folders on all modules could take some time, depending on the number of connected modules and files stored on them. Fixed.</li>
+      <li>Flasher Hub-4 V1: WebIF &quot;Files&quot; tab: Deleting all files and folders on all modules could take some time, depending on the number of connected modules and files stored on them. Fixed.</li>
+      <li>Flasher Hub-12 V1: WebIF &quot;Programming&quot; tab: Starting programming on multiple modules could take same time and lead to the web server temporarily being unreachable. Fixed.</li>
+      <li>Flasher Hub-12 V1: WebIF &quot;Programming&quot; tab: Starting programming on multiple modules would start programming with a noticable delay from one module to another. Fixed.</li>
+      <li>Flasher Hub-4 V1: WebIF &quot;Programming&quot; tab: Starting programming on multiple modules could take same time and lead to the web server temporarily being unreachable. Fixed.</li>
+      <li>Flasher Hub-4 V1: WebIF &quot;Programming&quot; tab: Starting programming on multiple modules would start programming with a noticable delay from one module to another. Fixed.</li>
+      <li>J-Link OB RA4M2-Renesas: VCOM functionality: Increased the maximum supported baudrate from 1 MBaud to 3 MBaud.</li>
+      <li>J-Link OB RA4M2-CortexM: VCOM functionality: Increased the maximum supported baudrate from 1 MBaud to 3 MBaud.</li>
+      <li>J-Link OB RA4M2-RISCV: VCOM functionality: Increased the maximum supported baudrate from 1 MBaud to 3 MBaud.</li>
+      <li>J-Link OB RA4M2-Full: VCOM functionality: Increased the maximum supported baudrate from 1 MBaud to 3 MBaud.</li>
+      <li>Flasher ARM V5: &quot;Reboot&quot; command in J-Link Commander was not supported. Fixed.</li>
+      <li>Flasher ARM V5-1: &quot;Reboot&quot; command in J-Link Commander was not supported. Fixed.</li>
+      <li>Flasher ARM V6: &quot;Reboot&quot; command in J-Link Commander was not supported. Fixed.</li>
+      <li>Flasher PRO V5: &quot;Reboot&quot; command in J-Link Commander was not supported. Fixed.</li>
+      <li>Flasher PRO V5-1: &quot;Reboot&quot; command in J-Link Commander was not supported. Fixed.</li>
+      <li>Flasher PRO V6: &quot;Reboot&quot; command in J-Link Commander was not supported. Fixed.</li>
+      <li>Flasher PRO XL V5: &quot;Reboot&quot; command in J-Link Commander was not supported. Fixed.</li>
+      <li>Flasher PRO XL V5-1: &quot;Reboot&quot; command in J-Link Commander was not supported. Fixed.</li>
+      <li>Flasher PRO XL V6: &quot;Reboot&quot; command in J-Link Commander was not supported. Fixed.</li>
+      <li>Flasher Compact V5: &quot;Reboot&quot; command in J-Link Commander was not supported. Fixed.</li>
+      <li>Flasher Portable PLUS V5: &quot;Reboot&quot; command in J-Link Commander was not supported. Fixed.</li>
+      <li>Flasher Hub-12 V1: &quot;Reboot&quot; command in J-Link Commander was not supported. Fixed.</li>
+      <li>Flasher Hub-4 V1: &quot;Reboot&quot; command in J-Link Commander was not supported. Fixed.</li>
+    </ol>
+    <h4>U-Flash</h4>
+    <ol>
+      <li>PIC24FJxxxGUyyy. Read implemented. Writing FBOOT faild on 128 and 512k devices.  Fixed.</li>
+      <li>The console window sometimes showed &quot;S:READY&quot;. Fixed.</li>
+      <li>The TIF selector will now only be displayed in the project settings, if multiple TIFs are available.</li>
+      <li>Device selection dialog: Changed the order of the search widgets.</li>
+      <li>A save prompt will now appear, if the window is closed without saving the project.</li>
+      <li>Reworked batch composer.</li>
+      <li>Saving an SBL project did not work correctly. Fixed.</li>
+    </ol>
+  </div>
+</div>
+<div id="features" class="divider-global">
+  <div class="container">
+    <h2>Version V7.96d (2024-04-10)</h2>
+    <h3>Highlights:</h3>
+    <h4>Configurator</h4>
+    <ol>
+      <li>Configuration dialog: Added VCOM information table.</li>
+    </ol>
+    <h4>Device Support</h4>
+    <ol>
+      <li>Infineon PSoC 4-BLE: Added debug and flash programming support for the CYBLE-224116-01 device.</li>
+      <li>Texas Instruments MSPM0Lx22x: Added debug and flash programming support (https://wiki.segger.com/TI_MSPM0L).</li>
+      <li>Toshiba TMPM4k (group2): Added debug &amp; flash programming support for the most recent devices from this series.</li>
+      <li>NXP iMX8XLite series: Added debug support for the Cortex-A35 cores (https://wiki.segger.com/NXP_i.MX_8XLite).</li>
+      <li>NXP iMX8MPlus series: Added debug support for the Cortex-A53 cores (https://wiki.segger.com/NXP_i.MX_8M_Plus).</li>
+      <li>Micronas HVC5422D: Added debug &amp; flash programming support.</li>
+    </ol>
+    <h3>Other changes:</h3>
+    <h4>DLL</h4>
+    <ol>
+      <li>Updated image for Flasher Hub-12 in probe selection dialog.</li>
+      <li>JLinkDevices.xml: J-Link DLL erroneously only accepted XML files with non-capitalized file extension (JLinkDevices.xml) instead of accepting both capitalized and non-capitalized file extensions (JLinkDevices.xml + JLinkDevices.XML). Fixed.</li>
+    </ol>
+    <h4>Device Support</h4>
+    <ol>
+      <li>AlifSemi E3/E5/E7 device series: Added OSPI programming support for IS25WX512.</li>
+      <li>Renesas RZ/N2L: Programming of CFI NOR flash did not work. Fixed.</li>
+      <li>GigaDevice GD32F130: RAM size was incorrect. Under certain circumstances, this could result in errors during flash programming. Fixed.</li>
+      <li>ST STM32U5: Flash programming could fail in Flasher standalone mode. Fixed.</li>
+    </ol>
+    <h4>Firmware</h4>
+    <ol>
+      <li>Flasher Hub-12 V1: WebIF &quot;Programming&quot; tab: Starting programming could cause Flasher Hub-12 to become unresponsive when module terminal server was not enabled. Introduced with V7.94k. Fixed.</li>
+      <li>Flasher Hub-12 V1: Added support for connecting modules behind USB hubs when in flex mode.</li>
+    </ol>
+    <h4>U-Flash</h4>
+    <ol>
+      <li>There were sometimes empty lines in the console. Fixed.</li>
+      <li>Reworked the device selection dialog.</li>
+      <li>The target interface can now be changed in the project settings.</li>
+      <li>When saving a .dat file, the user will now be notified, if his provided data file contains data outside of the defined flash banks.</li>
+      <li>Added a command history in the console.</li>
+      <li>There were sometimes empty lines in the console. Fixed.</li>
+      <li>Added &quot;read to file&quot; action.</li>
+      <li>Added &quot;select all&quot;, &quot;select none&quot; and &quot;invert&quot; buttons to the flash bank selection dialog.</li>
+      <li>Renesas RX62N: Rework of PCode. Faster Communication Speed. Selectable quarz frequency. Easier password handling. Selectable UART Pins. Endianness support.</li>
+      <li>Renesas RX63: Endianness password handling incorrect. Fixed.</li>
+      <li>Microchip PIC12F157x: Config Word 2 Mask incomplete. Fixed.</li>
+      <li>I2C EEPROM FRAM. Added ERASE Emulation, Multi Device Support, Gang Support, Selectable HEX file offset. Faster programming.</li>
+    </ol>
+  </div>
+</div>
+<div id="features" class="divider-global">
+  <div class="container">
+    <h2>Version V7.96c (2024-04-02)</h2>
+    <h3>Highlights:</h3>
+    <h4>DLL</h4>
+    <ol>
+      <li>Added native trace buffer support for Xilinx UltraScale+ Cortex-R5 core.</li>
+    </ol>
+    <h4>Device Support</h4>
+    <ol>
+      <li>ST STM32WBA55 series: Added debug &amp; flash programming support (https://wiki.segger.com/ST_STM32WBA).</li>
+      <li>Fidelix FM25M64C: Added flash programming support for SPIFI flash loaders.</li>
+    </ol>
+    <h4>J-Flash SPI</h4>
+    <ol>
+      <li>Fidelix FM25M64C: Added flash programming support.</li>
+    </ol>
+    <h3>Other changes:</h3>
+    <h4>Device Support</h4>
+    <ol>
+      <li>ST STM32U5 series devices: Flash programming failed when programming data not aligned to 128 bytes. Fixed.</li>
+      <li>Nuvoton KM1M7: Updated list of supported part numbers / device names.</li>
+      <li>Nuvoton KM1M4: Updated list of supported part numbers / device names.</li>
+      <li>Added flash programming support for Infineon CYBLE-222014-01.</li>
+      <li>NXP RT1064: Added debug &amp; flash programming support for silicon revision B (MIMXRT1064xxx5B / MIMXRT1064xxx6B).</li>
+      <li>NXP LPC5460 devices series: Devices with 512 KB internal flash did not handle ECRP accordingly to their device names (&quot;LPC54616J512 (allow ECRP)&quot; did not allow ECRP while &quot;LPC54616J512&quot; did). Introduced with V7.70d. Fixed.</li>
+      <li>Renesas M16C/62, M16C/62L: Added family support via clock synchronized serial I/O mode.</li>
+    </ol>
+    <h4>Firmware</h4>
+    <ol>
+      <li>J-Link EDU Mini V1: ARMv8-A/R: Firmware module version 11: JTAG: Debugging of core did not work properly if more than 1 device was in the JTAG chain. Fixed.</li>
+      <li>J-Link EDU/BASE/PLUS V12: ARMv8-A/R: Firmware module version 11: JTAG: Debugging of core did not work properly if more than 1 device was in the JTAG chain. Fixed.</li>
+      <li>J-Link ULTRA+ V5: ARMv8-A/R: Firmware module version 11: JTAG: Debugging of core did not work properly if more than 1 device was in the JTAG chain. Fixed.</li>
+      <li>J-Link ULTRA+ V5-1: ARMv8-A/R: Firmware module version 11: JTAG: Debugging of core did not work properly if more than 1 device was in the JTAG chain. Fixed.</li>
+      <li>J-Link ULTRA+ V6: ARMv8-A/R: Firmware module version 11: JTAG: Debugging of core did not work properly if more than 1 device was in the JTAG chain. Fixed.</li>
+      <li>J-Link PRO V5: ARMv8-A/R: Firmware module version 11: JTAG: Debugging of core did not work properly if more than 1 device was in the JTAG chain. Fixed.</li>
+      <li>J-Link PRO V5-1: ARMv8-A/R: Firmware module version 11: JTAG: Debugging of core did not work properly if more than 1 device was in the JTAG chain. Fixed.</li>
+      <li>J-Link PRO V6: ARMv8-A/R: Firmware module version 11: JTAG: Debugging of core did not work properly if more than 1 device was in the JTAG chain. Fixed.</li>
+      <li>J-Link PRO PoE V6: ARMv8-A/R: Firmware module version 11: JTAG: Debugging of core did not work properly if more than 1 device was in the JTAG chain. Fixed.</li>
+      <li>J-Link WiFi V1: ARMv8-A/R: Firmware module version 11: JTAG: Debugging of core did not work properly if more than 1 device was in the JTAG chain. Fixed.</li>
+      <li>J-Link WiFi V2: ARMv8-A/R: Firmware module version 11: JTAG: Debugging of core did not work properly if more than 1 device was in the JTAG chain. Fixed.</li>
+      <li>J-Trace PRO V3 Cortex: ARMv8-A/R: Firmware module version 11: JTAG: Debugging of core did not work properly if more than 1 device was in the JTAG chain. Fixed.</li>
+      <li>J-Trace PRO V3: ARMv8-A/R: Firmware module version 11: JTAG: Debugging of core did not work properly if more than 1 device was in the JTAG chain. Fixed.</li>
+      <li>Flasher ARM V5: ARMv8-A/R: Firmware module version 11: JTAG: Debugging of core did not work properly if more than 1 device was in the JTAG chain. Fixed.</li>
+      <li>Flasher ARM V5-1: ARMv8-A/R: Firmware module version 11: JTAG: Debugging of core did not work properly if more than 1 device was in the JTAG chain. Fixed.</li>
+      <li>Flasher ARM V6: ARMv8-A/R: Firmware module version 11: JTAG: Debugging of core did not work properly if more than 1 device was in the JTAG chain. Fixed.</li>
+      <li>Flasher PRO V5: ARMv8-A/R: Firmware module version 11: JTAG: Debugging of core did not work properly if more than 1 device was in the JTAG chain. Fixed.</li>
+      <li>Flasher PRO V5-1: ARMv8-A/R: Firmware module version 11: JTAG: Debugging of core did not work properly if more than 1 device was in the JTAG chain. Fixed.</li>
+      <li>Flasher PRO V6: ARMv8-A/R: Firmware module version 11: JTAG: Debugging of core did not work properly if more than 1 device was in the JTAG chain. Fixed.</li>
+      <li>Flasher PRO XL V5: ARMv8-A/R: Firmware module version 11: JTAG: Debugging of core did not work properly if more than 1 device was in the JTAG chain. Fixed.</li>
+      <li>Flasher PRO XL V5-1: ARMv8-A/R: Firmware module version 11: JTAG: Debugging of core did not work properly if more than 1 device was in the JTAG chain. Fixed.</li>
+      <li>Flasher PRO XL V6: ARMv8-A/R: Firmware module version 11: JTAG: Debugging of core did not work properly if more than 1 device was in the JTAG chain. Fixed.</li>
+      <li>Flasher Compact V5: ARMv8-A/R: Firmware module version 11: JTAG: Debugging of core did not work properly if more than 1 device was in the JTAG chain. Fixed.</li>
+      <li>Flasher Portable PLUS V5: ARMv8-A/R: Firmware module version 11: JTAG: Debugging of core did not work properly if more than 1 device was in the JTAG chain. Fixed.</li>
+      <li>J-Link-OB-RA4M2-Renesas: ARMv8-A/R: Firmware module version 11: JTAG: Debugging of core did not work properly if more than 1 device was in the JTAG chain. Fixed.</li>
+      <li>J-Link-OB-RA4M2-Full: ARMv8-A/R: Firmware module version 11: JTAG: Debugging of core did not work properly if more than 1 device was in the JTAG chain. Fixed.</li>
+      <li>J-Link-OB-S124: ARMv8-A/R: Firmware module version 11: JTAG: Debugging of core did not work properly if more than 1 device was in the JTAG chain. Fixed.</li>
+      <li>J-Link-OB-K22-CortexA: ARMv8-A/R: Firmware module version 11: JTAG: Debugging of core did not work properly if more than 1 device was in the JTAG chain. Fixed.</li>
+      <li>J-Link-OB-XMC4200 / iMOTION-Link: Cortex-M: Added support for CoreSight SoC-600 debug setups.</li>
+      <li>Flasher Hub-12 V1: WebIF: Updated image of Flasher Hub-12.</li>
+      <li>Flasher ARM V5: Following a successful operation, the #RESULT command returned an empty string. Introduced in V7.96b. Fixed.</li>
+      <li>Flasher ARM V5-1: Following a successful operation, the #RESULT command returned an empty string. Introduced in V7.96b. Fixed.</li>
+      <li>Flasher ARM V6: Following a successful operation, the #RESULT command returned an empty string. Introduced in V7.96b. Fixed.</li>
+      <li>Flasher PRO V5: Following a successful operation, the #RESULT command returned an empty string. Introduced in V7.96b. Fixed.</li>
+      <li>Flasher PRO V5-1: Following a successful operation, the #RESULT command returned an empty string. Introduced in V7.96b. Fixed.</li>
+      <li>Flasher PRO V6: Following a successful operation, the #RESULT command returned an empty string. Introduced in V7.96b. Fixed.</li>
+      <li>Flasher PRO XL V5: Following a successful operation, the #RESULT command returned an empty string. Introduced in V7.96b. Fixed.</li>
+      <li>Flasher PRO XL V5-1: Following a successful operation, the #RESULT command returned an empty string. Introduced in V7.96b. Fixed.</li>
+      <li>Flasher PRO XL V6: Following a successful operation, the #RESULT command returned an empty string. Introduced in V7.96b. Fixed.</li>
+      <li>Flasher Compact V5: Following a successful operation, the #RESULT command returned an empty string. Introduced in V7.96b. Fixed.</li>
+      <li>Flasher Portable PLUS V5: Following a successful operation, the #RESULT command returned an empty string. Introduced in V7.96b. Fixed.</li>
+      <li>Flasher Hub-12 V1: Introduced flex mode, allowing the user to freely choose module positions (https://wiki.segger.com/Flasher_Hub-12_-_Module_Configuration#Flex_mode).</li>
+      <li>Flasher Hub-12 V1: When the module terminal server was enabled, a terminal command (e.g. #AUTO) could make Flasher Hub-12 unresponsive until power-cycled. Fixed.</li>
+      <li>Flasher Hub-12 V1: WebIF: Configuration &gt; Flasher Hub: The module terminal server base port input field was visible when the web server connection broke down. Fixed.</li>
+      <li>Flasher Hub-12 V1: WebIF: Configuration &gt; Flasher Hub: The module terminal server base port input field was editable before the input fields were unlocked. Fixed.</li>
+    </ol>
+    <h4>J-Flash SPI</h4>
+    <ol>
+      <li>Added option for program and erase init commands, making it possible use factory mode programming for some Macronix SPI flashes.</li>
+    </ol>
+    <h4>U-Flash</h4>
+    <ol>
+      <li>Renesas RL78: G22/23 programming did not work. Fixed.</li>
+      <li>Some group boxes in the project settings dialog were not disabled correctly. Fixed.</li>
+      <li>Starting programming from the GUI caused the application to crash. Introduced in V7.96b. Fixed.</li>
+      <li>Selecting modules for gang programmers did not work correctly. Introduced in V7.96b. Fixed.</li>
+      <li>SPI-FLASH: Rework of PCodes. Increased programming speed of SST Flashes.</li>
+      <li>SPI-EEPROM: PCode Reworked.</li>
+      <li>Renesas RX63: Rework of PCode. Faster Communication Speed. Selectable quarz frequency. Easier password handling. Selectable UART Pins.</li>
+      <li>Microchip PIC16F180XX: Added family device support.</li>
+    </ol>
+  </div>
+</div>
+<div id="features" class="divider-global">
+  <div class="container">
+    <h2>Version V7.96b (2024-03-20)</h2>
+    <h3>Highlights:</h3>
+    <h4>Device Support</h4>
+    <ol>
+      <li>ArteryTek AT32F40x: Added flash programming support for user data (https://wiki.segger.com/Artery_AT32F40x).</li>
+      <li>ArteryTek AT32A40x: Added flash programming support for user data (https://wiki.segger.com/Artery_AT32A40x).</li>
+      <li>ArteryTek AT32A41x: Added flash programming support for user data (https://wiki.segger.com/Artery_AT32A41x).</li>
+      <li>ArteryTek AT32WB41x: Added flash programming support for user data (https://wiki.segger.com/Artery_AT32WB41x).</li>
+      <li>Nuvoton KM1M7: Added debug and flash programming support (https://wiki.segger.com/Nuvoton_KM1M7).</li>
+      <li>Nuvoton KM1M4: Added debug and flash programming support (https://wiki.segger.com/Nuvoton_KM1M4).</li>
+      <li>Renesas R9A02G021: Added debug and flash programming support (https://wiki.segger.com/Renesas_ASSP_EASY).</li>
+      <li>Infineon PSoC4000T: Added debug and flash programming support (https://wiki.segger.com/PSoC_4xxx_series).</li>
+      <li>ArteryTek AT32A42x: Added flash programming support for user data (https://wiki.segger.com/Artery_AT32AT42x).</li>
+    </ol>
+    <h3>Other changes:</h3>
+    <h4>Commander</h4>
+    <ol>
+      <li>Improved error output in case of connect failed.</li>
+    </ol>
+    <h4>DLL</h4>
+    <ol>
+      <li>Trace: Trace file has now shared read flag so it can be read while it is being filled.</li>
+      <li>TI TMS570 series: Minimum flash programming size was incorrectly set to 16 bytes instead of 8 bytes. Fixed.</li>
+      <li>Renesas RX72N, RX72T, RX66N and RX72M cores: DLL would not provide suggested target interfaces. Fixed.</li>
+    </ol>
+    <h4>Device Support</h4>
+    <ol>
+      <li>ArteryTek AT32F43x: Flash bank 2 of the internal flash could not be erased. Fixed.</li>
+      <li>ArteryTek AT32F40x: Add device specific connect and native unlock functionality.</li>
+      <li>ArteryTek AT32A40x: Add device specific connect and native unlock functionality.</li>
+      <li>ArteryTek AT32A41x: Add device specific connect and native unlock functionality.</li>
+      <li>ArteryTek AT32WB41x: Add device specific connect and native unlock functionality.</li>
+      <li>ST STM32H5: Added out of the box SWO support.</li>
+      <li>ArteryTek AT32A42x: Add device specific connect and native unlock functionality.</li>
+      <li>Cmsemicon BAT32G1xx: Flash breakpoints did not work when using the DMA. Fixed.</li>
+    </ol>
+    <h4>Firmware</h4>
+    <ol>
+      <li>Flasher Hub-12 V1: FTP: Listing the contents of the &apos;All modules&apos; directory (e.g. via MLSD command) failed with error &quot;451 Requested action aborted. Local error in processing&quot;. Fixed.</li>
+      <li>Flasher Hub-12 V1: FTP: Uploading into the &apos;All modules&apos; directory could fail when module #12 was connected. Fixed.</li>
+      <li>Flasher Hub-12 V1: After disabling multiple Flashers, the list of disabled Flashers could be cut off after a reboot. Fixed.</li>
+      <li>Flasher Hub-12 V1: When connecting an unsupported USB BULK device, the connector&apos;s green LED lit up and stayed on, even after disconnect. Fixed.</li>
+      <li>Flasher ARM V5: Stand-alone mode: Batch jobs: Under special circumstances, if an individual batch job failed, no error was reported but OK instead. Fixed.</li>
+      <li>Flasher ARM V5-1: Stand-alone mode: Batch jobs: Under special circumstances, if an individual batch job failed, no error was reported but OK instead. Fixed.</li>
+      <li>Flasher ARM V6: Stand-alone mode: Batch jobs: Under special circumstances, if an individual batch job failed, no error was reported but OK instead. Fixed.</li>
+      <li>Flasher PRO V5: Stand-alone mode: Batch jobs: Under special circumstances, if an individual batch job failed, no error was reported but OK instead. Fixed.</li>
+      <li>Flasher PRO V5-1: Stand-alone mode: Batch jobs: Under special circumstances, if an individual batch job failed, no error was reported but OK instead. Fixed.</li>
+      <li>Flasher PRO V6: Stand-alone mode: Batch jobs: Under special circumstances, if an individual batch job failed, no error was reported but OK instead. Fixed.</li>
+      <li>Flasher PRO XL V5: Stand-alone mode: Batch jobs: Under special circumstances, if an individual batch job failed, no error was reported but OK instead. Fixed.</li>
+      <li>Flasher PRO XL V5-1: Stand-alone mode: Batch jobs: Under special circumstances, if an individual batch job failed, no error was reported but OK instead. Fixed.</li>
+      <li>Flasher PRO XL V6: Stand-alone mode: Batch jobs: Under special circumstances, if an individual batch job failed, no error was reported but OK instead. Fixed.</li>
+      <li>Flasher Compact V5: Stand-alone mode: Batch jobs: Under special circumstances, if an individual batch job failed, no error was reported but OK instead. Fixed.</li>
+      <li>Flasher Portable PLUS V5: Stand-alone mode: Batch jobs: Under special circumstances, if an individual batch job failed, no error was reported but OK instead. Fixed.</li>
+      <li>Flasher ARM V5: Stand-alone mode: Cortex-M: Generic reset via AIRCR.SYSRESETREQ did not wait properly for core to halt after reset release but expected core to be halted immediately. Caused problems for example with SiLabs xxx. Fixed.</li>
+      <li>Flasher ARM V5-1: Stand-alone mode: Cortex-M: Generic reset via AIRCR.SYSRESETREQ did not wait properly for core to halt after reset release but expected core to be halted immediately. Caused problems for example with SiLabs xxx. Fixed.</li>
+      <li>Flasher ARM V6: Stand-alone mode: Cortex-M: Generic reset via AIRCR.SYSRESETREQ did not wait properly for core to halt after reset release but expected core to be halted immediately. Caused problems for example with SiLabs xxx. Fixed.</li>
+      <li>Flasher PRO V5: Stand-alone mode: Cortex-M: Generic reset via AIRCR.SYSRESETREQ did not wait properly for core to halt after reset release but expected core to be halted immediately. Caused problems for example with SiLabs xxx. Fixed.</li>
+      <li>Flasher PRO V5-1: Stand-alone mode: Cortex-M: Generic reset via AIRCR.SYSRESETREQ did not wait properly for core to halt after reset release but expected core to be halted immediately. Caused problems for example with SiLabs xxx. Fixed.</li>
+      <li>Flasher PRO V6: Stand-alone mode: Cortex-M: Generic reset via AIRCR.SYSRESETREQ did not wait properly for core to halt after reset release but expected core to be halted immediately. Caused problems for example with SiLabs xxx. Fixed.</li>
+      <li>Flasher PRO XL V5: Stand-alone mode: Cortex-M: Generic reset via AIRCR.SYSRESETREQ did not wait properly for core to halt after reset release but expected core to be halted immediately. Caused problems for example with SiLabs xxx. Fixed.</li>
+      <li>Flasher PRO XL V5-1: Stand-alone mode: Cortex-M: Generic reset via AIRCR.SYSRESETREQ did not wait properly for core to halt after reset release but expected core to be halted immediately. Caused problems for example with SiLabs xxx. Fixed.</li>
+      <li>Flasher PRO XL V6: Stand-alone mode: Cortex-M: Generic reset via AIRCR.SYSRESETREQ did not wait properly for core to halt after reset release but expected core to be halted immediately. Caused problems for example with SiLabs xxx. Fixed.</li>
+      <li>Flasher Compact V5: Stand-alone mode: Cortex-M: Generic reset via AIRCR.SYSRESETREQ did not wait properly for core to halt after reset release but expected core to be halted immediately. Caused problems for example with SiLabs xxx. Fixed.</li>
+      <li>Flasher Portable PLUS V5: Stand-alone mode: Cortex-M: Generic reset via AIRCR.SYSRESETREQ did not wait properly for core to halt after reset release but expected core to be halted immediately. Caused problems for example with SiLabs xxx. Fixed.</li>
+    </ol>
+    <h4>J-Flash</h4>
+    <ol>
+      <li>Renesas RX72N, RX72T, RX66N and RX72M cores: When selecting devices with one of these cores, J-Flash would crash. Fixed.</li>
+    </ol>
+    <h4>J-Scope</h4>
+    <ol>
+      <li>J-Scope crashed when the application was closed while sampling. Fixed.</li>
+    </ol>
+    <h4>U-Flash</h4>
+    <ol>
+      <li>-savecfg command line option did not work correctly. Fixed.</li>
+      <li>It was not possible to redirect CLI output to a file. Fixed.</li>
+      <li>Renesas RX (RX63N_HW.PEX): Sector erase could not be selected as a task for the erase method. Fixed.</li>
+    </ol>
+  </div>
+</div>
+<div id="features" class="divider-global">
+  <div class="container">
+    <h2>Version V7.96a (2024-03-14)</h2>
+    <h3>Highlights:</h3>
+    <h4>Device Support</h4>
+    <ol>
+      <li>NXP MCXA18: Added debug and flash programming support (https://wiki.segger.com/NXP_MCXA18).</li>
+      <li>Artery Tek AT32F402/AT32F405: Added flash programming support for user data (https://wiki.segger.com/Artery_AT32F40x).</li>
+      <li>Artery Tek AT32F423: Added flash programming support for user data (https://wiki.segger.com/Artery_AT32F42x).</li>
+      <li>Artery Tek AT32F43x: Added flash programming support for user data (https://wiki.segger.com/Artery_AT32F43x).</li>
+    </ol>
+    <h3>Other changes:</h3>
+    <h4>Device Provisioner</h4>
+    <ol>
+      <li>Passing only the script file name to open a script file from Script/ subdirectory under the DevPro executable did not work as expected. Fixed.</li>
+      <li>Added log output for script file that has been actually opened, so user can see if fallback (looking under Script/) was performed.</li>
+    </ol>
+    <h4>Device Support</h4>
+    <ol>
+      <li>ST STM32H5: Erasing more than 512 KB of internal flash did not work on devices with 1 MB flash size. Introduced in V7.94a. Fixed.</li>
+      <li>Renesas RZ/V2H: Added warm reset strategy for both Cortex-R8 cores (https://wiki.segger.com/Renesas_RZ/V2H).</li>
+      <li>Artery Tek AT32F43x: Add device specific connect and native unlock functionality.</li>
+    </ol>
+    <h4>Firmware</h4>
+    <ol>
+      <li>J-Link EDU/BASE/PLUS V12: Reset pin was not released on disconnect. Fixed.</li>
+      <li>J-Link EDU/BASE/PLUS V11: ARMv8-A/R: Firmware module version 10: CTIGATE and GTIOUTEN1 of &quot;local&quot; CTI (the one connected to the core that is debugged) was not preserved on Halt/Go. Fixed.</li>
+      <li>J-Link EDU/BASE/PLUS V11: RISC-V: Firmware module version 2: DAP-setups only: Debugging 2 or more cores in parallel behind the same DAP but different APs could lead to RISC-V not being accessible anymore via J-Link, after   performing any operation on any other core. Fixed.</li>
+      <li>J-Link EDU/BASE/PLUS V11: Introduced timeout for HW_Init() call in generic part of FW. If HW_Init() does not return within 5s, probe is reset and stays in BTL.</li>
+      <li>J-Link EDU/BASE/PLUS V11: Reset pin was not released on disconnect. Fixed.</li>
+      <li>J-Link EDU Mini V1: ARM7/9: EMU option EMU_OPTION_INVALIDATE_CPU_STATE (used as part of reset / toggle reset pin) could hang / crash FW. Fixed.</li>
+      <li>J-Link EDU/BASE/PLUS V12: ARM7/9: EMU option EMU_OPTION_INVALIDATE_CPU_STATE (used as part of reset / toggle reset pin) could hang / crash FW. Fixed.</li>
+      <li>J-Link ULTRA+ V5: ARM7/9: EMU option EMU_OPTION_INVALIDATE_CPU_STATE (used as part of reset / toggle reset pin) could hang / crash FW. Fixed.</li>
+      <li>J-Link ULTRA+ V5-1: ARM7/9: EMU option EMU_OPTION_INVALIDATE_CPU_STATE (used as part of reset / toggle reset pin) could hang / crash FW. Fixed.</li>
+      <li>J-Link ULTRA+ V6: ARM7/9: EMU option EMU_OPTION_INVALIDATE_CPU_STATE (used as part of reset / toggle reset pin) could hang / crash FW. Fixed.</li>
+      <li>J-Link PRO V5: ARM7/9: EMU option EMU_OPTION_INVALIDATE_CPU_STATE (used as part of reset / toggle reset pin) could hang / crash FW. Fixed.</li>
+      <li>J-Link PRO V5-1: ARM7/9: EMU option EMU_OPTION_INVALIDATE_CPU_STATE (used as part of reset / toggle reset pin) could hang / crash FW. Fixed.</li>
+      <li>J-Link PRO V6: ARM7/9: EMU option EMU_OPTION_INVALIDATE_CPU_STATE (used as part of reset / toggle reset pin) could hang / crash FW. Fixed.</li>
+      <li>J-Link PRO PoE V6: ARM7/9: EMU option EMU_OPTION_INVALIDATE_CPU_STATE (used as part of reset / toggle reset pin) could hang / crash FW. Fixed.</li>
+      <li>J-Link WiFi V1: ARM7/9: EMU option EMU_OPTION_INVALIDATE_CPU_STATE (used as part of reset / toggle reset pin) could hang / crash FW. Fixed.</li>
+      <li>J-Link WiFi V2: ARM7/9: EMU option EMU_OPTION_INVALIDATE_CPU_STATE (used as part of reset / toggle reset pin) could hang / crash FW. Fixed.</li>
+      <li>J-Trace PRO V3: ARM7/9: EMU option EMU_OPTION_INVALIDATE_CPU_STATE (used as part of reset / toggle reset pin) could hang / crash FW. Fixed.</li>
+      <li>J-Trace PRO V3 Cortex: ARM7/9: EMU option EMU_OPTION_INVALIDATE_CPU_STATE (used as part of reset / toggle reset pin) could hang / crash FW. Fixed.</li>
+      <li>J-Trace PRO V3 CortexM: ARM7/9: EMU option EMU_OPTION_INVALIDATE_CPU_STATE (used as part of reset / toggle reset pin) could hang / crash FW. Fixed.</li>
+      <li>J-Trace PRO V3 RISC-V: ARM7/9: EMU option EMU_OPTION_INVALIDATE_CPU_STATE (used as part of reset / toggle reset pin) could hang / crash FW. Fixed.</li>
+      <li>Flasher ARM V5: ARM7/9: EMU option EMU_OPTION_INVALIDATE_CPU_STATE (used as part of reset / toggle reset pin) could hang / crash FW. Fixed.</li>
+      <li>Flasher ARM V5-1: ARM7/9: EMU option EMU_OPTION_INVALIDATE_CPU_STATE (used as part of reset / toggle reset pin) could hang / crash FW. Fixed.</li>
+      <li>Flasher ARM V6: ARM7/9: EMU option EMU_OPTION_INVALIDATE_CPU_STATE (used as part of reset / toggle reset pin) could hang / crash FW. Fixed.</li>
+      <li>Flasher PRO V5: ARM7/9: EMU option EMU_OPTION_INVALIDATE_CPU_STATE (used as part of reset / toggle reset pin) could hang / crash FW. Fixed.</li>
+      <li>Flasher PRO V5-1: ARM7/9: EMU option EMU_OPTION_INVALIDATE_CPU_STATE (used as part of reset / toggle reset pin) could hang / crash FW. Fixed.</li>
+      <li>Flasher PRO V6: ARM7/9: EMU option EMU_OPTION_INVALIDATE_CPU_STATE (used as part of reset / toggle reset pin) could hang / crash FW. Fixed.</li>
+      <li>Flasher PRO XL V5: ARM7/9: EMU option EMU_OPTION_INVALIDATE_CPU_STATE (used as part of reset / toggle reset pin) could hang / crash FW. Fixed.</li>
+      <li>Flasher PRO XL V5-1: ARM7/9: EMU option EMU_OPTION_INVALIDATE_CPU_STATE (used as part of reset / toggle reset pin) could hang / crash FW. Fixed.</li>
+      <li>Flasher PRO XL V6: ARM7/9: EMU option EMU_OPTION_INVALIDATE_CPU_STATE (used as part of reset / toggle reset pin) could hang / crash FW. Fixed.</li>
+      <li>Flasher Compact V5: ARM7/9: EMU option EMU_OPTION_INVALIDATE_CPU_STATE (used as part of reset / toggle reset pin) could hang / crash FW. Fixed.</li>
+      <li>Flasher Portable PLUS V5: ARM7/9: EMU option EMU_OPTION_INVALIDATE_CPU_STATE (used as part of reset / toggle reset pin) could hang / crash FW. Fixed.</li>
+      <li>J-Link OB RA4M2-Full: ARM7/9: EMU option EMU_OPTION_INVALIDATE_CPU_STATE (used as part of reset / toggle reset pin) could hang / crash FW. Fixed.</li>
+      <li>J-Link-OB-SAM3U128-V3: ARM7/9: EMU option EMU_OPTION_INVALIDATE_CPU_STATE (used as part of reset / toggle reset pin) could hang / crash FW. Fixed.</li>
+    </ol>
+    <h4>J-Flash</h4>
+    <ol>
+      <li>Data window contents could be modified when opened in &quot;Simplified&quot; user interface mode. Fixed.</li>
+      <li>Switching between &quot;Simplified&quot; and &quot;Engineering&quot; user interface modes in the project settings did not update the read-only state of open data windows. Fixed.</li>
+      <li>Project information: Added element that shows &quot;User interface mode&quot; setting if it is not the default.</li>
+    </ol>
+    <h4>U-Flash</h4>
+    <ol>
+      <li>Combined log and console.</li>
+      <li>Added the console commands &quot;clear&quot; and &quot;cls&quot;, which can be used to clear the console.</li>
+      <li>Programming via U-Flash command line interface always reported an error. Fixed.</li>
+      <li>In certain cases the table widget&apos;s &quot;delete row&quot; button in the project settings dialog was not visible. Fixed.</li>
+      <li>Reworked the CLI help text.</li>
+      <li>Selecting a Flasher via CLI did not work correctly inside the GUI. Fixed.</li>
+    </ol>
+  </div>
+</div>
+<div id="features" class="divider-global">
+  <div class="container">
+    <h2>Version V7.96 (2024-03-07)</h2>
+    <h3>Highlights:</h3>
+    <h4>Device Provisioner</h4>
+    <ol>
+      <li>Added script &quot;PCode_DevPro_ST_STM32H5.pex&quot;.</li>
+    </ol>
+    <h4>MISC</h4>
+    <ol>
+      <li>Added &quot;Device Provisioner&quot; to software package. (See https://wiki.segger.com/Device_Provisioner)</li>
+    </ol>
+    <h3>Other changes:</h3>
+    <h4>DLL</h4>
+    <ol>
+      <li>J-Link script files: Added JLINK_FILE_Read() API function call. (See https://wiki.segger.com/J-Link_script_files#JLINK_FILE_Read.28.29)</li>
+    </ol>
+    <h4>Device Support</h4>
+    <ol>
+      <li>ESWIN EMU32VL170: Added flash programming support for bootloader area.</li>
+    </ol>
+    <h4>J-Flash</h4>
+    <ol>
+      <li>Input paramaters for the delrange command were not checked properly, which could have caused a crash. Fixed.</li>
+    </ol>
+  </div>
+</div>
+<div id="features" class="divider-global">
+  <div class="container">
+    <h2>Version V7.94m (2024-03-06)</h2>
+    <h3>Highlights:</h3>
+    <h4>Device Support</h4>
+    <ol>
+      <li>GigaDevice GD32F1xx: Added flash programming support for the option bytes (https://wiki.segger.com/GigaDevice_GD32F1).</li>
+      <li>NXP S32K388: Added debug and flash programming support for Cortex_M7_2 (https://wiki.segger.com/NXP_S32K3xx).</li>
+      <li>NXP S32K388: Added debug and flash programming support for Cortex_M7_3 (https://wiki.segger.com/NXP_S32K3xx).</li>
+      <li>NXP S32K358: Added debug and flash programming support for Cortex_M7_2 (https://wiki.segger.com/NXP_S32K3xx).</li>
+      <li>GigaDevice GD32E5xx: Added flash programming support for the option bytes (https://wiki.segger.com/GigaDevice_GD32E5).</li>
+      <li>Hilscher NetX90: Added SQI(QSPI) flash programming support for APP Core (https://wiki.segger.com/Hilscher_netX90).</li>
+      <li>GigaDevice GD32VF103: Added flash programming support for the option bytes (https://wiki.segger.com/GigaDevice_GD32VF1).</li>
+      <li>GigaDevice GD32F403: Added flash programming support for the option bytes (https://wiki.segger.com/GigaDevice_GD32F4).</li>
+      <li>AlifSemi E3/E5/E7 device series: Added OSPI programming support (https://wiki.segger.com/AlifSemi_CxEx).</li>
+    </ol>
+    <h3>Other changes:</h3>
+    <h4>Device Support</h4>
+    <ol>
+      <li>ESWIN EMU32VL170: Flash loader partially did not restore MCU state. Fixed.</li>
+      <li>Nuvoton M253, M254, M256 and M258 series: Flash programming did not work. Fixed.</li>
+      <li>Nuvoton M254SD2AE: Added debug and flash programming support (https://wiki.segger.com/Nuvoton_M25x).</li>
+      <li>Nuvoton M256SD2AE: Added debug and flash programming support (https://wiki.segger.com/Nuvoton_M25x).</li>
+      <li>ST STM32U5G7xx/9xx: Added debug and flash programming support (https://wiki.segger.com/ST_STM32U5).</li>
+      <li>Nordic Semiconductor nRF9151: Added debug and flash programming support.</li>
+      <li>ST STM32U5G7xx/9xx: Added SPI flash programming support for CLK@PI3_nCS@PH9_D0@PH10_D1@PH11_D2@PH12_D3@PH13_D4@NA_D5@NA_D6@NA_D7@NA pin configuration (Matching STM32U5G9J-DK2).</li>
+      <li>GigaDevice GD32H7xx: Added native unlock functionality.</li>
+      <li>GigaDevice GD32F4xx: Added native unlock functionality.</li>
+    </ol>
+    <h4>J-Scope</h4>
+    <ol>
+      <li>When sorting the symbol table by changing values, rows could split. Fixed.</li>
+      <li>When the SymbolTable is sorted, the wrong rows got updated. Fixed.</li>
+    </ol>
+    <h4>Manual</h4>
+    <ol>
+      <li>UM08002: Chapter &quot;Introduction&quot; updated, section &quot;What is the J-Link SDK?&quot;: Improved wording.</li>
+      <li>UM08002: Chapter &quot;Introduction&quot; updated, section &quot;What is the J-Link SDK?&quot;: Improved formatting.</li>
+      <li>UM08002: Chapter &quot;Introduction&quot; updated, section &quot;What is J-Link?&quot;: Improved wording.</li>
+      <li>UM08002: Chapter &quot;Introduction&quot; updated, section &quot;What is J-Link?&quot;: Improved formatting.</li>
+      <li>UM08002: Chapter &quot;Introduction&quot; updated, section &quot;What is included?&quot;: Updated table of J-Link SDK contents.</li>
+    </ol>
+    <h4>U-Flash</h4>
+    <ol>
+      <li>File menu actions are now disabled until their requirements are met. (Device and/or data file selected).</li>
+      <li>Editing the &quot;Configuration project name&quot; in the project settings will now automatically edit &quot;Project display text&quot;.</li>
+      <li>Improved the error message when the selected data file can not be found.</li>
+      <li>The download button will now be disabled during the download.</li>
+      <li>Microchip dsPIC33EPxxMUxxx + PIC24EPxxGP/GUxxx: Added family device support.</li>
+      <li>The Flasher selection dialog did not show devices connected via TCP/IP. Introduced in V7.94l. Fixed.</li>
+      <li>Reworked support for ATtiny with TPI, ISP and UPDI interfaces.</li>
+      <li>In certain cases the table widgets in the project settings dialog were missing rows. Fixed.</li>
+      <li>There will now be warnings when an outdated project is opened.</li>
+      <li>Microchip ATMEGA family: Rework of PCodes for ISP and JTAG.</li>
+    </ol>
+  </div>
+</div>
+<div id="features" class="divider-global">
+  <div class="container">
+    <h2>Version V7.94l (2024-02-29)</h2>
+    <h3>Highlights:</h3>
+    <h4>Device Support</h4>
+    <ol>
+      <li>GigaDevice GD32C1xx: Added flash programming support for the option bytes (https://wiki.segger.com/GigaDevice_GD32C1).</li>
+      <li>GigaDevice GD32E1xx: Added flash programming support for the option bytes (https://wiki.segger.com/GigaDevice_GD32E1).</li>
+      <li>GigaDevice GD32E2xx: Added flash programming support for the option bytes (https://wiki.segger.com/GigaDevice_GD32E2).</li>
+      <li>Renesas RA0E1: Moved device support from hidden to public (https://wiki.segger.com/Renesas_RA0E1).</li>
+      <li>Renesas RA2A2: Added debug &amp; flash programming support (https://wiki.segger.com/Renesas_RA2A2).</li>
+      <li>GigaDevice GD32F3xx: Added flash programming support for the option bytes (https://wiki.segger.com/GigaDevice_GD32F3).</li>
+      <li>GigaDevice GD32L23x: Added flash programming support for the option bytes (https://wiki.segger.com/GigaDevice_GD32L23).</li>
+      <li>Renesas RZ/V2H: Added debug and flash programming support (https://wiki.segger.com/Renesas_RZ/V2H).</li>
+      <li>GigaDevice GD32F2xx: Added flash programming support for the option bytes (https://wiki.segger.com/GigaDevice_GD32F2).</li>
+    </ol>
+    <h3>Other changes:</h3>
+    <h4>Device Support</h4>
+    <ol>
+      <li>Renesas RA6M3/RA6T1/S5D3/S5D5/S5D9: Verification of option-setting memory could fail. Fixed.</li>
+      <li>Geehy G32A1: Unsecuring a protected device did not work. Fixed.</li>
+      <li>Geehy G32A1: Added a dialog to trigger a mass erase in case a flash sector is write protected.</li>
+      <li>ST SR6xx: Connect to blank devices failed. Fixed.</li>
+      <li>ST STM32L5xxx: Renamed QSPI &quot;Default&quot; loader to &quot;CLK@PA3_nCS@PA2_D0@PB1_D1@PB0_D2@PA7_D3@PA6_D4@NA_D5@NA_D6@NA_D7@NA (Matching STM32L562E Discovery Kit).</li>
+      <li>Geehy APM32F003: Programming of option byte memory did not work. Fixed.</li>
+    </ol>
+    <h4>Firmware</h4>
+    <ol>
+      <li>Flasher ARM V5: Stand-alone mode: Programming could fail on ARMv7-A/R targets (e.g. Cortex-A9). Fixed.</li>
+      <li>Flasher ARM V5-1: Stand-alone mode: Programming could fail on ARMv7-A/R targets (e.g. Cortex-A9). Fixed.</li>
+      <li>Flasher ARM V6: Stand-alone mode: Programming could fail on ARMv7-A/R targets (e.g. Cortex-A9). Fixed.</li>
+      <li>Flasher PRO V5: Stand-alone mode: Programming could fail on ARMv7-A/R targets (e.g. Cortex-A9). Fixed.</li>
+      <li>Flasher PRO V5-1: Stand-alone mode: Programming could fail on ARMv7-A/R targets (e.g. Cortex-A9). Fixed.</li>
+      <li>Flasher PRO V6: Stand-alone mode: Programming could fail on ARMv7-A/R targets (e.g. Cortex-A9). Fixed.</li>
+      <li>Flasher PRO XL V5: Stand-alone mode: Programming could fail on ARMv7-A/R targets (e.g. Cortex-A9). Fixed.</li>
+      <li>Flasher PRO XL V5-1: Stand-alone mode: Programming could fail on ARMv7-A/R targets (e.g. Cortex-A9). Fixed.</li>
+      <li>Flasher PRO XL V6: Stand-alone mode: Programming could fail on ARMv7-A/R targets (e.g. Cortex-A9). Fixed.</li>
+      <li>Flasher Compact V5: Stand-alone mode: Programming could fail on ARMv7-A/R targets (e.g. Cortex-A9). Fixed.</li>
+      <li>Flasher Portable PLUS V5: Stand-alone mode: Programming could fail on ARMv7-A/R targets (e.g. Cortex-A9). Fixed.</li>
+    </ol>
+    <h4>Flasher Package</h4>
+    <ol>
+      <li>Windows: Removed obsolete Microsoft DLLs from shipment.</li>
+    </ol>
+    <h4>GUI Applications</h4>
+    <ol>
+      <li>macOS: The entries of a combo box or context menu were cut off in height. Fixed.</li>
+      <li>macOS: Sometimes, hovering over the entries of a combo box or context menu did not highlight them and clicking an entry did not select it. Fixed.</li>
+    </ol>
+    <h4>J-Link Package</h4>
+    <ol>
+      <li>Windows: Removed obsolete Microsoft DLLs from shipment.</li>
+    </ol>
+    <h4>J-Scope</h4>
+    <ol>
+      <li>J-Scope: Reduced the minimum size of J-Scopes main window.</li>
+    </ol>
+    <h4>U-Flash</h4>
+    <ol>
+      <li>Microchip dsPIC33FJxxGyxxx + PIC24HJxxGPxxx: Added family device support.</li>
+      <li>Microchip dsPIC33EPxxxGSxxx: Reworked. Added missing family device members.</li>
+      <li>Microchip_dsPIC33CKxxMC: Writing only 2 OTP words. Fixed.</li>
+      <li>The error level was not correctly set, when starting flash programing via the U-Flash command line. Fixed.</li>
+      <li>Flashers connected via USB were not marked, if their firmware version was outdated. Fixed.</li>
+      <li>In certain cases the &quot;remote control&quot; tab was not enabled. Fixed.</li>
+      <li>Added WireCheck. U-Flash tool to test the wiring to the device. Refer: https://wiki.segger.com/Flasher/How_to_use_WireCheck</li>
+      <li>Added support for the AVR families AVR DA, AVR DB and AVR DD.</li>
+    </ol>
+  </div>
+</div>
+<div id="features" class="divider-global">
+  <div class="container">
+    <h2>Version V7.94k (2024-02-21)</h2>
+    <h3>Highlights:</h3>
+    <h4>Device Support</h4>
+    <ol>
+      <li>Infineon CCG7S: Added debug and flash programming support(https://wiki.segger.com/Infineon_CCG7S).</li>
+      <li>Infineon CCG7D: Added debug and flash programming support(https://wiki.segger.com/Infineon_CCG7D).</li>
+      <li>GigaDevice GD32A50x: Added flash programming support for the option bytes (https://wiki.segger.com/GigaDevice_GD32A5).</li>
+      <li>Artery AT32F402: Added debug and flash programming support (https://wiki.segger.com/Artery_AT32F40x).</li>
+      <li>Artery AT32A403A: Added flash programming support for SPIM (https://wiki.segger.com/Artery_AT32A40x).</li>
+      <li>Artery AT32F403A: Added flash programming support for SPIM (https://wiki.segger.com/Artery_AT32F40x).</li>
+      <li>Artery AT32F407: Added flash programming support for SPIM (https://wiki.segger.com/Artery_AT32F40x).</li>
+      <li>Artery AT32F413: Added flash programming support for SPIM (https://wiki.segger.com/Artery_AT32F41x).</li>
+    </ol>
+    <h3>Other changes:</h3>
+    <h4>Configurator</h4>
+    <ol>
+      <li>Systemwide option &quot;Reset &apos;Don&apos;t show again&apos;&quot; did not reset registry key DontShowAgainUnlockSTM32. Fixed.</li>
+    </ol>
+    <h4>DLL</h4>
+    <ol>
+      <li>NXP LPC17xx: RTT: Some devices had dublicated search ranges. Fixed.</li>
+      <li>Vorago VAxxx: Flash programming did not work due to overlapping flash banks. Fixed.</li>
+    </ol>
+    <h4>Device Support</h4>
+    <ol>
+      <li>TI MSPM0: Improved low power mode debugging capabilities.</li>
+      <li>Nuvoton M4xx: Added device specific connect with unlock (formaly only implemented for M45x devices).</li>
+      <li>EFx32 Series 2 devices: Connect would fail when RAM was not readable, but device was in unlocked state. Fixed.</li>
+      <li>GigaDevice GD32 Cortex-M devices: Description of MCU security added (https://wiki.segger.com/GigaDevice_GD32).</li>
+      <li>Renesas RZ/G3S: Added support for some new device names.</li>
+      <li>TI CC2340: Improved the device specific handling to ensure that the target application boots without waiting for a specified debug timeout after closing the J-Link &lt;--&gt; target connection (https://wiki.segger.com/TI_CC2340#Device_Specific_Handling).</li>
+    </ol>
+    <h4>Firmware</h4>
+    <ol>
+      <li>Flasher Hub-12 V1: Implemented module terminal server: https://wiki.segger.com/UM08043_Flasher_Hub-12#Module_terminal_server</li>
+      <li>Flasher Hub-12 V1: WebIF: Added &quot;Terminal&quot; tab.</li>
+      <li>Flasher ARM V5: Added possibility to enable/disable FTP server of probe via config area.</li>
+      <li>Flasher ARM V5-1: Added possibility to enable/disable FTP server of probe via config area.</li>
+      <li>Flasher ARM V6: Added possibility to enable/disable FTP server of probe via config area.</li>
+      <li>Flasher PRO V5: Added possibility to enable/disable FTP server of probe via config area.</li>
+      <li>Flasher PRO V5-1: Added possibility to enable/disable FTP server of probe via config area.</li>
+      <li>Flasher PRO V6: Added possibility to enable/disable FTP server of probe via config area.</li>
+      <li>Flasher PRO XL V5: Added possibility to enable/disable FTP server of probe via config area.</li>
+      <li>Flasher PRO XL V5-1: Added possibility to enable/disable FTP server of probe via config area.</li>
+      <li>Flasher PRO XL V6: Added possibility to enable/disable FTP server of probe via config area.</li>
+      <li>J-Link PRO V5: Added possibility to enable/disable web server of probe via config area.</li>
+      <li>J-Link PRO V5-1: Added possibility to enable/disable web server of probe via config area.</li>
+      <li>J-Link PRO V6: Added possibility to enable/disable web server of probe via config area.</li>
+      <li>J-Link PRO PoE V6: Added possibility to enable/disable web server of probe via config area.</li>
+      <li>J-Link WiFi V1: Added possibility to enable/disable web server of probe via config area.</li>
+      <li>J-Link WiFi V2: Added possibility to enable/disable web server of probe via config area.</li>
+      <li>J-Trace PRO V3 CortexM: Added possibility to enable/disable web server of probe via config area.</li>
+      <li>J-Trace PRO V3 Cortex: Added possibility to enable/disable web server of probe via config area.</li>
+      <li>J-Trace PRO V3: Added possibility to enable/disable web server of probe via config area.</li>
+      <li>Flasher ARM V5: Added possibility to enable/disable web server of probe via config area.</li>
+      <li>Flasher ARM V5-1: Added possibility to enable/disable web server of probe via config area.</li>
+      <li>Flasher ARM V6: Added possibility to enable/disable web server of probe via config area.</li>
+      <li>Flasher PRO V5: Added possibility to enable/disable web server of probe via config area.</li>
+      <li>Flasher PRO V5-1: Added possibility to enable/disable web server of probe via config area.</li>
+      <li>Flasher PRO V6: Added possibility to enable/disable web server of probe via config area.</li>
+      <li>Flasher PRO XL V5: Added possibility to enable/disable web server of probe via config area.</li>
+      <li>Flasher PRO XL V5-1: Added possibility to enable/disable web server of probe via config area.</li>
+      <li>Flasher PRO XL V6: Added possibility to enable/disable web server of probe via config area.</li>
+      <li>J-Link PRO V5: Added possibility to enable/disable TELNET server of probe via config area.</li>
+      <li>J-Link PRO V5-1: Added possibility to enable/disable TELNET server of probe via config area.</li>
+      <li>J-Link PRO V6: Added possibility to enable/disable TELNET server of probe via config area.</li>
+      <li>J-Link PRO PoE V6: Added possibility to enable/disable TELNET server of probe via config area.</li>
+      <li>J-Link WiFi V1: Added possibility to enable/disable TELNET server of probe via config area.</li>
+      <li>J-Link WiFi V2: Added possibility to enable/disable TELNET server of probe via config area.</li>
+      <li>J-Trace PRO V3 CortexM: Added possibility to enable/disable TELNET server of probe via config area.</li>
+      <li>J-Trace PRO V3 Cortex: Added possibility to enable/disable TELNET server of probe via config area.</li>
+      <li>J-Trace PRO V3: Added possibility to enable/disable TELNET server of probe via config area.</li>
+      <li>Flasher ARM V5: Added possibility to enable/disable TELNET server of probe via config area.</li>
+      <li>Flasher ARM V5-1: Added possibility to enable/disable TELNET server of probe via config area.</li>
+      <li>Flasher ARM V6: Added possibility to enable/disable TELNET server of probe via config area.</li>
+      <li>Flasher PRO V5: Added possibility to enable/disable TELNET server of probe via config area.</li>
+      <li>Flasher PRO V5-1: Added possibility to enable/disable TELNET server of probe via config area.</li>
+      <li>Flasher PRO V6: Added possibility to enable/disable TELNET server of probe via config area.</li>
+      <li>Flasher PRO XL V5: Added possibility to enable/disable TELNET server of probe via config area.</li>
+      <li>Flasher PRO XL V5-1: Added possibility to enable/disable TELNET server of probe via config area.</li>
+      <li>Flasher PRO XL V6: Added possibility to enable/disable TELNET server of probe via config area.</li>
+      <li>Flasher ARM V5: If Flasher.ini grew beyond 8 KB in size (e.g. many different configuration pairs placed in it),terminal command #SELECT failed. Fixed.</li>
+      <li>Flasher ARM V5-1: If Flasher.ini grew beyond 8 KB in size (e.g. many different configuration pairs placed in it),terminal command #SELECT failed. Fixed.</li>
+      <li>Flasher ARM V6: If Flasher.ini grew beyond 8 KB in size (e.g. many different configuration pairs placed in it),terminal command #SELECT failed. Fixed.</li>
+      <li>Flasher PRO V5: If Flasher.ini grew beyond 8 KB in size (e.g. many different configuration pairs placed in it),terminal command #SELECT failed. Fixed.</li>
+      <li>Flasher PRO V5-1: If Flasher.ini grew beyond 8 KB in size (e.g. many different configuration pairs placed in it),terminal command #SELECT failed. Fixed.</li>
+      <li>Flasher PRO V6: If Flasher.ini grew beyond 8 KB in size (e.g. many different configuration pairs placed in it),terminal command #SELECT failed. Fixed.</li>
+      <li>Flasher PRO XL V5: If Flasher.ini grew beyond 8 KB in size (e.g. many different configuration pairs placed in it),terminal command #SELECT failed. Fixed.</li>
+      <li>Flasher PRO XL V5-1: If Flasher.ini grew beyond 8 KB in size (e.g. many different configuration pairs placed in it),terminal command #SELECT failed. Fixed.</li>
+      <li>Flasher PRO XL V6: If Flasher.ini grew beyond 8 KB in size (e.g. many different configuration pairs placed in it),terminal command #SELECT failed. Fixed.</li>
+      <li>Flasher Compact V5: If Flasher.ini grew beyond 8 KB in size (e.g. many different configuration pairs placed in it),terminal command #SELECT failed. Fixed.</li>
+      <li>Flasher Portable PLUS V5: If Flasher.ini grew beyond 8 KB in size (e.g. many different configuration pairs placed in it),terminal command #SELECT failed. Fixed.</li>
+    </ol>
+    <h4>J-Mem</h4>
+    <ol>
+      <li>macOS: Moving the scroll bar of the memory view did not work correctly. Fixed.</li>
+    </ol>
+    <h4>J-Scope</h4>
+    <ol>
+      <li>In some cases, classes were falsely named &quot;&lt;inherited&gt;&quot;. Fixed.</li>
+      <li>Anonymous structs or unions were given the wrong name. Fixed.</li>
+      <li>When sampling with RTT, the wrong symbol could be updated when adjusting the Y-Offset. Fixed.</li>
+    </ol>
+    <h4>U-Flash</h4>
+    <ol>
+      <li>Microchip dsPIC33EVxxGMxxx: Added family device support.</li>
+      <li>Microchip PIC24EPxxxGP_MCxxx, dsPIC33EPxxGP_MCxxx: Added family device support. ConfigWordWrite in ICSP Mode failed. Fixed.</li>
+      <li>Microchip PIC12(L)F1572: Wrong memory size. Fixed.</li>
+      <li>Added &quot;Add new project&quot; button to batch composer.</li>
+      <li>Added &quot;-device&quot; command line parameter.</li>
+    </ol>
+  </div>
+</div>
+<div id="features" class="divider-global">
+  <div class="container">
+    <h2>Version V7.94j (2024-02-14)</h2>
+    <h3>Highlights:</h3>
+    <h4>DLL</h4>
+    <ol>
+      <li>Trace: Added command string &quot;TRACE_SetBackTraceMaxNumItems&quot;. (https://wiki.segger.com/J-Link_Command_Strings#TRACE_SetBackTraceMaxNumItems)</li>
+    </ol>
+    <h4>Device Support</h4>
+    <ol>
+      <li>Artery AT32F403A: Added debug and flash programming (internal flash) support (https://wiki.segger.com/Artery_AT32F40x).</li>
+      <li>Artery AT32A403A: Added debug and flash programming (internal flash) support (https://wiki.segger.com/Artery_AT32A40x).</li>
+      <li>Artery AT32F407: Added debug and flash programming (internal flash) support (https://wiki.segger.com/Artery_AT32F40x).</li>
+      <li>NXP MCXN11: Added debug and flash programming support (https://wiki.segger.com/NXP_MCXN11).</li>
+    </ol>
+    <h3>Other changes:</h3>
+    <h4>Commander</h4>
+    <ol>
+      <li>Added command &quot;FDiskInfo&quot; for Flashers. Used to show disk/storage usage on Flashers.</li>
+    </ol>
+    <h4>DLL</h4>
+    <ol>
+      <li>Web control panel: &quot;General&quot; tab: Added Disk info for Flashers (production programmers).</li>
+    </ol>
+    <h4>Firmware</h4>
+    <ol>
+      <li>Flasher ARM V5: Terminal via TELNET (IP): Establishing a new connection now replaces and closes any previously established and active TELNET terminal connection. (New connection was refused until now)</li>
+      <li>Flasher ARM V5-1: Terminal via TELNET (IP): Establishing a new connection now replaces and closes any previously established and active TELNET terminal connection. (New connection was refused until now)</li>
+      <li>Flasher ARM V6: Terminal via TELNET (IP): Establishing a new connection now replaces and closes any previously established and active TELNET terminal connection. (New connection was refused until now)</li>
+      <li>Flasher PRO V5: Terminal via TELNET (IP): Establishing a new connection now replaces and closes any previously established and active TELNET terminal connection. (New connection was refused until now)</li>
+      <li>Flasher PRO V5-1: Terminal via TELNET (IP): Establishing a new connection now replaces and closes any previously established and active TELNET terminal connection. (New connection was refused until now)</li>
+      <li>Flasher PRO V6: Terminal via TELNET (IP): Establishing a new connection now replaces and closes any previously established and active TELNET terminal connection. (New connection was refused until now)</li>
+      <li>Flasher PRO XL V5: Terminal via TELNET (IP): Establishing a new connection now replaces and closes any previously established and active TELNET terminal connection. (New connection was refused until now)</li>
+      <li>Flasher PRO XL V5-1: Terminal via TELNET (IP): Establishing a new connection now replaces and closes any previously established and active TELNET terminal connection. (New connection was refused until now)</li>
+      <li>Flasher PRO XL V6: Terminal via TELNET (IP): Establishing a new connection now replaces and closes any previously established and active TELNET terminal connection. (New connection was refused until now)</li>
+      <li>Flasher ARM V5: Terminal: The #RESULT command used the wrong function for sending the response message, causing debug builds to get stuck at a debug assertion. Fixed.</li>
+      <li>Flasher ARM V5-1: Terminal: The #RESULT command used the wrong function for sending the response message, causing debug builds to get stuck at a debug assertion. Fixed.</li>
+      <li>Flasher ARM V6: Terminal: The #RESULT command used the wrong function for sending the response message, causing debug builds to get stuck at a debug assertion. Fixed.</li>
+      <li>Flasher PRO V5: Terminal: The #RESULT command used the wrong function for sending the response message, causing debug builds to get stuck at a debug assertion. Fixed.</li>
+      <li>Flasher PRO V5-1: Terminal: The #RESULT command used the wrong function for sending the response message, causing debug builds to get stuck at a debug assertion. Fixed.</li>
+      <li>Flasher PRO V6: Terminal: The #RESULT command used the wrong function for sending the response message, causing debug builds to get stuck at a debug assertion. Fixed.</li>
+      <li>Flasher PRO XL V5: Terminal: The #RESULT command used the wrong function for sending the response message, causing debug builds to get stuck at a debug assertion. Fixed.</li>
+      <li>Flasher PRO XL V5-1: Terminal: The #RESULT command used the wrong function for sending the response message, causing debug builds to get stuck at a debug assertion. Fixed.</li>
+      <li>Flasher PRO XL V6: Terminal: The #RESULT command used the wrong function for sending the response message, causing debug builds to get stuck at a debug assertion. Fixed.</li>
+      <li>Flasher Compact V5: Terminal: The #RESULT command used the wrong function for sending the response message, causing debug builds to get stuck at a debug assertion. Fixed.</li>
+      <li>Flasher Portable PLUS V5: Terminal: The #RESULT command used the wrong function for sending the response message, causing debug builds to get stuck at a debug assertion. Fixed.</li>
+    </ol>
+    <h4>U-Flash</h4>
+    <ol>
+      <li>Microchip dsPIC33 XML: DeviceId read fails. Fixed.</li>
+      <li>Setting the erase type to &quot;None&quot; did not work correctly. Introduced in V7.94i. Fixed.</li>
+      <li>Microchip dsPIC33EVxxGMxxx: Added family device support.</li>
+    </ol>
+  </div>
+</div>
+<div id="features" class="divider-global">
+  <div class="container">
+    <h2>Version V7.94i (2024-02-07)</h2>
+    <h3>Highlights:</h3>
+    <h4>Device Support</h4>
+    <ol>
+      <li>Artery AT32F423: Added debug and flash programming support (https://wiki.segger.com/Artery_AT32F42x).</li>
+      <li>Artery AT32F405: Added debug and flash programming support (https://wiki.segger.com/Artery_AT32F40x).</li>
+      <li>Artery AT32WB415: Added debug and flash programming support (https://wiki.segger.com/Artery_AT32WB41x).</li>
+      <li>NXP S32K388: Added debug and flash programming support for the second Cortex-M7 core (https://wiki.segger.com/NXP_S32K3xx).</li>
+      <li>HPMicro HPM68xx: Added debug and flash programming support (https://wiki.segger.com/HPMicro_HPM68).</li>
+      <li>Geehy G32A1xx: Added debug and flash programming support (https://wiki.segger.com/Geehy_G32A1xx).</li>
+      <li>Geehy APM32F035: Added debug and flash programming support (https://wiki.segger.com/Geehy_APM32F0xx).</li>
+      <li>Geehy APM32F411: Added debug and flash programming support (https://wiki.segger.com/Geehy_APM32F4xx).</li>
+      <li>Artery AT32F413: Added debug and flash programming (internal flash) support (https://wiki.segger.com/Artery_AT32F41x).</li>
+    </ol>
+    <h4>Trace</h4>
+    <ol>
+      <li>Published out-of-the-box trace example for Renesas RZ/A1L: https://www.segger.com/products/debug-probes/j-trace/technology/tested-devices/</li>
+      <li>Published out-of-the-box trace example for NXP iMXRT106x series: https://www.segger.com/products/debug-probes/j-trace/technology/tested-devices/</li>
+    </ol>
+    <h3>Other changes:</h3>
+    <h4>Device Support</h4>
+    <ol>
+      <li>Artery AT32F43x QSPI: PLL Clock initialization changed from 288 MHz to 216 MHz in order to match maximum clock speed on AT32F405.</li>
+      <li>Renesas RA6M1: Incorrect flash base address (0x28000000 instead of 0x60000000) used for the external QSPI flash bank. Fixed.</li>
+      <li>Geehy APM32F4xx: Option-byte programming did not work. Fixed.</li>
+      <li>Geehy APM32F0xx, APM32F1xx: Option-byte programming did not work. Fixed.</li>
+      <li>Renesas DA1470x: Not all registers got restored correctly. Fixed.</li>
+    </ol>
+    <h4>Firmware</h4>
+    <ol>
+      <li>J-Link EDU Mini V1: Introduced timeout for HW_Init() call in generic part of FW. If HW_Init() does not return within 5s, probe is reset and stays in BTL.</li>
+      <li>J-Link EDU/BASE/PLUS V12: Introduced timeout for HW_Init() call in generic part of FW. If HW_Init() does not return within 5s, probe is reset and stays in BTL.</li>
+      <li>J-Link ULTRA+ V5: Introduced timeout for HW_Init() call in generic part of FW. If HW_Init() does not return within 5s, probe is reset and stays in BTL.</li>
+      <li>J-Link ULTRA+ V5-1: Introduced timeout for HW_Init() call in generic part of FW. If HW_Init() does not return within 5s, probe is reset and stays in BTL.</li>
+      <li>J-Link ULTRA+ V6: Introduced timeout for HW_Init() call in generic part of FW. If HW_Init() does not return within 5s, probe is reset and stays in BTL.</li>
+      <li>J-Link PRO V5: Introduced timeout for HW_Init() call in generic part of FW. If HW_Init() does not return within 5s, probe is reset and stays in BTL.</li>
+      <li>J-Link PRO V5-1: Introduced timeout for HW_Init() call in generic part of FW. If HW_Init() does not return within 5s, probe is reset and stays in BTL.</li>
+      <li>J-Link PRO V6: Introduced timeout for HW_Init() call in generic part of FW. If HW_Init() does not return within 5s, probe is reset and stays in BTL.</li>
+      <li>J-Link PRO PoE V6: Introduced timeout for HW_Init() call in generic part of FW. If HW_Init() does not return within 5s, probe is reset and stays in BTL.</li>
+      <li>J-Link WiFi V1: Introduced timeout for HW_Init() call in generic part of FW. If HW_Init() does not return within 5s, probe is reset and stays in BTL.</li>
+      <li>J-Link WiFi V2: Introduced timeout for HW_Init() call in generic part of FW. If HW_Init() does not return within 5s, probe is reset and stays in BTL.</li>
+      <li>J-Trace PRO V3 CortexM: Introduced timeout for HW_Init() call in generic part of FW. If HW_Init() does not return within 5s, probe is reset and stays in BTL.</li>
+      <li>J-Trace PRO V3 Cortex: Introduced timeout for HW_Init() call in generic part of FW. If HW_Init() does not return within 5s, probe is reset and stays in BTL.</li>
+      <li>J-Trace PRO V3: Introduced timeout for HW_Init() call in generic part of FW. If HW_Init() does not return within 5s, probe is reset and stays in BTL.</li>
+      <li>Flasher ARM V5: Introduced timeout for HW_Init() call in generic part of FW. If HW_Init() does not return within 5s, probe is reset and stays in BTL.</li>
+      <li>Flasher ARM V5-1: Introduced timeout for HW_Init() call in generic part of FW. If HW_Init() does not return within 5s, probe is reset and stays in BTL.</li>
+      <li>Flasher ARM V6: Introduced timeout for HW_Init() call in generic part of FW. If HW_Init() does not return within 5s, probe is reset and stays in BTL.</li>
+      <li>Flasher PRO V5: Introduced timeout for HW_Init() call in generic part of FW. If HW_Init() does not return within 5s, probe is reset and stays in BTL.</li>
+      <li>Flasher PRO V5-1: Introduced timeout for HW_Init() call in generic part of FW. If HW_Init() does not return within 5s, probe is reset and stays in BTL.</li>
+      <li>Flasher PRO V6: Introduced timeout for HW_Init() call in generic part of FW. If HW_Init() does not return within 5s, probe is reset and stays in BTL.</li>
+      <li>Flasher PRO XL V5: Introduced timeout for HW_Init() call in generic part of FW. If HW_Init() does not return within 5s, probe is reset and stays in BTL.</li>
+      <li>Flasher PRO XL V5-1: Introduced timeout for HW_Init() call in generic part of FW. If HW_Init() does not return within 5s, probe is reset and stays in BTL.</li>
+      <li>Flasher PRO XL V6: Introduced timeout for HW_Init() call in generic part of FW. If HW_Init() does not return within 5s, probe is reset and stays in BTL.</li>
+      <li>Flasher Compact V5: Introduced timeout for HW_Init() call in generic part of FW. If HW_Init() does not return within 5s, probe is reset and stays in BTL.</li>
+      <li>Flasher Portable PLUS V5: Introduced timeout for HW_Init() call in generic part of FW. If HW_Init() does not return within 5s, probe is reset and stays in BTL.</li>
+    </ol>
+    <h4>GDB Server</h4>
+    <ol>
+      <li>When activating thread awareness the debug session could fail to start. Fixed.</li>
+    </ol>
+    <h4>J-Scope</h4>
+    <ol>
+      <li>J-Scope now notifies the user if RTT is used without timestamps.</li>
+    </ol>
+    <h4>Trace</h4>
+    <ol>
+      <li>Added support for script file entry points &quot;StartSTM()&quot; and &quot;StopSTM()&quot; to override default behavior on STM start/stop. (https://wiki.segger.com/J-Link_script_files#StartSTM.28.29)</li>
+      <li>Added command string &quot;CORESIGHT_SetSTMBaseAddr&quot; to allow manual override of STM base address. (https://wiki.segger.com/J-Link_Command_Strings#CORESIGHT_SetSTMBaseAddr)</li>
+      <li>Added command string &quot;CORESIGHT_SetSTMTraceID&quot; to allow manual override of STM trace ID. (https://wiki.segger.com/J-Link_Command_Strings#CORESIGHT_SetSTMTraceID)</li>
+      <li>Added command string &quot;TRACE_SetSTMDataFile&quot; to allow storing STM data into file. (https://wiki.segger.com/J-Link_Command_Strings#TRACE_SetSTMDataFile)</li>
+      <li>Added command string &quot;TRACE_SetSTMDataPort&quot; to allow storing STM data to port. (https://wiki.segger.com/J-Link_Command_Strings#TRACE_SetSTMDataPort)</li>
+    </ol>
+    <h4>U-Flash</h4>
+    <ol>
+      <li>In certain cases groupboxes in the project settings dialog did not enable the correct settings. Fixed.</li>
+      <li>ShowDatCRCAfterProgramming can now be set in the project settings dialog.</li>
+      <li>Added &quot;reload device list&quot; button.</li>
+      <li>Some inputs in the project settings dialog did not work correctly. Fixed.</li>
+      <li>Microchip dsPIC33CKxxMCxxx: Added family device support.</li>
+      <li>Microchip: Added new device family dsPIC33EPxxxGMxxx.</li>
+      <li>The available erase types for some devices in the device XML files were incorrect or incomplete. Fixed.</li>
+    </ol>
+  </div>
+</div>
+<div id="features" class="divider-global">
+  <div class="container">
+    <h2>Version V7.94h (2024-02-01)</h2>
+    <h3>Highlights:</h3>
+    <h4>Device Support</h4>
+    <ol>
+      <li>Toshiba TMPM3H Group(2): Added debug and flash programming support for some new part numbers.</li>
+      <li>Artery AT32F425: Added debug and flash programming support (https://wiki.segger.com/Artery_AT32F42x).</li>
+      <li>Artery AT32F415: Added debug and flash programming support (https://wiki.segger.com/Artery_AT32F41x).</li>
+      <li>ST SR6P3xx: Added debug and flash programming support (https://wiki.segger.com/ST_SR6P3).</li>
+      <li>Artery AT32F421: Added debug and flash programming support (https://wiki.segger.com/Artery_AT32F42x).</li>
+    </ol>
+    <h3>Other changes:</h3>
+    <h4>Device Support</h4>
+    <ol>
+      <li>Renesas RZ/G3S: Under certain circumstances erase did not work properly. Fixed.</li>
+      <li>Espressif ESP32: Added read support.</li>
+      <li>ST SR6P6xx/SR6P7xx: The watchdog was not handled properly which could result in expired flag was set. Fixed.</li>
+      <li>ST SR6xxxx: The reset did not work properly resulting in an invalid PC after reset. Fixed.</li>
+    </ol>
+    <h4>Firmware</h4>
+    <ol>
+      <li>Flasher ARM V5: Terminal: Reading data via USB (e.g. FlasherControl) in chunks smaller than 256 bytes could lead to loss of data. Fixed.</li>
+      <li>Flasher ARM V5-1: Terminal: Reading data via USB (e.g. FlasherControl) in chunks smaller than 256 bytes could lead to loss of data. Fixed.</li>
+      <li>Flasher ARM V6: Terminal: Reading data via USB (e.g. FlasherControl) in chunks smaller than 256 bytes could lead to loss of data. Fixed.</li>
+      <li>Flasher PRO V5: Terminal: Reading data via USB (e.g. FlasherControl) in chunks smaller than 256 bytes could lead to loss of data. Fixed.</li>
+      <li>Flasher PRO V5-1: Terminal: Reading data via USB (e.g. FlasherControl) in chunks smaller than 256 bytes could lead to loss of data. Fixed.</li>
+      <li>Flasher PRO V6: Terminal: Reading data via USB (e.g. FlasherControl) in chunks smaller than 256 bytes could lead to loss of data. Fixed.</li>
+      <li>Flasher PRO XL V5: Terminal: Reading data via USB (e.g. FlasherControl) in chunks smaller than 256 bytes could lead to loss of data. Fixed.</li>
+      <li>Flasher PRO XL V5-1: Terminal: Reading data via USB (e.g. FlasherControl) in chunks smaller than 256 bytes could lead to loss of data. Fixed.</li>
+      <li>Flasher PRO XL V6: Terminal: Reading data via USB (e.g. FlasherControl) in chunks smaller than 256 bytes could lead to loss of data. Fixed.</li>
+      <li>Flasher Compact V5: Terminal: Reading data via USB (e.g. FlasherControl) in chunks smaller than 256 bytes could lead to loss of data. Fixed.</li>
+      <li>Flasher Portable PLUS V5: Terminal: Reading data via USB (e.g. FlasherControl) in chunks smaller than 256 bytes could lead to loss of data. Fixed.</li>
+      <li>J-Link-OB-K22-CortexM: VCOM: Setting force-enable of hardware flow control (J-Link Commander &quot;SetHWFC Force&quot; command) did not work correctly (Enabling this option resulted in hardware flow control to be disabled). Fixed.</li>
+      <li>J-Link-OB-K22-CortexA: VCOM: Setting force-enable of hardware flow control (J-Link Commander &quot;SetHWFC Force&quot; command) did not work correctly (Enabling this option resulted in hardware flow control to be disabled). Fixed.</li>
+      <li>J-Link-OB-K22-RISCV: VCOM: Setting force-enable of hardware flow control (J-Link Commander &quot;SetHWFC Force&quot; command) did not work correctly (Enabling this option resulted in hardware flow control to be disabled). Fixed.</li>
+    </ol>
+    <h4>J-Scope</h4>
+    <ol>
+      <li>Selecting FINE interface could lead to J-Scope trying to connect via BDM3 causing a connection fail. Fixed.</li>
+    </ol>
+    <h4>U-Flash</h4>
+    <ol>
+      <li>The device information tab was not disabled after creating a new project. Fixed.</li>
+      <li>In certain cases &quot;New project&quot; did not reset the general options. Fixed.</li>
+      <li>The selected view mode will now be saved in the project file.</li>
+    </ol>
+  </div>
+</div>
+<div id="features" class="divider-global">
+  <div class="container">
     <h2>Version V7.94g (2024-01-24)</h2>
     <h3>Highlights:</h3>
     <h4>Device Support</h4>
@@ -680,7 +2321,7 @@ div.divider-global:nth-of-type(even) {
     </ol>
     <h4>J-Flash</h4>
     <ol>
-      <li>J-Fash now attempts to detect file when opening files without extensions.</li>
+      <li>J-Flash now attempts to detect file when opening files without extensions.</li>
     </ol>
     <h4>J-Run</h4>
     <ol>
