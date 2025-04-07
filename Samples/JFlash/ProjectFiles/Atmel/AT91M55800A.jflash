@@ -21,7 +21,7 @@
   UseMaxSpeed1 = 0
 [CPU]
   CheckCoreID = 1
-  ChipName = "Analog ADuC7020x62"
+  ChipName = "ARM7"
   ClockSpeed = 0x00000000
   Core = 0xFFFFFFFF
   CoreID = 0x1F0F0F0F

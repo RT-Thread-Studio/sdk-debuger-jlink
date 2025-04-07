@@ -21,7 +21,7 @@
   UseMaxSpeed1 = 0
 [CPU]
   CheckCoreID = 1
-  ChipName = "ST STR912FM44 (Bootbank: 1)"
+  ChipName = "ST STR912FM44 (Bootbank 1)"
   ClockSpeed = 0x00000000
   Core = 0x096601FF
   CoreID = 0x25966041
@@ -48,7 +48,7 @@
   BaseAddr = 0x00000000
   CheckId = 0
   CustomRAMCode = ""
-  DeviceName = "STR91xFx44 internal (Bootbank: 1)"
+  DeviceName = "STR91xFx44 internal (Bootbank 1)"
   EndBank = 11
   OrgNumBits = 16
   OrgNumChips = 1

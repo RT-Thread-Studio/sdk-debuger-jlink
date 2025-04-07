@@ -21,7 +21,7 @@
   UseMaxSpeed1 = 0
 [CPU]
   CheckCoreID = 1
-  ChipName = "Atmel AT91SAM4SD32C"
+  ChipName = "Microchip ATSAM4SD32CA"
   ClockSpeed = 0x00000000
   Core = 0x030000FF
   CoreID = 0x4BA00477

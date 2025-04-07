@@ -17,7 +17,7 @@
   UseMaxSpeed1 = 0
 [CPU]
   CheckCoreID = 1
-  ChipName = "Generic ARM7/ARM9"
+  ChipName = "ARM7"
   ClockSpeed = 0x02DB4000
   CoreID = 0x1F0F0F0F
   EndianMode = 0
