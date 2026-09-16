@@ -1,0 +1,1579 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<DeviceList>
+  <Flash>
+    <Eeprom>
+      <DeviceInfo Id3B="0x000000" PageSize="0x00000020" SectSize="0x00000000" DevSize="0x00000400" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="EEPROM_2BADDR">
+        <Device Vendor="Microchip" Name="AT25080"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x000000" PageSize="0x00000020" SectSize="0x00000000" DevSize="0x00000800" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="EEPROM_2BADDR">
+        <Device Vendor="Microchip" Name="AT25160"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x000000" PageSize="0x00000020" SectSize="0x00000000" DevSize="0x00001000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="EEPROM_2BADDR">
+        <Device Vendor="Microchip" Name="AT25320"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x000000" PageSize="0x00000020" SectSize="0x00000000" DevSize="0x00002000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="EEPROM_2BADDR">
+        <Device Vendor="Microchip" Name="AT25640"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x000000" PageSize="0x00000040" SectSize="0x00000000" DevSize="0x00004000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="EEPROM_2BADDR">
+        <Device Vendor="Microchip" Name="AT25128"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x000000" PageSize="0x00000040" SectSize="0x00000000" DevSize="0x00008000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="EEPROM_2BADDR">
+        <Device Vendor="Microchip" Name="AT25256"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x000000" PageSize="0x00000080" SectSize="0x00000000" DevSize="0x00010000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="EEPROM_2BADDR">
+        <Device Vendor="Microchip" Name="AT25512"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x000000" PageSize="0x00000020" SectSize="0x00000000" DevSize="0x00001000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="EEPROM_2BADDR">
+        <Device Vendor="ST" Name="M95320"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x000000" PageSize="0x00000040" SectSize="0x00000000" DevSize="0x00008000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="EEPROM_2BADDR">
+        <Device Vendor="ST" Name="M95256"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x000000" PageSize="0x00000080" SectSize="0x00000000" DevSize="0x00010000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="EEPROM_2BADDR">
+        <Device Vendor="ST" Name="M95512"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x000000" PageSize="0x00000100" SectSize="0x00000000" DevSize="0x00020000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="EEPROM_3BADDR">
+        <Device Vendor="ST" Name="M95M01"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x000000" PageSize="0x00000040" SectSize="0x00000000" DevSize="0x00008000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="EEPROM_2BADDR">
+        <Device Vendor="ST" Name="M95256-A125"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x000000" PageSize="0x00000040" SectSize="0x00000000" DevSize="0x00008000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="EEPROM_2BADDR">
+        <Device Vendor="ST" Name="M95256-A145"/>
+      </DeviceInfo>
+    </Eeprom>
+    <Nor>
+      <DeviceInfo Id3B="0x184020" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="ALLIANCE_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Alliance Memory" Name="AS25F3128MQ"/>
+        <Device Vendor="XMC" Name="XM25QH128D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x112020" PageSize="0x00000100" SectSize="0x00008000" DevSize="0x00020000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Numonyx" Name="M25P10-A"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x158020" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ST" Name="M25PE16"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x152020" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ST" Name="M25P16"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x162020" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ST" Name="M25P32"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x172020" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ST" Name="M25P64"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x182020" PageSize="0x00000100" SectSize="0x00040000" DevSize="0x01000000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ST" Name="M25P128"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x134020" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="ALLIANCE_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25QH40B"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x144020" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="ALLIANCE_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25QH80D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x145020" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="ALLIANCE_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25LU80D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x154020" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="ALLIANCE_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25QH16D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x155020" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="ALLIANCE_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25QH16C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x164020" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="ALLIANCE_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25QH32D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x165020" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="ALLIANCE_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25QH32C"/>
+        <Device Vendor="XMC" Name="XM25LU32D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x174020" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="ALLIANCE_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25QH64D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x174120" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="ALLIANCE_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25QH64C"/>
+        <Device Vendor="XMC" Name="XM25LU64D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x174320" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="ALLIANCE_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25RH64D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x184120" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="ALLIANCE_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25LU128D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x184320" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="ALLIANCE_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25RH128D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x184420" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="ALLIANCE_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25RU128D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x194020" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="XMC_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25QH256D"/>
+        <Device Vendor="XMC" Name="XM25QH256C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x194120" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="XMC_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25QU256D"/>
+        <Device Vendor="XMC" Name="XM25QU256C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x194320" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="GIGADEV_5BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25RH256D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x194420" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="XMC_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25RU256D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x194620" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="GIGADEV_5BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25EH256D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x197020" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="XMC_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25EU256D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x204620" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x04000000" StatRegFormat="GIGADEV_5BP" Type4BMode="ENTER_EXIT" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25EH512D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x204020" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x04000000" StatRegFormat="XMC_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25QH512D"/>
+        <Device Vendor="XMC" Name="XM25QH512C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x204320" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x04000000" StatRegFormat="GIGADEV_5BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25RH512D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x204420" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x04000000" StatRegFormat="XMC_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25RU512D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x207020" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x04000000" StatRegFormat="XMC_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25EU512D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x204120" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x04000000" StatRegFormat="XMC_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25QU512D"/>
+        <Device Vendor="XMC" Name="XM25QU512C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x217020" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x08000000" StatRegFormat="XMC_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25EU01D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x214020" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x08000000" StatRegFormat="GIGADEV_5BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25QH01D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x214120" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x08000000" StatRegFormat="XMC_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25QU01D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x214620" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x08000000" StatRegFormat="GIGADEV_5BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25EH01D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x224120" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x10000000" StatRegFormat="XMC_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25QU02D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x227020" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x10000000" StatRegFormat="XMC_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="XMC" Name="XM25EU02D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x147120" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Micron" Name="M25PX80"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x21BA20" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x08000000" StatRegFormat="MICRON" Type4BMode="ENTER_EXIT" SpiApi="MICRON">
+        <Device Vendor="Micron" Name="N25Q00AA"/>
+        <Device Vendor="Micron" Name="MT25QL01GB"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x21BB20" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x08000000" StatRegFormat="MICRON" Type4BMode="ENTER_EXIT" SpiApi="MICRON">
+        <Device Vendor="Micron" Name="MT25QU01GAB"/>
+        <Device Vendor="Micron" Name="MT25QU01GB"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x15BA20" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="MICRON">
+        <Device Vendor="Micron" Name="N25Q016A 3V"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x15BB20" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="MICRON">
+        <Device Vendor="Micron" Name="N25Q016A 1.8V"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x16BA20" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="MICRON">
+        <Device Vendor="Micron" Name="N25Q032A 3V"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x16BB20" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="MICRON">
+        <Device Vendor="Micron" Name="N25Q032A 1.8V"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x17BA20" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="MICRON">
+        <Device Vendor="Micron" Name="N25Q064A 3V"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x17BB20" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="MICRON">
+        <Device Vendor="Micron" Name="N25Q064A 1.8V"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x18BA20" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="MICRON">
+        <Device Vendor="Micron" Name="N25Q128A 3V"/>
+        <Device Vendor="Micron" Name="MT25QL128ABA"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x18BB20" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="MICRON">
+        <Device Vendor="Micron" Name="N25Q128A 1.8V"/>
+        <Device Vendor="Micron" Name="MT25QU128ABA"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x19BA20" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="MICRON" Type4BMode="ENTER_EXIT" SpiApi="MICRON">
+        <Device Vendor="Micron" Name="N25Q256A 3V"/>
+        <Device Vendor="Micron" Name="MT25QL256ABA"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x19BB20" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="MICRON" Type4BMode="ENTER_EXIT" SpiApi="MICRON">
+        <Device Vendor="Micron" Name="N25Q256A 1.8V"/>
+        <Device Vendor="Micron" Name="MT25QU256ABA"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x20BA20" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x04000000" StatRegFormat="MICRON" Type4BMode="ENTER_EXIT" SpiApi="MICRON">
+        <Device Vendor="Micron" Name="N25Q512A 3V"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x20BB20" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x04000000" StatRegFormat="MICRON" Type4BMode="ENTER_EXIT" SpiApi="MICRON">
+        <Device Vendor="Micron" Name="N25Q512A 1.8V"/>
+        <Device Vendor="Micron" Name="MT25QU512ABB"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x22BA20" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x10000000" StatRegFormat="MICRON" Type4BMode="ENTER_EXIT" SpiApi="MICRON">
+        <Device Vendor="Micron" Name="MT25QL02GC"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x22BB20" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x10000000" StatRegFormat="MICRON" Type4BMode="ENTER_EXIT" SpiApi="MICRON">
+        <Device Vendor="Micron" Name="MT25QU02GAB"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x150201" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="SPANSION" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Infineon" Name="S25FL032P"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x160201" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="SPANSION" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Infineon" Name="S25FL064P"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x176001" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="SPANSION" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Infineon" Name="S25FL064L"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x00231F" PageSize="0x00000100" SectSize="0x00000800" DevSize="0x00040000" StatRegFormat="ADESTO_PE" Type4BMode="NONE" SpiApi="ADESTO_PE">
+        <Device Vendor="Renesas" Name="AT25PE20"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x01231F" PageSize="0x00000100" SectSize="0x00000800" DevSize="0x00040000" StatRegFormat="ADESTO_PE" Type4BMode="NONE" SpiApi="ADESTO_PE">
+        <Device Vendor="Renesas" Name="AT45DB021E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x00241F" PageSize="0x00000100" SectSize="0x00000800" DevSize="0x00080000" StatRegFormat="ADESTO_PE" Type4BMode="NONE" SpiApi="ADESTO_PE">
+        <Device Vendor="Renesas" Name="AT25PE40"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x01241F" PageSize="0x00000100" SectSize="0x00000800" DevSize="0x00080000" StatRegFormat="ADESTO_PE" Type4BMode="NONE" SpiApi="ADESTO_PE">
+        <Device Vendor="Renesas" Name="AT45DB041E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x00251F" PageSize="0x00000100" SectSize="0x00000800" DevSize="0x00100000" StatRegFormat="ADESTO_PE" Type4BMode="NONE" SpiApi="ADESTO_PE">
+        <Device Vendor="Renesas" Name="AT25PE80"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x01251F" PageSize="0x00000100" SectSize="0x00000800" DevSize="0x00100000" StatRegFormat="ADESTO_PE" Type4BMode="NONE" SpiApi="ADESTO_PE">
+        <Device Vendor="Renesas" Name="AT45DB081E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x00261F" PageSize="0x00000100" SectSize="0x00000800" DevSize="0x00200000" StatRegFormat="ADESTO_PE" Type4BMode="NONE" SpiApi="ADESTO_PE">
+        <Device Vendor="Renesas" Name="AT25PE16"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x01261F" PageSize="0x00000100" SectSize="0x00000800" DevSize="0x00200000" StatRegFormat="ADESTO_PE" Type4BMode="NONE" SpiApi="ADESTO_PE">
+        <Device Vendor="Renesas" Name="AT45DB161E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x00271F" PageSize="0x00000100" SectSize="0x00000800" DevSize="0x00400000" StatRegFormat="ADESTO_PE" Type4BMode="NONE" SpiApi="ADESTO_PE">
+        <Device Vendor="Renesas" Name="AT25PE32"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x01271F" PageSize="0x00000100" SectSize="0x00000800" DevSize="0x00400000" StatRegFormat="ADESTO_PE" Type4BMode="NONE" SpiApi="ADESTO_PE">
+        <Device Vendor="Renesas" Name="AT45DB321E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x00281F" PageSize="0x00000100" SectSize="0x00000800" DevSize="0x00800000" StatRegFormat="ADESTO_PE" Type4BMode="NONE" SpiApi="ADESTO_PE">
+        <Device Vendor="Renesas" Name="AT45DB641E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x00401F" PageSize="0x00000100" SectSize="0x00008000" DevSize="0x00008000" StatRegFormat="ADESTO_1BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25DN256"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x00401F" PageSize="0x00000100" SectSize="0x00008000" DevSize="0x00010000" StatRegFormat="ADESTO_1BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25DF256"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x00421F" PageSize="0x00000100" SectSize="0x00008000" DevSize="0x00020000" StatRegFormat="ADESTO_1BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25DF011"/>
+        <Device Vendor="Renesas" Name="AT25DN011"/>
+        <Device Vendor="Renesas" Name="AT25XE011"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x00431F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00040000" StatRegFormat="ADESTO_1BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25DF021"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x00481F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="ADESTO_1BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25DF641"/>
+        <Device Vendor="Renesas" Name="AT25DF641A"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x00651F" PageSize="0x00000100" SectSize="0x00008000" DevSize="0x00010000" StatRegFormat="ADESTO_1BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25BCM512B"/>
+        <Device Vendor="Renesas" Name="AT25F512B"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x00861F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="ADESTO_1BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25DQ161"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x00871F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="ADESTO_1BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25DQ321"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x01161F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25EU016"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x01271F" PageSize="0x00000100" SectSize="0x00001000" DevSize="0x00400000" StatRegFormat="ADESTO_PE" Type4BMode="NONE" SpiApi="ADESTO_PE">
+        <Device Vendor="Renesas" Name="AT45DQ321"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x01431F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00040000" StatRegFormat="ADESTO_1BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25DF021A"/>
+        <Device Vendor="Renesas" Name="AT25XE021A"/>
+        <Device Vendor="Renesas" Name="AT25XV021A"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x01441F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="ADESTO_1BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25DF041A"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x01451F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="ADESTO_1BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25DF081A"/>
+        <Device Vendor="Renesas" Name="AT26DF081A"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x02451F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="ADESTO_1BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25DF081"/>
+        <Device Vendor="Renesas" Name="AT25DL081"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x01471F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="ADESTO_1BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25DF321A"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x02471F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25XE321D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x08451F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25FF081A"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x08461F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25FF161A"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x08471F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25FF321A"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x01651F" PageSize="0x00000100" SectSize="0x00008000" DevSize="0x00010000" StatRegFormat="ADESTO_1BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25DF512C"/>
+        <Device Vendor="Renesas" Name="AT25DN512C"/>
+        <Device Vendor="Renesas" Name="AT25XE512C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x81681F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25QL0641C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x01681F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25SL0641C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x01841F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25SF041"/>
+        <Device Vendor="Renesas" Name="AT25SF041B"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x01851F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25SF081"/>
+        <Device Vendor="Renesas" Name="AT25SF081B"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x01861F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25SF161"/>
+        <Device Vendor="Renesas" Name="AT25SF161B"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x01871F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25SF321"/>
+        <Device Vendor="Renesas" Name="AT25SF321B"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x018A1F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="GIGADEV_5BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25SF2561C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x818A1F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="GIGADEV_5BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25QF2561C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x81691F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25QL1281C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x01691F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25SL1281C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x816A1F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="GIGADEV_5BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25QL2561C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x016A1F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="GIGADEV_5BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25SL2561C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x81671F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25QL0321C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x01671F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25SL0321C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x01661F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25SL0161C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x02441F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="ADESTO_1BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25DF041B"/>
+        <Device Vendor="Renesas" Name="AT25XE041B"/>
+        <Device Vendor="Renesas" Name="AT25XV041B"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x02461F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="ADESTO_1BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25DF161"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x03461F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="ADESTO_1BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25DL161"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x18421F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="ADESTO_1BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25SL128A"/>
+        <Device Vendor="Renesas" Name="AT25QL128A"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x17431F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="ADESTO_1BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25SL641"/>
+        <Device Vendor="Renesas" Name="AT25QL641"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x16421F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="ADESTO_1BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25SL321"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x17321F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="ADESTO_1BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25SF641"/>
+        <Device Vendor="Renesas" Name="AT25QF641"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x01881F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25SF641B"/>
+        <Device Vendor="Renesas" Name="AT25QF641B"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x01891F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="ADESTO_2BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT255SF128A"/>
+        <Device Vendor="Renesas" Name="AT25SF128A"/>
+        <Device Vendor="Renesas" Name="AT25QF128A"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x00A743" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="ADESTO_2BP" Type4BMode="4BCMD" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="ATXP032"/>
+        <Device Vendor="Renesas" Name="ATXP032R"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x00A81F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="ADESTO_2BP" Type4BMode="4BCMD" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="ATXP064"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x01A81F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="ADESTO_2BP" Type4BMode="4BCMD" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="ATXP064B"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x00A91F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="ADESTO_2BP" Type4BMode="4BCMD" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="ATXP128"/>
+        <Device Vendor="Renesas" Name="ATXP128R"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x0C441F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25XE041D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x0C451F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25XE081D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x0C461F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25XE161D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x08441F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25FF041A"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x01101F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00020000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25EU0011A"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x01111F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00040000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25EU0021A"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x01141F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25EU0041A"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x15701C" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Eon" Name="EN25QH16"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x18701C" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="SPANSION_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Eon" Name="EN25QH128"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x13311C" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Eon" Name="EN25F40"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x14311C" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Eon" Name="EN25F80"/>
+        <Device Vendor="Eon" Name="EN25Q80A"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x15311C" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Eon" Name="EN25F16"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x16311C" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Eon" Name="EN25F32"/>
+        <Device Vendor="Eon" Name="EN25P32"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x17701C" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Eon" Name="EN25QH64"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x182001" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="SPANSION" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Infineon" Name="S25FL128SAGN"/>
+        <Device Vendor="Infineon" Name="S25FL127S"/>
+        <Device Vendor="Infineon" Name="S25FL128S"/>
+        <Device Vendor="Infineon" Name="S25FS128S"/>
+        <Device Vendor="Infineon" Name="S25FL129P"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x182001" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="SPANSION" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Infineon" Name="S70FL256P"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x190201" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="SPANSION" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Infineon" Name="S25FL256S"/>
+        <Device Vendor="Infineon" Name="S25FL256SAIF"/>
+        <Device Vendor="Infineon" Name="S25FS256S"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x200201" PageSize="0x00000100" SectSize="0x00040000" DevSize="0x04000000" StatRegFormat="SPANSION" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL" IdInfo="S25FS512S">  <!-- Provides 512B pages but configuration register is set to 256B by default. We support the default config here -->
+        <Device Vendor="Infineon" Name="S25FS512S"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x200201" PageSize="0x00000200" SectSize="0x00040000" DevSize="0x04000000" StatRegFormat="SPANSION" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL" IdInfo="S25FL512S">
+        <Device Vendor="Infineon" Name="S25FL512S"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x200201" PageSize="0x00000200" SectSize="0x00040000" DevSize="0x08000000" StatRegFormat="SPANSION" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL" IdInfo="S25FL512S">
+        <Device Vendor="Infineon" Name="S70FL01GS"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x154001" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="SPANSION" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Infineon" Name="S25FL116K"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x164001" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="SPANSION" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Infineon" Name="S25FL132K"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x174001" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="SPANSION" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Infineon" Name="S25FL164K"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x186001" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="SPANSION" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Infineon" Name="S25FL128L"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x196001" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="SPANSION" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Infineon" Name="S25FL256L"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1140EF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00020000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Winbond" Name="W25Q10RL"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1230EF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00020000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Winbond" Name="W25X20CL"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1240EF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00040000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Winbond" Name="W25Q20RL"/>
+        <Device Vendor="Winbond" Name="W25Q20CL"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1260EF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00040000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Winbond" Name="W25Q20EW"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1330EF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Winbond" Name="W25X40CV"/>
+        <Device Vendor="Winbond" Name="W25X40CL"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1340EF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Infineon" Name="S25FL004K"/>
+        <Device Vendor="Winbond" Name="W25Q40CL"/>
+        <Device Vendor="Winbond" Name="W25Q40RL"/>
+        <Device Vendor="Winbond" Name="W25Q40RV"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1350EF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Winbond" Name="W25Q40BW"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1360EF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Winbond" Name="W25Q40EW"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1440EF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Infineon" Name="S25FL008K"/>
+        <Device Vendor="Winbond" Name="W25Q80BL"/>
+        <Device Vendor="Winbond" Name="W25Q80BV"/>
+        <Device Vendor="Winbond" Name="W25Q80DV"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1450EF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Winbond" Name="W25Q80BW"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1460EF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Winbond" Name="W25Q80EW"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1540EF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Infineon" Name="S25FL016K"/>
+        <Device Vendor="Winbond" Name="W25Q16RV"/>
+        <Device Vendor="Winbond" Name="W25Q16DV"/>
+        <Device Vendor="Winbond" Name="W25Q16CV"/>
+        <Device Vendor="Winbond" Name="W25Q16BV"/>
+        <Device Vendor="Winbond" Name="W25Q16CL"/>
+        <Device Vendor="Winbond" Name="W25Q16DW"/>
+        <Device Vendor="Winbond" Name="W25Q16FW"/>
+        <Device Vendor="Winbond" Name="W25Q16JV"/>
+        <Device Vendor="Winbond" Name="W25Q16WS"/>
+        <Device Vendor="Winbond" Name="W25Q16PW"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1640EF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Infineon" Name="S25FL032K"/>
+        <Device Vendor="Winbond" Name="W25Q32RV"/>
+        <Device Vendor="Winbond" Name="W25Q32FV (SPI)"/>
+        <Device Vendor="Winbond" Name="W25Q32BV"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1740EF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Infineon" Name="S25FL064K"/>
+        <Device Vendor="Winbond" Name="W25Q64FV (SPI)"/>
+        <Device Vendor="Winbond" Name="W25Q64CV"/>
+        <Device Vendor="Winbond" Name="W25Q64JV-IQ" MeasuredSpeedKbS="607.13 KB/s"/>
+        <Device Vendor="Winbond" Name="W25Q64JV-JQ"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1770EF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Winbond" Name="W25Q64JV-IM" MeasuredSpeedKbS="632.63 KB/s"/>
+        <Device Vendor="Winbond" Name="W25Q64JV-JM"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1840EF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Infineon" Name="S25FL128K"/>
+        <Device Vendor="Winbond" Name="W25Q128FV (SPI)"/>
+        <Device Vendor="Winbond" Name="W25Q128BV"/>
+        <Device Vendor="Winbond" Name="W25Q128JV"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1660EF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Winbond" Name="W25Q32FV (QPI)"/>
+        <Device Vendor="Winbond" Name="W25Q32FW"/>
+        <Device Vendor="Winbond" Name="W25Q32JW"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1860EF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Winbond" Name="W25Q128FV (QPI)"/>
+        <Device Vendor="Winbond" Name="W25Q128FW"/>
+        <Device Vendor="Winbond" Name="W25Q128JW"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1865EF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Winbond" Name="W25Q12NE"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1940EF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Winbond" Name="W25Q256FV (SPI)"/>
+        <Device Vendor="Winbond" Name="W25Q257FV (SPI)"/>
+        <Device Vendor="Winbond" Name="W25Q256JV"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1960EF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Winbond" Name="W25Q256FV (QPI)"/>
+        <Device Vendor="Winbond" Name="W25Q257FV (QPI)"/>
+        <Device Vendor="Winbond" Name="W25Q256PW"/>
+        <Device Vendor="Winbond" Name="W25Q256JW"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x2040EF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x04000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Winbond" Name="W25Q512JV"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x2060EF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x04000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Winbond" Name="W25Q512NW"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x2090EF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x04000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Winbond" Name="W25H512JV"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x2140EF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x08000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Winbond" Name="W25Q01JV"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x2160EF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x08000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Winbond" Name="W25Q01NW"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x2270EF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x10000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Winbond" Name="W25Q02JV"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x2280EF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x10000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Winbond" Name="W25Q02NW"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x175BEF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="MICRON_3BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Winbond" Name="W35T64NW"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x185BEF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="MICRON_3BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Winbond" Name="W35T12NW"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x195BEF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="SPANSION_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Winbond" Name="W35T25NW"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1A5BEF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x04000000" StatRegFormat="SPANSION_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Winbond" Name="W35T51NW"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1B5BEF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x08000000" StatRegFormat="SPANSION_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Winbond" Name="W35T01NW"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1C5BEF" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x10000000" StatRegFormat="SPANSION_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Winbond" Name="W35T02NW"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x192A34" PageSize="0x00000100" SectSize="0x00040000" DevSize="0x02000000" StatRegFormat="WINBOND_3BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Infineon" Name="S25HL256T"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1A2A34" PageSize="0x00000100" SectSize="0x00040000" DevSize="0x04000000" StatRegFormat="WINBOND_3BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Infineon" Name="S25HL512T"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1B2A34" PageSize="0x00000100" SectSize="0x00040000" DevSize="0x08000000" StatRegFormat="WINBOND_3BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Infineon" Name="S25HL01GT"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x192B34" PageSize="0x00000100" SectSize="0x00040000" DevSize="0x02000000" StatRegFormat="WINBOND_3BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Infineon" Name="S25HS256T"/>  <!-- Same ID as S25FS256T, but different sector size. Currently handled internally by J-Flash SPI -->
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x192B34" PageSize="0x00000100" SectSize="0x00020000" DevSize="0x02000000" StatRegFormat="WINBOND_3BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Infineon" Name="S25FS256T"/>  <!-- Same ID as S25HS256T, but different sector size. Currently handled internally by J-Flash SPI -->
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1A2B34" PageSize="0x00000100" SectSize="0x00040000" DevSize="0x04000000" StatRegFormat="WINBOND_3BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Infineon" Name="S25HS512T"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1B2B34" PageSize="0x00000100" SectSize="0x00040000" DevSize="0x08000000" StatRegFormat="WINBOND_3BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Infineon" Name="S25HS01GT"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x195A34" PageSize="0x00000100" SectSize="0x00040000" DevSize="0x02000000" StatRegFormat="SPANSION" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Infineon" Name="S28HL256T"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x195B34" PageSize="0x00000100" SectSize="0x00040000" DevSize="0x02000000" StatRegFormat="SPANSION" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Infineon" Name="S28HS256T"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1A5A34" PageSize="0x00000100" SectSize="0x00040000" DevSize="0x04000000" StatRegFormat="SPANSION" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Infineon" Name="S28HL512T"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1A5B34" PageSize="0x00000100" SectSize="0x00040000" DevSize="0x04000000" StatRegFormat="SPANSION" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Infineon" Name="S28HS512T"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1B5A34" PageSize="0x00000100" SectSize="0x00040000" DevSize="0x08000000" StatRegFormat="SPANSION" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Infineon" Name="S28HL01GT"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1B5B34" PageSize="0x00000100" SectSize="0x00040000" DevSize="0x08000000" StatRegFormat="SPANSION" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Infineon" Name="S28HS01GT"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1120C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00020000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25L1005"/>
+        <Device Vendor="Macronix" Name="MX25L1005A"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1220C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00040000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25L2006E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1320C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25L4006E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1420C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25V8006E"/>
+        <Device Vendor="Macronix" Name="MX25L8005"/>
+        <Device Vendor="Macronix" Name="MX25V8005"/>
+        <Device Vendor="Macronix" Name="MX25L8075E"/>
+        <Device Vendor="Macronix" Name="MX25L8035E"/>
+        <Device Vendor="Macronix" Name="MX25L8073E"/>
+        <Device Vendor="Macronix" Name="MX25L8008E"/>
+        <Device Vendor="Macronix" Name="MX25L8036E"/>
+        <Device Vendor="Macronix" Name="MX25L8006E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1720C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25L6405D"/>
+        <Device Vendor="Macronix" Name="MX25L6406E"/>
+        <Device Vendor="Macronix" Name="MX25L6406EMI"/>
+        <Device Vendor="Macronix" Name="MX25L6408D"/>
+        <Device Vendor="Macronix" Name="MX25L6433F"/>
+        <Device Vendor="Macronix" Name="MX25L6436E"/>
+        <Device Vendor="Macronix" Name="MX25L6445E"/>
+        <Device Vendor="Macronix" Name="MX25L6465E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1820C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25L12873F"/>
+        <Device Vendor="Macronix" Name="MX25L12865E"/>
+        <Device Vendor="Macronix" Name="MX25L12850F"/>
+        <Device Vendor="Macronix" Name="MX25L12839F"/>
+        <Device Vendor="Macronix" Name="MX25L12845G"/>
+        <Device Vendor="Macronix" Name="MX25L12845E"/>
+        <Device Vendor="Macronix" Name="MX25L12835F"/>
+        <Device Vendor="Macronix" Name="MX25L12835E"/>
+        <Device Vendor="Macronix" Name="MX25L12836E"/>
+        <Device Vendor="Macronix" Name="MX25L12875F"/>
+        <Device Vendor="Macronix" Name="MX25L12805D"/>
+        <Device Vendor="Macronix" Name="MX25L25835E"/>
+        <Device Vendor="Macronix" Name="MX25L12833F"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1920C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25L25735F"/>
+        <Device Vendor="Macronix" Name="MX25L25645G"/>
+        <Device Vendor="Macronix" Name="MX25L25735E"/>
+        <Device Vendor="Macronix" Name="MX25L25639F"/>
+        <Device Vendor="Macronix" Name="MX25L25635F"/>
+        <Device Vendor="Macronix" Name="MX25L25635E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1A20C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x04000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25L51237G"/>
+        <Device Vendor="Macronix" Name="MX25L51245G"/>
+        <Device Vendor="Macronix" Name="MX66L51235F"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1B20C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x08000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX66L1G45G"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x3325C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25U4035"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x3425C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25U8035"/>
+        <Device Vendor="Macronix" Name="MX25U8033E"/>
+        <Device Vendor="Macronix" Name="MX25U8035E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x5325C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25V4035"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x3525C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25U1635E"/>
+        <Device Vendor="Macronix" Name="MX25U1635F"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x3625C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25L3239E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x3725C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25U6435F"/>
+        <Device Vendor="Macronix" Name="MX25L6439E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x3825C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25U12835F"/>
+        <Device Vendor="Macronix" Name="MX25U12845G"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x3925C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25U25635F"/>
+        <Device Vendor="Macronix" Name="MX25U25645G"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x3984C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25UW25345G"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x3A25C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x04000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX66U51235F"/>
+        <Device Vendor="Macronix" Name="MX25U51245G"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x3B25C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x08000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX66U1G45G"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x3B80C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x08000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX66UM1G45G"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x3B85C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x08000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX66LM1G45G"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x3A84C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x04000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25UW51345G"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x3A81C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x04000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25UW51245"/>
+        <Device Vendor="Macronix" Name="MX25UM51345G"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x3A86C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x04000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25LW51245"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x3881C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25UW12845G"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x3981C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25UW25645G"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x3986C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="SPANSION_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25LW25645G"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x3975C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX76U25645G" MeasuredSpeedKbS="734.96 KB/s"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x3B81C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x08000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX66UW1G45G"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x3884C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25UW12345G"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x3C80C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x10000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX66UM2G45G"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x3781C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25UW6445G"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x3784C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25UW6345G"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x3980C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25UM25645G"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x3C25C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x10000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX66U2G45G"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x5425C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25V8035"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1323C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25V4035F"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1423C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25V8035F"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1228C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00040000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25R2035F"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1328C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25R4035F"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1428C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25R8035F"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1520C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="SPANSION_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25L1605D"/>
+        <Device Vendor="Macronix" Name="MX25L1608D"/>
+        <Device Vendor="Macronix" Name="MX25L1606E"/>
+        <Device Vendor="Macronix" Name="MX25L1608E"/>
+        <Device Vendor="Macronix" Name="MX25L1605A"/> <!--This variant only supports 3 BP bits (BP0-BP2). The 5th bit position in the status register reads always return 0 there. Because of that, the same 4-bit bp_mask used by the other variants below can be reused here too, without any special-case handling.-->
+        <Device Vendor="Macronix" Name="MX25V1606F"/>
+        <Device Vendor="Macronix" Name="MX25V16066"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1523C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25V1635F"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1524C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25L1673E"/>
+        <Device Vendor="Macronix" Name="MX25L1636D"/>
+        <Device Vendor="Macronix" Name="MX25L1635D"/>
+        <Device Vendor="Macronix" Name="MX25L1633E"/>
+        <Device Vendor="Macronix" Name="MX25L1675E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1525C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25L1636E"/>
+        <Device Vendor="Macronix" Name="MX25L1635E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1528C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25R1635F"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1728C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25R6435F"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x3A80C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x04000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25UM51245G"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x3A85C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x04000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25LM51245G"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1620C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25L3273F"/>
+        <Device Vendor="Macronix" Name="MX25L3273E"/>
+        <Device Vendor="Macronix" Name="MX25L3275E"/>
+        <Device Vendor="Macronix" Name="MX25L3235E"/>
+        <Device Vendor="Macronix" Name="MX25L3206E"/>
+        <Device Vendor="Macronix" Name="MX25L3205A"/>
+        <Device Vendor="Macronix" Name="MX25L3233F"/>
+        <Device Vendor="Macronix" Name="MX25L3208E"/>
+        <Device Vendor="Macronix" Name="MX25L3205D"/>
+        <Device Vendor="Macronix" Name="MX25L3208D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1628C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25R3235F"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x165EC2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25L3225D"/>
+        <Device Vendor="Macronix" Name="MX25L3235D"/>
+        <Device Vendor="Macronix" Name="MX25L3236D"/>
+        <Device Vendor="Macronix" Name="MX25L3237D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x184068" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="BYT" Name="BY25Q128ES" MeasuredSpeedKbS="345.27 KB/s"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x8C25BF" PageSize="0x00000000" SectSize="0x00010000" DevSize="0x00040000" StatRegFormat="ADESTO_2BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Microchip" Name="SST25VF020B"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x130662" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Microchip" Name="SST25PF040C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x4126BF" PageSize="0x00000100" SectSize="0x00001000" DevSize="0x00200000" StatRegFormat="MICROCHIP" Type4BMode="NONE" SpiApi="MICROCHIP">
+        <Device Vendor="Microchip" Name="SST26VF016B"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x4226BF" PageSize="0x00000100" SectSize="0x00001000" DevSize="0x00400000" StatRegFormat="MICROCHIP" Type4BMode="NONE" SpiApi="MICROCHIP">
+        <Device Vendor="Microchip" Name="SST26VF032B"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x4326BF" PageSize="0x00000100" SectSize="0x00001000" DevSize="0x00800000" StatRegFormat="MICROCHIP" Type4BMode="NONE" SpiApi="MICROCHIP">
+        <Device Vendor="Microchip" Name="SST26VF064B"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x195A2C" PageSize="0x00000100" SectSize="0x00020000" DevSize="0x02000000" StatRegFormat="MICRON_2" Type4BMode="EXTRA_CMDS" SpiApi="MICRON">
+        <Device Vendor="Micron" Name="MT35XL256CBA"/>
+        <Device Vendor="Micron" Name="MT35X256GCBA"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1A5A2C" PageSize="0x00000100" SectSize="0x00020000" DevSize="0x04000000" StatRegFormat="MICRON_2" Type4BMode="EXTRA_CMDS" SpiApi="MICRON">
+        <Device Vendor="Micron" Name="MT35XL512CBA"/>
+        <Device Vendor="Micron" Name="MT35X512GCBA"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1A5B2C" PageSize="0x00000100" SectSize="0x00020000" DevSize="0x04000000" StatRegFormat="MICRON_2" Type4BMode="EXTRA_CMDS" SpiApi="MICRON">
+        <Device Vendor="Micron" Name="MT35XU512ABA"/>
+        <Device Vendor="Micron" Name="MT35X512GCBA"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1B5A2C" PageSize="0x00000100" SectSize="0x00020000" DevSize="0x08000000" StatRegFormat="MICRON_2" Type4BMode="EXTRA_CMDS" SpiApi="MICRON">
+        <Device Vendor="Micron" Name="MT35XL01GCBA"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1C5A2C" PageSize="0x00000100" SectSize="0x00020000" DevSize="0x10000000" StatRegFormat="MICRON_2" Type4BMode="EXTRA_CMDS" SpiApi="MICRON">
+        <Device Vendor="Micron" Name="MT35XL02GCBA"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1040C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00010000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25Q05B"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1140C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00020000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25Q10B"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1240C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00040000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25Q20C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1340C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25Q40C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1440C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25Q80C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1540C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25Q16C"/>
+        <Device Vendor="GigaDevice" Name="GD25Q16E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1640C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25Q32C"/>
+        <Device Vendor="GigaDevice" Name="GD25Q32E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1740C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25Q64C"/>
+        <Device Vendor="GigaDevice" Name="GD25Q64E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1840C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL" QspiInfo="GD25Q128E">
+        <Device Vendor="GigaDevice" Name="GD25Q128C"/>
+        <Device Vendor="GigaDevice" Name="GD25Q128E"/>
+        <Device Vendor="GigaDevice" Name="GD25Q127C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1940C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="GIGADEV_5BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25Q256C"/>
+        <Device Vendor="GigaDevice" Name="GD25Q256D"/>
+        <Device Vendor="GigaDevice" Name="GD25S512MDFIG"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1A47C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x04000000" StatRegFormat="GIGADEV_5BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25B512ME"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1060C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00010000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25LD05C"/>
+        <Device Vendor="GigaDevice" Name="GD25LQ05C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1160C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00020000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25LD10C"/>
+        <Device Vendor="GigaDevice" Name="GD25LQ10C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1260C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00040000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25LD20C"/>
+        <Device Vendor="GigaDevice" Name="GD25LQ20C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1360C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25LD40C"/>
+        <Device Vendor="GigaDevice" Name="GD25LQ40C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1460C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25LD80C"/>
+        <Device Vendor="GigaDevice" Name="GD25LE80C"/>
+        <Device Vendor="GigaDevice" Name="GD25LQ80C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1560C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25LQ16C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1660C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25LE32E"/>
+        <Device Vendor="GigaDevice" Name="GD25LQ32C"/>
+        <Device Vendor="GigaDevice" Name="GD25LQ32D"/>
+        <Device Vendor="GigaDevice" Name="GD25LQ32E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1760C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25LQ64C"/>
+        <Device Vendor="GigaDevice" Name="GD25LQ64E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1860C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25LQ128D"/>
+        <Device Vendor="GigaDevice" Name="GD25LD128D"/>
+        <Device Vendor="GigaDevice" Name="GD25LE128D"/>
+        <Device Vendor="GigaDevice" Name="GD25LE128E"/>
+        <Device Vendor="GigaDevice" Name="GD25LB128D"/>
+        <Device Vendor="GigaDevice" Name="GD25LQ128E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1960C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="GIGADEV_5BP" Type4BMode="ENTER_EXIT" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25LQ256D"/>
+        <Device Vendor="GigaDevice" Name="GD25Q257D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1963C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="GIGADEV_5BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25LF255E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1064C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00010000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25WD05C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1164C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00020000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25WD10C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1264C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00040000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25WD20C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1265C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00040000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25WQ20E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1364C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25WD40C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1365C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25WQ40E" MeasuredSpeedKbS="707.9 KB/s"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1464C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25WD80C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1465C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25WQ80E" MeasuredSpeedKbS="595.4 KB/s"/>
+        <Device Vendor="GigaDevice" Name="GD25D80C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1565C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25WQ16E" MeasuredSpeedKbS="615.13 KB/s"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1665C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25WQ32E" MeasuredSpeedKbS="371.82 KB/s"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1765C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25WQ64E" MeasuredSpeedKbS="347.17 KB/s"/>
+        <Device Vendor="GigaDevice" Name="GD25WQ64H"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1865C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25WQ128E" MeasuredSpeedKbS="355.0 KB/s"/>
+        <Device Vendor="GigaDevice" Name="GD25WQ128H"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1968C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="GIGADEV_5BP_2" Type4BMode="ENTER_EXIT" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25LX256E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1B40C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x08000000" StatRegFormat="GIGADEV_5BP" Type4BMode="ENTER_EXIT" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD55B01GF" MeasuredSpeedKbS="1268.34 KB/s"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x16405E" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Zbit Semiconductor" Name="ZB25VQ32"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x17405E" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Zbit Semiconductor" Name="ZB25VQ64"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x18405E" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Zbit Semiconductor" Name="ZB25VQ128"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x120662" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00040000" StatRegFormat="ADESTO_2BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="onsemi" Name="LE25U20AQG"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x11409D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00020000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LP010E"/>
+        <Device Vendor="ISSI" Name="IS25LQ010B"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x11709D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00020000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25WP010E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x12409D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00040000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LP020E"/>
+        <Device Vendor="ISSI" Name="IS25LQ020B"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x12709D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00040000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25WP020E"/>
+        <Device Vendor="ISSI" Name="IS25WP020"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x13409D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LQ040B"/>
+        <Device Vendor="ISSI" Name="IS25LP040E"/>
+        <Device Vendor="ISSI" Name="IS25WP040"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x13709D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25WP040E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x14409D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LQ080B"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x15409D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LQ016B"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x16409D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LQ032B"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x14609D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LP080D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x15609D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LP016D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x16609D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LP032"/>
+        <Device Vendor="ISSI" Name="IS25LP032A"/>
+        <Device Vendor="ISSI" Name="IS25LP032D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x17609D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LP064"/>
+        <Device Vendor="ISSI" Name="IS25LP064A"/>
+        <Device Vendor="ISSI" Name="IS25LP064D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x17709D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25WP064"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x17719D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25WJ064F"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x18609D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LP128"/>
+        <Device Vendor="ISSI" Name="IS25LP128D"/>
+        <Device Vendor="ISSI" Name="IS25LP128-JBLE"/>
+        <Device Vendor="ISSI" Name="IS25LE128E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x19609D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LP256D"/>
+        <Device Vendor="ISSI" Name="IS25LP256E"/>
+        <Device Vendor="ISSI" Name="IS25LE256E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1A609D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x04000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LP512M"/>
+        <Device Vendor="ISSI" Name="IS25LE512M"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x21609D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x08000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LP01GJ"/>
+        <Device Vendor="ISSI" Name="IS25LP01GG"/>
+        <Device Vendor="ISSI" Name="IS25LE01GG"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x14709D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25WP080"/>
+        <Device Vendor="ISSI" Name="IS25WP080C"/>
+        <Device Vendor="ISSI" Name="IS25WP080D"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x15709D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="WINBOND_4BP_2" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25WP016"/>
+        <Device Vendor="ISSI" Name="IS25WP016C"/>
+        <Device Vendor="ISSI" Name="IS25WP016D"/>
+        <Device Vendor="ISSI" Name="IS25WJ016F"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x16709D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="WINBOND_4BP_2" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25WP032D"/>
+        <Device Vendor="ISSI" Name="IS25WP032"/>
+        <Device Vendor="ISSI" Name="IS25WJ032F"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x18709D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25WP128"/>
+        <Device Vendor="ISSI" Name="IS25WP128D"/>
+        <Device Vendor="ISSI" Name="IS25WE128E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x19709D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25WP256D"/>
+        <Device Vendor="ISSI" Name="IS25WP256E"/>
+        <Device Vendor="ISSI" Name="IS25WE256E"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1A709D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x04000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25WP512M"/>
+        <Device Vendor="ISSI" Name="IS25WE512M"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1B709D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x08000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25WP01G"/>
+        <Device Vendor="ISSI" Name="IS25WE01G"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x20709D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x04000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25WP512MJ"/>
+        <Device Vendor="ISSI" Name="IS25WE512MG"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x20609D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x04000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LP512MJ"/>
+        <Device Vendor="ISSI" Name="IS25LE512MG"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x21709D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x08000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25WP01GG"/>
+        <Device Vendor="ISSI" Name="IS25WP01GJ"/>
+        <Device Vendor="ISSI" Name="IS25WE01GG"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x185B9D" PageSize="0x00000100" SectSize="0x00020000" DevSize="0x01000000" StatRegFormat="MICRON" Type4BMode="ENTER_EXIT" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25WX128"/>
+        <Device Vendor="ISSI" Name="IS25WX128M"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x185A9D" PageSize="0x00000100" SectSize="0x00020000" DevSize="0x01000000" StatRegFormat="MICRON" Type4BMode="ENTER_EXIT" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LX128"/>
+        <Device Vendor="ISSI" Name="IS25LX128M"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x195B9D" PageSize="0x00000100" SectSize="0x00020000" DevSize="0x02000000" StatRegFormat="MICRON" Type4BMode="ENTER_EXIT" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25WX256"/>
+        <Device Vendor="ISSI" Name="IS25WX256M"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x195A9D" PageSize="0x00000100" SectSize="0x00020000" DevSize="0x02000000" StatRegFormat="MICRON" Type4BMode="ENTER_EXIT" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LX256"/>
+        <Device Vendor="ISSI" Name="IS25LX256M"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x165A9D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LX032"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x165B9D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25WX032"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x175A9D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LX064"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x175B9D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25WX064"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1A5A9D" PageSize="0x00000100" SectSize="0x00020000" DevSize="0x04000000" StatRegFormat="MICRON" Type4BMode="ENTER_EXIT" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LX512M"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1A5B9D" PageSize="0x00000100" SectSize="0x00020000" DevSize="0x04000000" StatRegFormat="MICRON" Type4BMode="ENTER_EXIT" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25WX512M"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1B5A9D" PageSize="0x00000100" SectSize="0x00020000" DevSize="0x08000000" StatRegFormat="MICRON" Type4BMode="ENTER_EXIT" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LX01G"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1B5B9D" PageSize="0x00000100" SectSize="0x00020000" DevSize="0x08000000" StatRegFormat="MICRON" Type4BMode="ENTER_EXIT" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25WX01G"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1C5A9D" PageSize="0x00000100" SectSize="0x00020000" DevSize="0x10000000" StatRegFormat="MICRON" Type4BMode="ENTER_EXIT" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LX02G"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1C5B9D" PageSize="0x00000100" SectSize="0x00020000" DevSize="0x10000000" StatRegFormat="MICRON" Type4BMode="ENTER_EXIT" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25WX02G"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1B609D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x08000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LP01G"/>
+        <Device Vendor="ISSI" Name="IS25LE01G"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x22709D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x10000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25WP02G"/>
+        <Device Vendor="ISSI" Name="IS25WE02GG"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x22609D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x10000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LP02G"/>
+        <Device Vendor="ISSI" Name="IS25LE02GG"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x7E9D7F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x10000000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LD040-JNLE"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x449D7F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LQ080-JKLE"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x219D7F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00020000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25CD010-JNLE"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x469D7F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25CQ032-JBLE"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x157120" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Micron" Name="M25PX16-VMN6"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x114020" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00020000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Micron" Name="M45PE10-VMN6"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x138020" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Micron" Name="M25PE40-VMN6TP"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x01841F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x10000000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Microchip" Name="AT25SF041-SSHD-T"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x112037" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00040000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Amic" Name="A25L20PU"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x113037" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00020000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Amic" Name="A25L010"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x122037" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00020000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Amic" Name="A25L10PU"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x123037" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00040000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Amic" Name="A25L020"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x132037" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Amic" Name="A25L40P"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x133037" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Amic" Name="A25L040"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x142037" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Amic" Name="A25L80P"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x143037" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Amic" Name="A25L080"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x152037" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Amic" Name="A25L16PT"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x153037" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Amic" Name="A25L016"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1540A1" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Fujitsu" Name="FM25Q16"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x104085" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00010000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="P25Q06H"/>
+        <Device Vendor="Puya" Name="P25Q06L"/>
+        <Device Vendor="Puya" Name="P25Q06U"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x106085" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00010000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="P25Q05U"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x114085" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00020000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="P25Q11H"/>
+        <Device Vendor="Puya" Name="P25Q11L"/>
+        <Device Vendor="Puya" Name="P25Q11U"/>
+        <Device Vendor="Puya" Name="P25RT11L"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x114485" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00020000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="P25D09L"/>
+        <Device Vendor="Puya" Name="P25T12H"/>
+        <Device Vendor="Puya" Name="P25D09H"/>
+        <Device Vendor="Puya" Name="P25D09U"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x124585" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00020000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="P25D24H"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x116085" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00020000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="P25Q10U"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x124085" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00040000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="P25Q21H"/>
+        <Device Vendor="Puya" Name="P25Q21L"/>
+        <Device Vendor="Puya" Name="P25Q21U"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x124485" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00040000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="P25T22H"/>
+        <Device Vendor="Puya" Name="P25T22L"/>
+        <Device Vendor="Puya" Name="P25D24L"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x126085" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00040000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="P25Q20U"/>
+        <Device Vendor="Puya" Name="P25Q23L"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x132085" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="PY25D40HB"/>
+        <Device Vendor="Puya" Name="PY25Q40HB"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x136085" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="P25Q40SH"/>
+        <Device Vendor="Puya" Name="P25Q40SL"/>
+        <Device Vendor="Puya" Name="P25Q40SN"/>
+        <Device Vendor="Puya" Name="P25Q40SU"/>
+        <Device Vendor="Puya" Name="P25Q42L"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x142085" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="PY25D80HB"/>
+        <Device Vendor="Puya" Name="PY25Q80HB"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x146085" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="P25Q80L"/>
+        <Device Vendor="Puya" Name="P25Q80SL"/>
+        <Device Vendor="Puya" Name="P25Q80SN"/>
+        <Device Vendor="Puya" Name="P25Q80SU"/>
+        <Device Vendor="Puya" Name="P25Q80SH"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x152085" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="PY25Q16LB"/>
+        <Device Vendor="Puya" Name="PY25Q16HB"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x156085" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="P25Q16SU"/>
+        <Device Vendor="Puya" Name="P25Q16SN"/>
+        <Device Vendor="Puya" Name="P25Q16SL"/>
+        <Device Vendor="Puya" Name="P25Q16SH"/>
+        <Device Vendor="Puya" Name="P25Q16H"/>
+        <Device Vendor="Puya" Name="P25Q16U"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x162085" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="PY25Q32HB"/>
+        <Device Vendor="Puya" Name="PY25Q32LB"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x162385" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="PY25F32HB"/>
+        <Device Vendor="Puya" Name="PY25F32LC"/>
+        <Device Vendor="Puya" Name="PY25R32HB"/>
+        <Device Vendor="Puya" Name="PY25R32LC"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x166085" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="P25Q32H"/>
+        <Device Vendor="Puya" Name="P25Q32SL"/>
+        <Device Vendor="Puya" Name="P25Q32SH"/>
+        <Device Vendor="Puya" Name="P25Q32SN"/>
+        <Device Vendor="Puya" Name="P25Q32SU"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x172085" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="PY25Q64HA"/>
+        <Device Vendor="Puya" Name="PY25F64LC"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x176585" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="PY25Q64LB"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x172385" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="PY25F64HA"/>
+        <Device Vendor="Puya" Name="PY25F64HB"/>
+        <Device Vendor="Puya" Name="PY25R64HB"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x176385" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="PY25R64LC"/>
+        <Device Vendor="Puya" Name="PY25R64LB"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x176085" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="P25Q64SL"/>
+        <Device Vendor="Puya" Name="P25Q64SU"/>
+        <Device Vendor="Puya" Name="P25Q64SH"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x176685" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="P25Q64SN"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x182085" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="PY25Q128HA"/>
+        <Device Vendor="Puya" Name="PY25Q128LA"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x182385" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="PY25F128HA"/>
+        <Device Vendor="Puya" Name="PY25F128HB"/>
+        <Device Vendor="Puya" Name="PY25F128LC"/>
+        <Device Vendor="Puya" Name="PY25R128HB"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x186385" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="PY25R128LA"/>
+        <Device Vendor="Puya" Name="PY25R128LC"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x192085" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="GIGADEV_5BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="PY25Q256HB"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x196585" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="GIGADEV_5BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="PY25Q256LC"/>
+        <Device Vendor="Puya" Name="PY25Q256LD"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x192385" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="GIGADEV_5BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="PY25F256HB"/>
+        <Device Vendor="Puya" Name="PY25R256HB"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x196385" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="GIGADEV_5BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="PY25F256LC"/>
+        <Device Vendor="Puya" Name="PY25R256LC"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1A2085" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x04000000" StatRegFormat="GIGADEV_5BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="PY25Q512HB"/>
+        <Device Vendor="Puya" Name="PY25Q512LC"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1A2385" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x04000000" StatRegFormat="GIGADEV_5BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="PY25F512HB"/>
+        <Device Vendor="Puya" Name="PY25R512HB"/>
+        <Device Vendor="Puya" Name="PY25F512LC"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1A6385" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x04000000" StatRegFormat="GIGADEV_5BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="PY25R512LC"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1B6585" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x08000000" StatRegFormat="GIGADEV_5BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="PY25Q01GLC"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1B2085" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x08000000" StatRegFormat="GIGADEV_5BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Puya" Name="PY25Q01GHB"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x163037" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Amic" Name="A25L032"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1A35C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x04000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="Macronix" Name="MX25UR51245G"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x2040C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x04000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD25Q512M"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x222037" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00020000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Amic" Name="A25L10PT"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x252037" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Amic" Name="A25L16PU"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x212037" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00040000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Amic" Name="A25L20PT"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x45149D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LQ016"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x52119D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00040000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25WQ020"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x53129D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25WQ040"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x7F449D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LQ080"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x7F469D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25CQ032"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0xFF219D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00020000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25CD010"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0xFF229D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00040000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LD020"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0xFF329D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00040000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25WD020"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0xFF339D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25WD040"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0xFF7E9D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LD040"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x09409D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00008000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LP025E"/>
+        <Device Vendor="ISSI" Name="IS25WP025E"/>
+        <Device Vendor="ISSI" Name="IS25LQ025B"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x10409D" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00010000" StatRegFormat="WINBOND_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="ISSI" Name="IS25LP512E"/>
+        <Device Vendor="ISSI" Name="IS25WP512E"/>
+        <Device Vendor="ISSI" Name="IS25LQ512B"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1743F8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Fidelix" Name="FM25M64C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1842F8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Fidelix" Name="FM25M4AA"/>
+      </DeviceInfo>
+    </Nor>
+    <Fram>
+      <DeviceInfo Id3B="0x032504" PageSize="0x00000100" SectSize="0x00008000" DevSize="0x00008000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="FRAM">
+        <Device Vendor="Fujitsu" Name="MIB85RS256TY"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x0023C2" PageSize="0x00000100" SectSize="0x00008000" DevSize="0x00010000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="FRAM">
+        <Device Vendor="Infineon" Name="FM25V05A"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x0822C2" PageSize="0x00000100" SectSize="0x00008000" DevSize="0x00008000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="FRAM">
+        <Device Vendor="Infineon" Name="FM25V02A"/>
+      </DeviceInfo>
+    </Fram>
+  </Flash>
+</DeviceList>

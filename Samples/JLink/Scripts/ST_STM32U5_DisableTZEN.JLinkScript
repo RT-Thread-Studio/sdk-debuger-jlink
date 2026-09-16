@@ -206,7 +206,7 @@ static int _InitDAP(void) {
     }
   } while(1);
   if (r < 0) {
-    JLINK_SYS_Report("  Error: Failed to initialized DAP.");
+    JLINK_SYS_Report("  Error: Failed to initialize DAP.");
     return -1;
   }
   r = _ConfigureAP(0);                 // Finally configure the AP so we can use it.
