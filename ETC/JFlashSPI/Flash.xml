@@ -362,6 +362,18 @@
       <DeviceInfo Id3B="0x818A1F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="GIGADEV_5BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
         <Device Vendor="Renesas" Name="AT25QF2561C"/>
       </DeviceInfo>
+      <DeviceInfo Id3B="0x03881F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25SF0641C" MeasuredSpeedKbS="1297.77 KB/s"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x83881F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25QF0641C"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x03871F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25SF0321C" MeasuredSpeedKbS="1440.60 KB/s"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x83871F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Renesas" Name="AT25QF0321C"/>
+      </DeviceInfo>
       <DeviceInfo Id3B="0x81691F" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
         <Device Vendor="Renesas" Name="AT25QL1281C"/>
       </DeviceInfo>
@@ -790,7 +802,7 @@
         <Device Vendor="Macronix" Name="MX25UW25345G"/>
       </DeviceInfo>
       <DeviceInfo Id3B="0x3A25C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x04000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
-        <Device Vendor="Macronix" Name="MX66U51235F"/>
+        <Device Vendor="Macronix" Name="MX66U51235F" MeasuredSpeedKbS="1334.67 KB/s"/>
         <Device Vendor="Macronix" Name="MX25U51245G"/>
       </DeviceInfo>
       <DeviceInfo Id3B="0x3B25C2" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x08000000" StatRegFormat="WINBOND_4BP" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
@@ -919,8 +931,66 @@
         <Device Vendor="Macronix" Name="MX25L3236D"/>
         <Device Vendor="Macronix" Name="MX25L3237D"/>
       </DeviceInfo>
+      <DeviceInfo Id3B="0x1560C4" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="ALLIANCE_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Giantec" Name="GT25Q16A" MeasuredSpeedKbS="291.44 KB/s"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1640C4" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="SPANSION_4BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="Giantec" Name="GT25Q32EB-H" />
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x194968" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="GIGADEV_5BP" Type4BMode="ENTER_EXIT" SpiApi="NORMAL">
+        <Device Vendor="BYT" Name="BY25Q256FS" MeasuredSpeedKbS="594.26 KB/s"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x194068" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x02000000" StatRegFormat="GIGADEV_5BP" Type4BMode="ENTER_EXIT" SpiApi="NORMAL">
+        <Device Vendor="BYT" Name="BY25FQ256ES" MeasuredSpeedKbS="765.81 KB/s"/>
+      </DeviceInfo>
       <DeviceInfo Id3B="0x184068" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
         <Device Vendor="BYT" Name="BY25Q128ES" MeasuredSpeedKbS="345.27 KB/s"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x186068" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x01000000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="BYT" Name="BY25FQ128EL" MeasuredSpeedKbS="1207.47 KB/s"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x174068" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="BYT" Name="BY25FQ64ES" MeasuredSpeedKbS="1382.54 KB/s"/>
+        <Device Vendor="BYT" Name="BY25Q64ES" MeasuredSpeedKbS="579.94 KB/s"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x176068" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00800000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="BYT" Name="BY25FQ64EL" MeasuredSpeedKbS="1262.69 KB/s"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x164068" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="BYT" Name="BY25Q32ES" MeasuredSpeedKbS="640.40 KB/s"/>
+        <Device Vendor="BYT" Name="BY25FQ32ES" MeasuredSpeedKbS="1659.82 KB/s"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x166068" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="BYT" Name="BY25FQ32EL" MeasuredSpeedKbS="1312.50 KB/s"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x151068" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="BYT" Name="BY25Q16AW" MeasuredSpeedKbS="164.3 KB/s"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x154068" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="BYT" Name="BY25Q16ES" MeasuredSpeedKbS="1875.47 KB/s"/>
+        <Device Vendor="BYT" Name="BY25FQ16ES" MeasuredSpeedKbS="1594.73 KB/s"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x156068" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00200000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="BYT" Name="BY25FQ16EL" MeasuredSpeedKbS="1371.52 KB/s"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x144068" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="BYT" Name="BY25Q80ES" MeasuredSpeedKbS="698.66 KB/s"/>
+        <Device Vendor="BYT" Name="BY25Q80BS" MeasuredSpeedKbS="638.26 KB/s"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x141068" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00100000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="BYT" Name="BY25Q80AW" MeasuredSpeedKbS="158.76 KB/s"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x134068" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="MICRON_3BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="BYT" Name="BY25D40ES" MeasuredSpeedKbS="351.73 KB/s"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x131068" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00080000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="BYT" Name="BY25Q40GW" MeasuredSpeedKbS="154.68 KB/s"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x124068" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00040000" StatRegFormat="ADESTO_2BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="BYT" Name="BY25D20FV" MeasuredSpeedKbS="423.25 KB/s"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x121068" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00040000" StatRegFormat="GIGADEV_5BP" Type4BMode="NONE" SpiApi="NORMAL">
+        <Device Vendor="BYT" Name="BY25Q20AW" MeasuredSpeedKbS="142.45 KB/s"/>
       </DeviceInfo>
       <DeviceInfo Id3B="0x8C25BF" PageSize="0x00000000" SectSize="0x00010000" DevSize="0x00040000" StatRegFormat="ADESTO_2BP" Type4BMode="NONE" SpiApi="NORMAL">
         <Device Vendor="Microchip" Name="SST25VF020B"/>
@@ -1088,6 +1158,9 @@
       </DeviceInfo>
       <DeviceInfo Id3B="0x1B40C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x08000000" StatRegFormat="GIGADEV_5BP" Type4BMode="ENTER_EXIT" SpiApi="NORMAL">
         <Device Vendor="GigaDevice" Name="GD55B01GF" MeasuredSpeedKbS="1268.34 KB/s"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x1B47C8" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x08000000" StatRegFormat="GIGADEV_5BP_2" Type4BMode="EXTRA_CMDS" SpiApi="NORMAL">
+        <Device Vendor="GigaDevice" Name="GD55B01GE"/>
       </DeviceInfo>
       <DeviceInfo Id3B="0x16405E" PageSize="0x00000100" SectSize="0x00010000" DevSize="0x00400000" StatRegFormat="WINBOND_3BP" Type4BMode="NONE" SpiApi="NORMAL">
         <Device Vendor="Zbit Semiconductor" Name="ZB25VQ32"/>
@@ -1565,14 +1638,20 @@
       </DeviceInfo>
     </Nor>
     <Fram>
-      <DeviceInfo Id3B="0x032504" PageSize="0x00000100" SectSize="0x00008000" DevSize="0x00008000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="FRAM">
+      <DeviceInfo Id3B="0x032504" PageSize="0x00000100" SectSize="0x00008000" DevSize="0x00008000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="FRAM_2BADDR">
         <Device Vendor="Fujitsu" Name="MIB85RS256TY"/>
       </DeviceInfo>
-      <DeviceInfo Id3B="0x0023C2" PageSize="0x00000100" SectSize="0x00008000" DevSize="0x00010000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="FRAM">
+      <DeviceInfo Id3B="0x0023C2" PageSize="0x00000100" SectSize="0x00008000" DevSize="0x00010000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="FRAM_2BADDR">
         <Device Vendor="Infineon" Name="FM25V05A"/>
       </DeviceInfo>
-      <DeviceInfo Id3B="0x0822C2" PageSize="0x00000100" SectSize="0x00008000" DevSize="0x00008000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="FRAM">
+      <DeviceInfo Id3B="0x0822C2" PageSize="0x00000100" SectSize="0x00008000" DevSize="0x00008000" StatRegFormat="MICRON" Type4BMode="NONE" SpiApi="FRAM_2BADDR">
         <Device Vendor="Infineon" Name="FM25V02A"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x4330C2" PageSize="0x00000100" SectSize="0x00008000" DevSize="0x00200000" StatRegFormat="ADESTO_2BP" Type4BMode="NONE" SpiApi="FRAM_3BADDR">
+        <Device Vendor="Infineon" Name="CY15B116QN"/>
+      </DeviceInfo>
+      <DeviceInfo Id3B="0x4730C2" PageSize="0x00000100" SectSize="0x00008000" DevSize="0x00200000" StatRegFormat="ADESTO_2BP" Type4BMode="NONE" SpiApi="FRAM_3BADDR">
+        <Device Vendor="Infineon" Name="CY15V116QN"/>
       </DeviceInfo>
     </Fram>
   </Flash>
