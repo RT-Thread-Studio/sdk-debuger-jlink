@@ -1,0 +1,2783 @@
+/***********************************************************************
+*                    SEGGER Microcontroller GmbH                       *
+*                        The Embedded Experts                          *
+************************************************************************
+*                                                                      *
+*                  (c) SEGGER Microcontroller GmbH                     *
+*                        All rights reserved                           *
+*                          www.segger.com                              *
+*                                                                      *
+************************************************************************
+*                                                                      *
+************************************************************************
+*                                                                      *
+*                                                                      *
+*  Licensing terms                                                     *
+*                                                                      *
+* This software may be distributed to your customers free of charge.   *
+* This grant of redistribution does not entitle YOU or enduser to      *
+* receive from SEGGER hard-copy documentation, technical support,      *
+* phone assistance, or enhancements or updates to the Software unless  *
+* a specific agreement clearly states otherwise.                       *
+*                                                                      *
+*                                                                      *
+* THIS SOFTWARE IS PROVIDED BY COPYRIGHT HOLDER "AS IS" AND ANY        *
+* EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE    *
+* IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR   *
+* PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL COPYRIGHT HOLDER BE        *
+* LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY,     *
+* OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,             *
+* PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR   *
+* PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY  *
+* OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT         *
+* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE    *
+* USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH     *
+* DAMAGE.                                                              *
+*                                                                      *
+************************************************************************
+
+-------------------------- END-OF-HEADER -----------------------------
+
+Purpose: J-Link script file for secure debug of Infineon PSC3M6/P6 devices
+Literature:
+  [1]  J-Link User Guide
+  [2]  Knowledge Base https://kb.segger.com/Infineon_PSC3#Secure_Debug
+  [3]  PSoC C3 Programming specification
+
+  Additional information:
+    For more information about public functions that can be implemented to customize J-Link actions, please refer to [1]
+*/
+
+/*********************************************************************
+*
+*       Constants, statics (debug authentication configuration)
+*
+**********************************************************************
+*/
+//
+// Select the desired certificate type: OEM or PROT_FW.
+//
+__constant U32 DEBUG_CERT_TYPE_OEM     = 2;
+__constant U32 DEBUG_CERT_TYPE_PROT_FW = 3;
+__constant U32 DEBUG_CERT_TYPE         = DEBUG_CERT_TYPE_OEM;  // DEBUG_CERT_TYPE_OEM, DEBUG_CERT_TYPE_PROT_FW
+//
+// Debug certificate
+// Insert the certificate into the U8 array below.
+// The free Bin2C converter from SEGGER can be used to convert debug_token.bin into a C-style array.
+// For more information, see:
+// https://www.segger.com/downloads/free-utilities/
+//
+static const U8 _aDebugCert[172] = {
+  0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B, 0x0C, 0x0D, 0x0D, 0x0F,
+  0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1A, 0x1B, 0x1C, 0x1D, 0x1D, 0x1F,
+  0x20, 0x21, 0x22, 0x23, 0x24, 0x25, 0x26, 0x27, 0x28, 0x29, 0x2A, 0x2B, 0x2C, 0x2D, 0x2D, 0x2F,
+  0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39, 0x3A, 0x3B, 0x3C, 0x3D, 0x3D, 0x3F,
+  0x40, 0x41, 0x42, 0x43, 0x44, 0x45, 0x46, 0x47, 0x48, 0x49, 0x4A, 0x4B, 0x4C, 0x4D, 0x4D, 0x4F,
+  0x50, 0x51, 0x52, 0x53, 0x54, 0x55, 0x56, 0x57, 0x58, 0x59, 0x5A, 0x5B, 0x5C, 0x5D, 0x5D, 0x5F,
+  0x60, 0x61, 0x62, 0x63, 0x64, 0x65, 0x66, 0x67, 0x68, 0x69, 0x6A, 0x6B, 0x6C, 0x6D, 0x6D, 0x6F,
+  0x70, 0x71, 0x72, 0x73, 0x74, 0x75, 0x76, 0x77, 0x78, 0x79, 0x7A, 0x7B, 0x7C, 0x7D, 0x7D, 0x7F,
+  0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0x88, 0x89, 0x8A, 0x8B, 0x8C, 0x8D, 0x8D, 0x8F,
+  0x90, 0x91, 0x92, 0x93, 0x94, 0x95, 0x96, 0x97, 0x98, 0x99, 0x9A, 0x9B, 0x9C, 0x9D, 0x9D, 0x9F,
+  0xA0, 0xA1, 0xA2, 0xA3, 0xA4, 0xA5, 0xA6, 0xA7, 0xA8, 0xA9, 0xAA, 0xAB
+};
+
+/*********************************************************************
+*
+*       Constants (similar to defines)
+*
+**********************************************************************
+*/
+
+//
+// Target acquisition methods
+//
+__constant U8 ACQUIRE_CHECK_IDLE            = (1 << 0);   // Initial check whether boot code is already in IDLE or DEAD branch
+__constant U8 ACQUIRE_TEST_MODE             = (1 << 1);   // Test mode (TM) acquisition (recommended)
+__constant U8 ACQUIRE_VECTOR_CATCH          = (1 << 2);   // Vector Catch
+__constant U8 ACQUIRE_BREAKPOINT            = (1 << 3);   // Alternate acquisition (breakpoint at reset address)
+__constant U8 ACQUIRE_METHODS_ALLOWED       = (ACQUIRE_CHECK_IDLE | ACQUIRE_TEST_MODE | ACQUIRE_VECTOR_CATCH | ACQUIRE_BREAKPOINT);
+//
+// MCU reset types
+//
+__constant U8 RST_TYPE_XRES                 = (1 << 0);   // Hardware reset (XRES)
+__constant U8 RST_TYPE_POWER                = (1 << 1);   // Hardware reset (Power Cycle)
+__constant U8 RST_TYPE_RES_SOFT_CTL         = (1 << 2);   // Software reset (RES_SOFT_CTL.TRIGGER_SOFT)
+__constant U8 RST_TYPE_SYSRESETREQ          = (1 << 3);   // Software reset (AIRCR.SYSRESETREQ)
+__constant U8 RST_TYPE_CDBGRSTREQ           = (1 << 4);   // Software reset (DP->CTRL/STAT.CDBGRSTREQ)
+__constant U8 RST_TYPE_SOFT                 = (RST_TYPE_RES_SOFT_CTL | RST_TYPE_SYSRESETREQ | RST_TYPE_CDBGRSTREQ);
+__constant U8 RST_TYPE_HARD                 = (RST_TYPE_XRES | RST_TYPE_POWER);
+__constant U8 RST_TYPES_ALLOWED             = (RST_TYPE_XRES | RST_TYPE_RES_SOFT_CTL | RST_TYPE_SYSRESETREQ | RST_TYPE_CDBGRSTREQ);
+//
+// JTag chain setup string for JLINK_CORESIGHT_Configure() call
+// Physical chain: TDI -> Cortex-M33 (8-bit IR) -> TDO.
+// The DLL workaround models that IR as IRLenDevice=4 plus IRPost=4.
+// TODO: This configuration string is used as temporary workaround against issues with J-Link DLL.
+// It should be removed after Inquiry#60370886 is fixed. Ref. https://support.segger.com/#ticket/zoom/37123
+//
+static const char* JTAG_CHAIN_CONF_STR               = "IRPre=0;DRPre=0;IRPost=4;DRPost=0;IRLenDevice=4;PerformTIFInit=0";
+//
+// Access Ports
+//
+__constant U8 AP_SYS                                 = 0;          // AP[0] System Access Port
+__constant U8 AP_CM33                                = 1;          // AP[1] Cortex-M33 Access Port
+__constant U8 AP_MAX                                 = 1;          // Maximum number of Access Ports for scanning algorithm
+__constant U8 AP_TO_USE                              = 1;          // Preferred Access Port (AP[1] - CM33 Core is used by default in this script)
+__constant U8 AP_TO_USE_STRICT                       = 0;          // "0" - Can use any available AP if needed; "1" - Strict AP usage to preferred only
+//
+// PSC3 registers and definitions
+//
+__constant U32 ROM_NS_START_ADDR                     = 0x00800000; // ROM start address, Non-secure
+__constant U32 ROM_S_START_ADDR                      = 0x10800000; // ROM start address, Secure
+__constant U32 MEM_SIZE_ROM                          = 0x00010000; // Size of System ROM
+//
+// SRSS registers must always be accessed via the secure alias.
+//
+__constant U32 SRSS_BOOT_STATUS                      = 0x52200418; // Address where boot code or application stores the status word
+__constant U32 SRSS_TST_MODE                         = 0x52200400; // SRSS->TST_MODE: Test Mode Control Register
+__constant U32 SRSS_TST_MODE_TEST_MODE               = (1 << 31);  // SRSS->TST_MODE.TEST_MODE (bit[31], 0x80000000): 1 - Indicates the chip is in test mode. 0 - Normal operation mode
+__constant U32 SRSS_TST_DEBUG_CTL                    = 0x52200404; // SRSS->TST_DEBUG_CTL: Debug Control Register
+__constant U32 SRSS_TST_DEBUG_CTL_DEBUG_WFA          = (1 << 31);  // SRSS->TST_DEBUG_CTL.DEBUG_WFA (bit[31], 0x80000000): Wait for Action. Set by BootROM when it waits for application or
+__constant U32 SRSS_TST_DEBUG_CTL2                   = 0x52200408; // SRSS->TST_DEBUG_CTL2: Debug Control Register. Address of application descriptor or debug certificate depends on DEBUG_TST_CTL.REQUEST.
+__constant U32 SRSS_TST_DEBUG_STATUS                 = 0x5220040C; // SRSS->TST_DEBUG_STATUS: Debug Status Register
+__constant U32 SRSS_RES_SOFT_CTL                     = 0x52200410; // SRSS->RES_SOFT_CTL: Soft Reset Trigger Register
+__constant U32 SRSS_RES_SOFT_CTL_TRIG_SOFT           = (1 << 0);   // SRSS->RES_SOFT_CTL.TRIGGER_SOFT (bit[0]): Triggers a soft reset. The reset clears this bit.
+__constant U32 CYBOOT_ID_MSK                         = 0xFFF00000; // Mask for MODULE_ID in status word
+__constant U32 CYBOOT_ID_SUCCESS                     = 0x0D500000; // The module IDs for BootROM in case of success
+__constant U32 CYBOOT_ID_FAIL                        = 0xBAF00000; // The module IDs for BootROM in case of fail
+__constant U32 CYBOOT_STATUS_MSK                     = 0x0000FFFF; // Mask for RESULT_CODE (status) in status word
+__constant U32 CYBOOT_NEXT_APP_LAUNCHED              = 0x00000067; // Result code indicating BootROM launched the application
+//
+// Debug Access Port (DAP)
+//
+__constant U32 DP_IDCODE_SWD                         = 0x4C013477;
+__constant U32 DP_IDCODE_JTAG                        = 0x4BA07477;
+__constant U32 ACC_DP                                = 0;          // APnDP for DP access
+__constant U32 ACC_AP                                = 1;          // APnDP for AP access
+__constant U32 DP_ABORT_ORUNERRCLR                   = (1 << 4);   // DP->ABORT.ORUNERRCLR  (bit[4], 0x00000010): Clears CTRL/STAT.STICKYORUN
+__constant U32 DP_ABORT_WDERRCLR                     = (1 << 3);   // DP->ABORT.WDERRCLR    (bit[3], 0x00000008): Clears CTRL/STAT.WDATAERR
+__constant U32 DP_ABORT_STKERRCLR                    = (1 << 2);   // DP->ABORT.STKERRCLR   (bit[2], 0x00000004): Clears CTRL/STAT.STICKYERR
+__constant U32 DP_ABORT_STKCMPCLR                    = (1 << 1);   // DP->ABORT.STKCMPCLR   (bit[1], 0x00000002): Clears CTRL/STAT.STICKYCMP
+                                                                   // DP->ABORT typical write value: 0x0000001E
+__constant U32 DP_CTRL_STICKYERR                     = (1 << 5);   // DP->CTRL/STAT.STICKYERR    ( bit[5], 0x00000020): Error in AP transaction
+__constant U32 DP_CTRL_CDBGRSTREQ                    = (1 << 26);  // DP->CTRL/STAT.CDBGRSTREQ   (bit[26], 0x04000000): Debug reset request
+__constant U32 DP_CTRL_CDBGRSTACK                    = (1 << 27);
+__constant U32 DP_CTRL_CDBGPWRUPREQ                  = (1 << 28);  // DP->CTRL/STAT.CDBGPWRUPREQ (bit[28], 0x10000000): Debug powerup request
+__constant U32 DP_CTRL_CDBGPWRUPACK                  = (1 << 29);
+__constant U32 DP_CTRL_CSYSPWRUPREQ                  = (1 << 30);  // DP->CTRL/STAT.CSYSPWRUPREQ (bit[30], 0x40000000): System powerup request
+__constant U32 DP_CTRL_CSYSPWRUPACK                  = (1 << 31);
+__constant U32 AP_CSW_PROT_VAL                       = (0x0B<<24); // AP->CSW.Prot   (bits[30:24], 0x0B000000): Bus access protection control for Secure access
+__constant U32 AP_CSW_PROT_NS_VAL                    = (0x4B<<24); // AP->CSW.Prot   (bits[30:24], 0x4B000000): Bus access protection control for Non Secure access.
+__constant U32 AP_CSW_SDEVICE_EN                     = (1 << 23);  // AP->CSW.SDeviceEn(  bit[23], 0x00800000): Secure Debug Enabled.
+__constant U32 AP_CSW_DEVICE_EN                      = (1 << 6);   // AP->CSW.DeviceEn (   bit[6], 0x00000040): Device enabled.
+__constant U32 AP_CSW_SIZE_WORD                      = (2 << 0);   // AP->CSW.Size   (  bits[2:0], 0x00000002): Size of access <- Word (32-bits)
+                                                                   // AP->CSW typical write value: 0x4B000002
+__constant U32 DP_SELECT_MSK                         = 0xFFFFFFF0; // Mask for bits[31:4] of DP->SELECT register
+__constant U8  AP_REG_A3A2_LSH                       = 2;          // Left shift to get Bits[3:2] of the AP register address
+__constant U8  AP_REG_A3A2_MSK                       = 3;          // Mask for Bits[3:2] of the AP register address
+__constant U32 JLINK_CORESIGHT_APV2_REG_CSW          = 0xD00;      // Offset of AP->CSW register
+__constant U32 JLINK_CORESIGHT_APV2_REG_TAR          = 0xD04;      // Offset of AP->TAR register
+__constant U32 JLINK_CORESIGHT_APV2_REG_DRW          = 0xD0C;      // Offset of AP->DRW register
+//
+// Flash Patch and Breakpoint Unit (FPB)
+//
+__constant U32 FP_CTRL_ADDR                          = 0xE0002000; // FPB->FP_CTRL: FlashPatch Control Register in ARMv7/8-M. In ARMv6-M, it is BP_CTRL: Breakpoint Control register.
+__constant U32 FP_CTRL_KEY                           = (1 << 1);   // FPB->FP_CTRL.KEY    (bit[1], 0x00000002): Enables write to the register
+__constant U32 FP_CTRL_ENABLE                        = (1 << 0);   // FPB->FP_CTRL.ENABLE (bit[0], 0x00000001): Flash Patch global enable. Enables the FPB.
+__constant U32 FP_COMP0                              = 0xE0002008; // FPB->FP_COMP0: FlashPatch Comparator Register0 in ARMv7/8-M. In ARMv6-M, it is BP_COMP0: Breakpoint Comparator registers0
+                                                                   // FPB->FP_COMP.BPADDR ( bits[31:1], 0xFFFFFFFE): Breakpoint address. Note that the bitfields are changed vs. ARMv6/7-M
+__constant U32 FP_COMP_BE                            = (1 << 0);   // FPB->FP_COMP.BE     (     bit[0], 0x00000001): Breakpoint enable
+//
+// System Control Block (SCB)
+//
+__constant U32 CPUID_ADDR                            = 0xE000ED00; // SCB->CPUID Base Register
+__constant U32 VTOR_ADDR                             = 0xE000ED08; // SCB->VTOR Vector Table Offset Register
+__constant U32 AIRCR_ADDR                            = 0xE000ED0C; // SCB->AIRCR: Application Interrupt and Reset Control Register
+__constant U32 AIRCR_VECTKEY_VAL                     = 0x05FA0000; // SCB->AIRCR.VECTKEY       (bits[31:16], 0x05FA0000): Vector Key. The value 0x05FA must be written to this register
+__constant U32 AIRCR_SYSRESETREQ                     = (1 << 2);   // SCB->AIRCR.SYSRESETREQ   (     bit[2], 0x00000004): System Reset Request
+//
+// Debug Control Block (DCB)
+//
+__constant U32 DHCSR_ADDR                            = 0xE000EDF0; // DCB->DHCSR: Debug Halting Control and Status Register
+__constant U32 DHCSR_DBGKEY_VAL                      = 0xA05F0000; // DCB->DHCSR.DBGKEY    (bits[31:16], 0xA05F0000): Must write 0xA05F to DBGKEY to enable write accesses to bits[15:0]
+__constant U32 DHCSR_S_RESET_ST                      = (1 << 25);  // DCB->DHCSR.S_RESET_ST(    bit[25], 0x02000000): Reset sticky status. Indicates whether the PE has been reset since the last read of the DHCSR.
+__constant U32 DHCSR_S_HALT                          = (1 << 17);  // DCB->DHCSR.S_HALT    (    bit[17], 0x00020000): Indicates whether the processor is in Debug state
+__constant U32 DHCSR_S_REGRDY                        = (1 << 16);
+__constant U32 DHCSR_C_HALT                          = (1 <<  1);  // DCB->DHCSR.C_HALT    (     bit[1], 0x00000002): Processor halt bit
+__constant U32 DHCSR_C_DEBUGEN                       = (1 <<  0);  // DCB->DHCSR.C_DEBUGEN (     bit[0], 0x00000001): Halting debug enable bit
+                                                                   //         (DBGKEY|C_HALT|C_DEBUGEN = 0xA05F0003)
+__constant U32 DCRSR_ADDR                            = 0xE000EDF4; // DCB->DCRSR: Debug Core Register Selector Register
+__constant U32 DCRDR_ADDR                            = 0xE000EDF8; // DCB->DCRDR: Debug Core Register Data Register
+__constant U32 DEMCR_ADDR                            = 0xE000EDFC; // DCB->DEMCR: Debug Exception and Monitor Control Register
+__constant U32 DSCSR_ADDR                            = 0xE000EE08; // DCB->DSCSR: Debug Security Control and Status Register
+__constant U32 DCRSR_REGWnR                          = (1 << 16);  // DCB->DCRSR.REGWnR (  bit[16], 0x00010000): Specifies the access type for the transfer ('0' - Read, '1' - Write)
+__constant U32 DCRSR_REGSEL_MSK                      = 0x0000007F; // DCB->DCRSR.REGSEL (bits[6:0], 0x0000007F): Specifies the ARM core register, special-purpose register, or Floating-point extension register
+__constant U32 DCRSR_REGSEL_xPSR                     = 0x10;       // DCB->DCRSR.REGSEL = xPSR
+__constant U32 DCRSR_REGSEL_MSP                      = 0x11;       // DCB->DCRSR.REGSEL = Main stack pointer, MSP
+__constant U32 DCRSR_REGSEL_PC                       = 0x0F;       // DCB->DCRSR.REGSEL = PC / DebugReturnAddress
+__constant U32 DEMCR_VC_CORERESET                    = (1 <<  0);  // DCB->DEMCR.VC_CORERESET ( bit[0], 0x00000001): Reset Vector Catch. Halt running system if Core reset occurs.
+__constant U32 DEMCR_TRCENA                          = (1 << 24);  // DCB->DEMCR.TRCENA       (bit[24], 0x01000000): Global enable for all DWT and ITM features
+__constant U32 xPSR_T                                = (1 << 24);  // xPSR.T (bit[24], 0x01000000): Thumb bit
+__constant U32 DSCSR_CDS                             = (1 << 16);  // DCB->DSCSR.CDS: Current Domain Secure
+//
+// Misc
+//
+__constant int RESULT_OK                             = 0;          // Function return result: O.K.
+__constant int RESULT_ERR                            = -1;         // Function return result: Error
+__constant int RESULT_ERR_CRITICAL                   = -15;        // Function return result: Critical Error
+__constant U32 S_ADDR_MSK                            = (1 << 28);  // Secure address mask
+__constant U32 ERR_ADDR_MSK                          = 0xF0000000; // Error mask for SP and PC values
+__constant U32 TIMEOUT_HANDSHAKE                     = 10000;      // Timeout for the maximum possible boot time until the debug interface is enabled
+__constant U32 TIMEOUT_HANDSHAKE_SMALL               = 5;          // Small timeout for the handshake when performed not after reset
+__constant U32 TIMEOUT_LISTEN_WND                    = 150;        // Timeout for Listen window duration (150 ms budget)
+__constant U32 TIMEOUT_HALT_CPU                      = 100;        // Timeout for CPU halt/unhalt actions
+__constant U32 TEST_MODE_SWD_SPEED                   = 4000;
+//
+// Debug authentication
+//
+__constant U32 DEBUG_CERT_ADDR                       = 0x34004000;
+__constant U8  DEBUG_CERT_REQUEST_SID                = 1;          // Request SID with PROT_FW
+__constant U32 DAUTHSTATUS_ADDR                      = 0xE000EFB8; // DCB->DAUTHSTATUS
+__constant U32 DAUTHSTATUS_SID_MASK                  = 0x00000030; // SID field, bits[5:4]
+__constant U32 DAUTHSTATUS_SID_PROHIBITED            = 0x00000020; // SID prohibited
+__constant U32 CYBOOT_DEBUG_TOKEN_PASSED             = 0x00000084; // Token accepted
+
+/*********************************************************************
+*
+*       Constants, log messages
+*
+**********************************************************************
+*/
+
+//
+// Debug message strings are commented out because they take up a lot of memory.
+// We have observed that otherwise, the memory of the XMC4200 OB is not sufficient to load the script.
+//
+// To debug this script, do the following:
+//  1. Uncomment the functions: _DebugMsg(), _DebugMsg1(),  _LogTimedResult.
+//  2. Uncomment the debug message strings below.
+//  3. Remove the __probe attribute from the functions of interest.
+//  4. Use a high-end (Ultra/Pro/Plus/etc) debug probe to ensure sufficient memory is available.
+//  5. Uncomment all VERBOSE_LEVEL branches
+//
+//__constant U32 VERBOSE_LEVEL                             = 1;
+//static const char* _STRESULT_ERR_RESET_DID_NOT_OCCUR     = "JLinkScript: The reset did not occur, the XRES may not be connected, or a soft reset is prohibited!";
+//static const char* _STRESULT_ERR_CPU_NOT_HALTED          = "JLinkScript: The CPU has not been halted as requested!";
+//static const char* _STR_WARN_DSCSR_INACCESSIBLE          = "JLinkScript: Warning, DSCSR register is inaccessible. Assumed Non-secure CDS";
+//static const char* _STR_DOMAIN_SECURE                    = "JLinkScript: Current domain secure state: Secure";
+//static const char* _STR_DOMAIN_NON_SECURE                = "JLinkScript: Current domain secure state: Non-secure";
+//static const char* _STR_TOOK                             = " Took ";
+//static const char* _STR_US                               = " us.";
+//static const char* _STR_IDCODE_PREFIX                    = "JLinkScript: IDCODE: 0x";
+//static const char* _STR_HANDSHAKE_OK                     = "JLinkScript: Handshake successful.";
+//static const char* _STR_HANDSHAKE_FAILED                 = "JLinkScript: Warning, IDCODE not detected. Handshake failed.";
+//static const char* _STR_RESET_XRES                       = "JLinkScript: Perform HW reset using XRES ...";
+//static const char* _STR_RESET_RES_SOFT_CTL               = "JLinkScript: Perform SW reset using RES_SOFT_CTL.TRIGGER_SOFT ...";
+//static const char* _STR_RESET_CDBGRSTREQ                 = "JLinkScript: Perform SW reset using DP->CTRL/STAT.CDBGRSTREQ ...";
+//static const char* _STR_SET_PC_PREFIX                    = "JLinkScript: Setting PC to ";
+//static const char* _STR_BOOT_IDLE_OK                     = "JLinkScript: Target enters into IDLE or DEAD branches.";
+//static const char* _STR_BOOT_IDLE_FAILED                 = "JLinkScript: Warning, target does not enter either IDLE or DEAD branches.";
+//static const char* _STR_BOOT_STATUS_PREFIX               = "JLinkScript: Boot Status: ";
+//static const char* _STR_CERT_TYPE_OEM                    = "OEM";
+//static const char* _STR_CERT_TYPE_PROT_FW                = "PROT_FW";
+//static const char* _STR_EMPTY                            = "";
+//static const char* _STR_CERT_ERR_PREFIX                  = "JLinkScript: The ";
+//static const char* _STR_CERT_ERR_MIDDLE                  = " debug certificate cannot be loaded from file ";
+//static const char* _STR_LOG_PREFIX                       = "JLinkScript: ";
+//static const char* _STR_BYTES_OF                         = " bytes of ";
+//static const char* _STR_CERT_LOADED_MIDDLE               = " debug certificate successfully loaded from file ";
+//static const char* _STR_PRE_RESET_DEBUG_CERT             = "JLinkScript: Pre-reset before Request WFA DEBUG_CERT ...";
+//static const char* _STR_REQUEST_DEBUG_CERT               = "JLinkScript: Request WFA DEBUG_CERT ...";
+//static const char* _STR_WFA2_MODE_OK                     = "JLinkScript: Target is in WFA2 mode.";
+//static const char* _STR_WFA2_MODE_FAILED                 = "JLinkScript: Warning, target does not enter WFA2 mode.";
+//static const char* _STR_CM33_AP_OPENED                   = "JLinkScript: CM33 AP is opened.";
+//static const char* _STR_CM33_AP_STILL_CLOSED             = "JLinkScript: Warning, CM33 AP is still closed.";
+//static const char* _STR_TOKEN_VALIDATION_OK              = "JLinkScript: Token validation is successful.";
+//static const char* _STR_TOKEN_VALIDATION_FAILED          = "JLinkScript: Token validation is unsuccessful.";
+//static const char* _STR_SID_PROHIBITED                   = "JLinkScript: Secure Invasive Debug is prohibited";
+//static const char* _STR_CERT_UPLOADED                    = "JLinkScript: Debug certificate has been uploaded to the target";
+//static const char* _STR_CM33_AP_BECOME_AVAILABLE         = "JLinkScript: CM33 AP become available";
+//static const char* _STR_CM33_AP_STILL_CLOSED_BOOT_STATUS = "JLinkScript: CM33 AP still closed, Boot Status: ";
+//static const char* _STR_CM33_AP_CLOSED                   = "JLinkScript: CM33 AP is closed.";
+//static const char* _STR_CM33_AP_AVAILABLE                = "JLinkScript: CM33 AP is available initially";
+//static const char* _STR_SID_ALLOWED_INITIALLY            = "JLinkScript: Secure Invasive Debug is allowed initially";
+//static const char* _STR_USE_PROT_FW_CERT                 = "JLinkScript: Use PROT_FW certificate to allow Secure Invasive Debug.";
+//static const char* _STR_SID_ALLOWED_AFTER_PROT_FW        = "JLinkScript: Secure Invasive Debug is allowed after processing PROT_FW certificate.";
+//static const char* _STR_SID_STILL_PROHIBITED             = "JLinkScript: Secure Invasive Debug is still prohibited after processing PROT_FW certificate.";
+//static const char* _STR_CONTINUE_WITHOUT_SID             = "JLinkScript: Continue without Secure Invasive Debug.";
+//static const char* _STR_SKIP_SID_REQUEST                 = "JLinkScript: Either an OEM certificate is selected, or the request for Secure Invasive Debug using the PROT_FW certificate is not enabled.";
+//static const char* _STR_CORE_HALTED_AT_PREFIX            = "JLinkScript: The core has been halted at ";
+//static const char* _STR_VECTOR_CATCH_HALT_FAILED         = "JLinkScript: The core does not halt at the first instruction as requested by the Vector Catch.";
+//static const char* _STR_READ_RESET_ADDR_FAILED           = "JLinkScript: Failed to read the reset address from the vector table. Try to read PC value where the core is halted and put breakpoint there.";
+//static const char* _STR_BREAKPOINT_HALT_FAILED           = "JLinkScript: The core does not halt at the breakpoint.";
+//static const char* _STR_NO_ACQUIRE_METHODS               = "JLinkScript: No acquisition methods are enabled. Trying to init DAP only.";
+//static const char* _STR_ACQUIRE_CHECK_IDLE               = "JLinkScript: CHECK_IDLE acquire method";
+//static const char* _STR_ACQUIRE_TEST_MODE_HW             = "JLinkScript: Test mode acquire method with HW reset";
+//static const char* _STR_ACQUIRE_TEST_MODE_SW             = "JLinkScript: Test mode acquire method with SW reset";
+//static const char* _STR_ACQUIRE_VECTOR_CATCH_HW          = "JLinkScript: Vector Catch acquire method with HW reset";
+//static const char* _STR_ACQUIRE_VECTOR_CATCH_SW          = "JLinkScript: Vector Catch acquire method with SW reset";
+//static const char* _STR_ACQUIRE_BREAKPOINT_HW            = "JLinkScript: Breakpoint acquire method with HW reset";
+//static const char* _STR_ACQUIRE_BREAKPOINT_SW            = "JLinkScript: Breakpoint acquire method with SW reset";
+//static const char* _STR_TRACE_CLOCK_CONFIG               = "JLinkScript: Configuring trace clock:";
+//static const char* _STR_TRACE_SET_PREFIX                 = "JLinkScript/Trace: Set ";
+//static const char* _STR_TO_PORT_PREFIX                   = " to P";
+//static const char* _STR_UNDERSCORE                       = "_";
+//static const char _HEX_STR[] = {
+//  0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37,
+//  0x38, 0x39, 0x41, 0x42, 0x43, 0x44, 0x45, 0x46
+//};
+//char _LOG_STR[256]; // Buffer for debug messages
+//
+// DLL configuration strings
+//
+static const char* _STR_CFG_RETRY_OFF                    = "RetryOnInvalDAPResp=0;PerformTIFInit=0";
+static const char* _STR_CFG_RETRY_ON                     = "RetryOnInvalDAPResp=1;PerformTIFInit=0";
+
+/*********************************************************************
+*
+*       Static data
+*
+**********************************************************************
+*/
+static const U32 AP_ADDR[] = { // Array of AP addresses:
+  0xF0000000,                  // Address of System Access Port - AP[0]
+  0xF0002000                   // Address of Cortex-M33 Access Port - AP[1]
+};
+
+static U32 _DOMAIN_SECURE; // The state of DSCSR->CDS bit (Current Domain Secure)
+//
+// Sequence of Read DPIDR over SWD
+// "Read ID" command (DP:00).
+// Receive: ACK + ID.
+//
+static const U8 _aData_ReadDPIDR[] = {
+  0xA5, 0x00, 0x00, 0x00, 0x00, 0x00
+};
+//
+// Direction buffer for Read IDCODE transmission.
+//
+static const U8 _aDir_ReadDPIDR[] = {
+  0xFF, 0x00, 0x00, 0x00, 0x00, 0xF0
+};
+//
+// Standard ARM command to switch SWJ-DP from from SWD to dormant state
+// Send at least 50 SWCLKTCK cycles with SWDIOTMS HIGH. This sequence ensures that the SWD
+// interface is in the reset state. The target only detects the SWD-to-DS sequence when it is in the reset state.
+// Note: Fifty six cycles will be used here to align subsequent data.
+// Send the 16-bit SWD-to-DS select sequence on SWDIOTMS.
+// This sequence can be represented as either:
+// - 0x3DC7 transmitted MSB first.
+// - 0xE3BC transmitted LSB first.
+//
+static const U8 _aData_SWDtoDS[] = {
+  0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xBC, 0xE3
+};
+//
+// Direction buffer for SWD to dormant state transmissions
+//
+static const U8 _aDir_SWDtoDS[] = {
+  0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
+};
+//
+// Standard ARM command to switch SWJ-DP from dormant state to JTAG
+// Send at least eight SWCLKTCK cycles with SWDIOTMS HIGH. This sequence ensures that the target is
+// not in the middle of detecting a Selection Alert sequence. The target is permitted to detect the Selection Alert
+// sequence even if this 8-cycle sequence is not present
+// Send the 128-bit Selection Alert sequence on SWDIOTMS.
+// This sequence can be represented as either:
+// - 0x49CF9046 A9B4A161 97F5BBC7 45703D98 transmitted MSB first.
+// - 0x19BC0EA2 E3DDAFE9 86852D95 6209F392 transmitted LSB first.
+// Send four SWCLKTCK cycles with SWDIOTMS LOW.
+// Send 8-bit Arm CoreSight JTAG-DP activation code sequence on SWDIOTMS.
+// This sequence can be represented as either
+// - 0x50 transmitted MSB first.
+// - 0x0A transmitted LSB first.
+// Send a sequence to place the target into a known state:
+// four SWCLKTCK cycles with SWDIOTMS LOW to ensure that the TAP state machine is in the
+// Run-Test/Idle state. Then  at least five SWCLKTCK cycles with SWDIOTMS HIGH
+// to ensure that the TAP state machine is in the Test-Logic/Reset state
+//
+static const U8 _aData_DStoJTAG[] = {
+  0xFF, 0x92, 0xF3, 0x09,
+  0x62, 0x95, 0x2D, 0x85,
+  0x86, 0xE9, 0xAF, 0xDD,
+  0xE3, 0xA2, 0x0E, 0xBC,
+  0x19, 0xA0, 0xF0, 0xFF
+};
+//
+// Direction buffer for dormant state to JTAG transmissions
+//
+static const U8 _aDir_DStoJTAG[] = {
+  0xFF, 0xFF, 0xFF, 0xFF,
+  0xFF, 0xFF, 0xFF, 0xFF,
+  0xFF, 0xFF, 0xFF, 0xFF,
+  0xFF, 0xFF, 0xFF, 0xFF,
+  0xFF, 0xFF, 0xFF, 0xFF
+};
+//
+// Standard ARM command to switch SWJ-DP from from JTAG to dormant state
+// Send at least five SWCLKTCK cycles with SWDIOTMS HIGH. This sequence places the JTAG TAP state
+// machine into the Test-Logic-Reset state, and selects the IDCODE instruction.
+// Note: Eight cycles will be used here to align subsequent data.
+// Send the recommended 31-bit JTAG-to-DS select sequence on SWDIOTMS
+// This sequence can be represented as either:
+// - 0x2EEEEEE6 transmitted MSB first, that is, starting from bit 30.
+// - 0x33BBBBBA transmitted LSB first.
+//
+static const U8 _aData_JTAGtoDS[] = {
+  0xFF, 0xBA, 0xBB, 0xBB, 0x33
+};
+//
+// Direction buffer for JTAG to dormant state transmissions
+//
+static const U8 _aDir_JTAGtoDS[] = {
+  0xFF, 0xFF, 0xFF, 0xFF, 0xFF
+};
+//
+// Standard ARM command to switch SWJ-DP from dormant state to SWD
+// Send at least eight SWCLKTCK cycles with SWDIOTMS HIGH. This sequence ensures that the target is
+// not in the middle of detecting a Selection Alert sequence. The target is permitted to detect the Selection Alert
+// sequence even if this 8-cycle sequence is not present
+// Send the 128-bit Selection Alert sequence on SWDIOTMS.
+// This sequence can be represented as either:
+// - 0x49CF9046 A9B4A161 97F5BBC7 45703D98 transmitted MSB first.
+// - 0x19BC0EA2 E3DDAFE9 86852D95 6209F392 transmitted LSB first.
+// Send four SWCLKTCK cycles with SWDIOTMS LOW.
+// Send 8-bit Arm CoreSight SW-DP activation code sequence on SWDIOTMS.
+// This sequence can be represented as either
+// - 0x58 transmitted MSB first.
+// - 0x1A transmitted LSB first.
+// Send a sequence to place the target into a known state - at least 50
+// SWCLKTCK cycles with SWDIOTMS HIGH. This sequence ensures that the SWD interface is in
+// the line reset state.
+// At least 2 idle with SWDIOTMS LOW
+//
+static const U8 _aData_DStoSWD[] = {
+  0xFF, 0x92, 0xF3, 0x09,
+  0x62, 0x95, 0x2D, 0x85,
+  0x86, 0xE9, 0xAF, 0xDD,
+  0xE3, 0xA2, 0x0E, 0xBC,
+  0x19, 0xA0, 0xF1, 0xFF,
+  0xFF, 0xFF, 0xFF, 0xFF,
+  0x3F
+};
+//
+// Direction buffer for dormant state to SWD transmissions
+//
+static const U8 _aDir_DStoSWD[] = {
+  0xFF, 0xFF, 0xFF, 0xFF,
+  0xFF, 0xFF, 0xFF, 0xFF,
+  0xFF, 0xFF, 0xFF, 0xFF,
+  0xFF, 0xFF, 0xFF, 0xFF,
+  0xFF, 0xFF, 0xFF, 0xFF,
+  0xFF, 0xFF, 0xFF, 0xFF,
+  0xFF
+};
+//
+// Buffer for receiving data from the target. Needs to be big enough to hold data for the above sequences
+//
+static U8 _aDataOut[25];
+//
+// Last value written to DP.SELECT
+//
+static U32 _DP_SELECT_LAST = 0xFFFFFFFF;
+
+/*********************************************************************
+*
+*       Local functions
+*
+**********************************************************************
+*/
+
+/*********************************************************************
+*
+*       _ReadAPv2()
+*
+*  Function description
+*    Reads MEM-AP register of the APv2 architecture (CoreSight SoC-600)
+*    Used instead of JLINK_CORESIGHT_ReadAP or JLINK_CORESIGHT_ReadDAP
+*
+*  Return value
+*    >= 0:  O.K.
+*     < 0:  Error
+*/
+static int _ReadAPv2(U8 APNum, U32 RegOffset, U32* pValue) {
+  int r;
+  U32 RegAddr;          // Effective AP's reg address
+  U32 SelectRegValue;   // DP->SELECT value for access to AP's register with given offset
+  int RegIndex;         // Bits[3:2] of the address, that are used to select a specific register in a bank, are provided with APACC transactions
+                        // Used as RegIndex in JLINK_CORESIGHT_ReadDAP/JLINK_CORESIGHT_WriteDAP functions
+  RegAddr = AP_ADDR[APNum] + RegOffset;
+  SelectRegValue = RegAddr & DP_SELECT_MSK;
+  RegIndex = (RegAddr >> AP_REG_A3A2_LSH) & AP_REG_A3A2_MSK;
+  //
+  // Update DP->SELECT value if needed
+  //
+  if (SelectRegValue != _DP_SELECT_LAST) {
+    r = JLINK_CORESIGHT_WriteDAP(JLINK_CORESIGHT_DP_REG_SELECT, ACC_DP, SelectRegValue); // DP->SELECT <- SelectRegValue
+    if (r >= 0) {
+      _DP_SELECT_LAST = SelectRegValue; // Update last used value of DP->SELECT
+    }
+  } else {
+    r = RESULT_OK;
+  }
+  //
+  // Read AP register value
+  //
+  if (r >= 0) {
+    r = JLINK_CORESIGHT_ReadDAP(RegIndex, ACC_AP, pValue);
+  }
+  return r;
+}
+
+/*********************************************************************
+*
+*       _WriteAPv2()
+*
+*  Function description
+*    Writes MEM-AP register of the APv2 architecture (CoreSight SoC-600)
+*    Used instead of JLINK_CORESIGHT_WriteAP or JLINK_CORESIGHT_WriteDAP
+*
+*  Return value
+*    >= 0:  O.K.
+*     < 0:  Error
+*/
+static int _WriteAPv2(U8 APNum, U32 RegOffset, U32 Value) {
+  int r;
+  U32 RegAddr;          // Effective AP's reg address
+  U32 SelectRegValue;   // DP->SELECT value for access to AP's register with given offset
+  int RegIndex;         // Bits[3:2] of the address, that are used to select a specific register in a bank, are provided with APACC transactions
+                        // Used as RegIndex in JLINK_CORESIGHT_ReadDAP/JLINK_CORESIGHT_WriteDAP functions
+  RegAddr = AP_ADDR[APNum] + RegOffset;
+  SelectRegValue = RegAddr & DP_SELECT_MSK;
+  RegIndex = (RegAddr >> AP_REG_A3A2_LSH) & AP_REG_A3A2_MSK;
+  //
+  // Update DP->SELECT value if needed
+  //
+  if (SelectRegValue != _DP_SELECT_LAST) {
+    r = JLINK_CORESIGHT_WriteDAP(JLINK_CORESIGHT_DP_REG_SELECT, ACC_DP, SelectRegValue); // DP->SELECT <- SelectRegValue
+    if (r >= 0) {
+      _DP_SELECT_LAST = SelectRegValue; // Update last used value of DP->SELECT
+    }
+  } else {
+    r = RESULT_OK;
+  }
+  //
+  // Write AP register value
+  //
+  if (r >= 0) {
+    r = JLINK_CORESIGHT_WriteDAP(RegIndex, ACC_AP, Value);
+  }
+  return r;
+}
+
+/*********************************************************************
+*
+*       _ReadMem()
+*
+*  Function description
+*    Reads U32 value from the provided memory address
+*    Used instead of JLINK_MEM_ReadU32 to validate transaction status
+*
+*  Return value
+*    >= 0:  O.K.
+*     < 0:  Error
+*/
+static int _ReadMem(U8 APNum, U32 Address, U32* pValue) {
+  int r;
+
+  r = _WriteAPv2(APNum, JLINK_CORESIGHT_APV2_REG_TAR, Address); // AP.TAR <- Address
+  if (r >= 0) {
+    r = _ReadAPv2(APNum, JLINK_CORESIGHT_APV2_REG_DRW, pValue);  // AP.DRW -> Value
+  }
+  return r;
+}
+
+/*********************************************************************
+*
+*       _ReadMemSecFallback()
+*
+*  Function description
+*    Reads a memory value and retries with the alternate secure address alias on failure.
+*
+*  Parameters
+*    APNum: Access port index to use.
+*    Addr:  Target memory address to read.
+*    Value: Pointer to the variable that receives the memory value.
+*
+*  Return value
+*    >= 0: OK
+*     < 0: Error
+*/
+static int _ReadMemSecFallback(U8 APNum, U32 Addr, U32* Value) {
+  int r;
+
+  r = _ReadMem(APNum, Addr, Value);
+  if (r < 0) {
+    r = _ReadMem(APNum, Addr ^ S_ADDR_MSK, Value);
+  }
+  return r;
+}
+
+/*********************************************************************
+*
+*       _WriteMem()
+*
+*  Function description
+*    Writes U32 value to the provided memory address
+*    Used instead of JLINK_MEM_WriteU32 to validate transaction status
+*
+*  Return value
+*    >= 0:  O.K.
+*     < 0:  Error
+*/
+static int _WriteMem(U8 APNum, U32 Address, U32 Value) {
+  int r;
+
+  r = _WriteAPv2(APNum, JLINK_CORESIGHT_APV2_REG_TAR, Address); // AP.TAR <- Address
+  if (r >= 0) {
+    r = _WriteAPv2(APNum, JLINK_CORESIGHT_APV2_REG_DRW, Value); // AP.DRW <- value
+  }
+  return r;
+}
+
+/*********************************************************************
+*
+*       _DebugMsg()
+*
+*  Function description
+*    Outputs a constant character string on stdio if VERBOSE_LEVEL is not 0
+*/
+/*
+static void _DebugMsg(const char* pMsg) {
+  if (VERBOSE_LEVEL != 0) {
+    JLINK_SYS_Report(pMsg);
+  }
+}
+*/
+
+/*********************************************************************
+*
+*       _DebugMsg1()
+*
+*  Function description
+*    Outputs a constant character string on stdio and a given value if VERBOSE_LEVEL is not 0
+*/
+/*
+static void _DebugMsg1(const char* pMsg, int Value) {
+  if (VERBOSE_LEVEL != 0) {
+    JLINK_SYS_Report1(pMsg, Value);
+  }
+}
+*/
+
+/*********************************************************************
+*
+*       _PollMem()
+*
+*  Function description
+*    Polls for the expected bit-field value in the given register
+*
+*  Return value
+*    >= 0:  O.K.
+*     < 0:  Error
+*/
+static int _PollMem(U32 RegAddr, U32 FieldMask, U32 RSH, U32 ExpectedValue, U32 Timeout, U32 SleepBetweenPolling, U32* pRegValue) {
+  int r;
+  int t;
+  int tDelta;
+  int Readr;
+
+  tDelta = -1;
+  r = RESULT_ERR;
+  t = JLINK_GetTime();
+  do {
+    Readr = _ReadMem(AP_TO_USE, RegAddr, pRegValue);
+    if (Readr < 0) {
+      r = Readr;
+      break;
+    }
+    if (((*pRegValue & FieldMask) >> RSH) == ExpectedValue) {
+      r = RESULT_OK;
+      break;
+    }
+    //
+    // Sleep between polling - let the CPU do its job and avoid too much garbage on SWD
+    //
+    if ((SleepBetweenPolling > 0) && (tDelta >= 0)) {
+      JLINK_SYS_Sleep(SleepBetweenPolling);
+    }
+    tDelta = JLINK_GetTime() - t;
+  } while (tDelta < Timeout);
+  return r;
+}
+
+/*********************************************************************
+*
+*       _ReadCoreReg()
+*
+*  Function description
+*    Reads ARM core register, special-purpose register, or Floating-point extension register
+*    CPU must be halted for this operation
+*
+*  Return value
+*    >= 0:  O.K.
+*     < 0:  Error
+*/
+static int _ReadCoreReg(U32 RegSel, U32* pValue) {
+  int r;
+  U32 v;
+
+  r = _WriteMem(AP_TO_USE, DCRSR_ADDR, RegSel & DCRSR_REGSEL_MSK);
+  if (r >= 0) {
+    r = _PollMem(DHCSR_ADDR, DHCSR_S_REGRDY, 0, DHCSR_S_REGRDY, TIMEOUT_HALT_CPU, 0, &v);
+  }
+  if (r >= 0) {
+    r = _ReadMem(AP_TO_USE, DCRDR_ADDR, pValue);
+  }
+  return r;
+}
+
+/*********************************************************************
+*
+*       _WriteCoreReg()
+*
+*  Function description
+*    Writes ARM core register, special-purpose register, or Floating-point extension register
+*    CPU must be halted for this operation
+*
+*  Return value
+*    >= 0:  O.K.
+*     < 0:  Error
+*/
+static int _WriteCoreReg(U32 RegSel, U32 Value) {
+  int r;
+  U32 v;
+
+  r = _WriteMem(AP_TO_USE, DCRDR_ADDR, Value);                                          // DCRDR (0xE000EDF8) <- value
+  if (r >= 0) {
+    r = _PollMem(DHCSR_ADDR, DHCSR_S_REGRDY, 0, DHCSR_S_REGRDY, TIMEOUT_HALT_CPU, 0, &v);
+  }
+  if (r >= 0) {
+    r = _WriteMem(AP_TO_USE, DCRSR_ADDR, (DCRSR_REGWnR | (RegSel & DCRSR_REGSEL_MSK))); // DCRSR (0xE000EDF4) <- (REGWnR == write) | REGSEL
+  }
+  return r;
+}
+
+/*********************************************************************
+*
+*       _SecureAddr()
+*
+*  Function description
+*    Make the address secure or non-secure based on the CPU's current domain state
+*
+*  Return value
+*    Secure address
+*/
+static U32 _SecureAddr(U32 Address) {
+  if (_DOMAIN_SECURE) {
+    Address |= S_ADDR_MSK;
+  } else {
+    Address &= ~S_ADDR_MSK;
+  }
+  return Address;
+}
+
+/*********************************************************************
+*
+*       _ReadAndInitSecure()
+*
+*  Function description
+*    Read the "Debug Security Control and Status Register" (DSCSR) and check
+*    if the "Current Domain Secure" (CDS) bit is set.
+*    Save the result for secure/non-secure address selection.
+*/
+static int _ReadAndInitSecure(void) {
+  int r;
+  U32 v;
+  //
+  // Read "Debug Security Control and Status Register" (DSCSR)
+  // and check "Current Domain Secure" (CDS) bit
+  //
+  _DOMAIN_SECURE = 0;
+  r = _ReadMem(AP_TO_USE, DSCSR_ADDR, &v);
+  if (r >= 0) {
+    _DOMAIN_SECURE = v & DSCSR_CDS;
+  } else {
+    //_DebugMsg(_STR_WARN_DSCSR_INACCESSIBLE);
+  }
+  if (_DOMAIN_SECURE != 0) {
+    //_DebugMsg(_STR_DOMAIN_SECURE);
+  } else {
+    //_DebugMsg(_STR_DOMAIN_NON_SECURE);
+  }
+  return r;
+}
+
+/*********************************************************************
+*
+*       _SWD_BufGetACK()
+*
+*  Function description
+*    Checks whether SWD request acked in an SWD transmission buffer.
+*
+*  Parameters
+*    pData  Buffer containing data read via SWD.
+*    Pos    Position from which the ACK should be read.
+*
+* Return value
+*   RESULT_OK:  Request acknowledged
+*   RESULT_ERR: Request not acknowledged
+*/
+static int _SWD_BufGetACK(U8* pData, U32 Pos) {
+  U32 Start;
+  U8  BitsRem;
+  U8  Shift;
+  U8  Ack;
+  U8  v;
+  U8  Mask;
+
+  Start = Pos >> 3;               // Divide by 8.
+  BitsRem = (Pos & 7);            // Modulo 8 to get remaining bits.
+  Ack = *(pData + Start);
+  Ack >>= BitsRem;                // Shift to be aligned.
+  if (BitsRem > 5) {              // We have remaining bits in the next byte? => Add them.
+    Mask = 0x03 >> (BitsRem - 6); // Get mask for bits from the first byte
+    Ack &= Mask;                  // Strip MSB bits from the first byte
+    v = *(pData + Start + 1);
+    Mask = 0x03 >> (7 - BitsRem); // Get mask for bits from the second byte
+    v &= Mask;
+    Shift = 8 - BitsRem;          // Get required shift for the second byte
+    Ack |= (v << Shift);
+  } else {
+    Ack &= 0x07;                  // Strip MSB bits
+  }
+  if (Ack == 1) {
+    return RESULT_OK;
+  }
+  return RESULT_ERR;
+}
+
+/*********************************************************************
+*
+*       _SWD_BufGetU32()
+*
+*  Function description
+*    Get unsigned 32 bit value from an SWD transmission buffer.
+*
+*  Parameters
+*    pData  Buffer containing data read via SWD.
+*    Pos    Position from which the U32 should be read.
+*
+*  Return value
+*    >= 0:  U32 read.
+*/
+static U32 _SWD_BufGetU32(U8* pData, U32 Pos) {
+  U32 Start;
+  U32 BitsRem;
+  U32 Shift;
+  U32 Result;
+  U8  v;
+  U8  Mask;
+
+  Start = Pos >> 3;             // Divide by 8.
+  BitsRem = (Pos & 7);          // Modulo 8 to get remaining bits.
+  Shift = 31 - (BitsRem - 1);   // Get required shift.
+  Mask = 0xFF >> (8 - BitsRem); // Get mask for remaining bits
+  Result = (*(pData + Start + 0) << 0) | (*(pData + Start + 1) << 8) | (*(pData + Start + 2) << 16) | (*(pData + Start + 3) << 24);
+  Result >>= BitsRem;           // Shift to be 32-bit aligned.
+  if (BitsRem != 0) {
+    //
+    // We have remaining bits? => Add them.
+    //
+    v = *(pData + Start + 4);
+    v &= Mask;
+    Result |= (v << Shift);
+  }
+  return Result;
+}
+
+/*********************************************************************
+*
+*       _ReplaceSubStr()
+*
+*  Function description
+*    Replace substring at given position
+*    Return the position next of the last character replaced
+*/
+/*
+static char* _ReplaceSubStr(char* pPos, char* pSub) {
+  while (*pSub != 0) {
+    *pPos = *pSub;
+    pPos += 1;
+    pSub += 1;
+  }
+  return pPos;
+}
+*/
+
+/*********************************************************************
+*
+*       _ReplaceChar()
+*
+*  Function description
+*    Replace single character at given position
+*    Return the position of next character
+*/
+/*
+static char* _ReplaceChar(char* pPos, char Ch) {
+  *pPos = Ch;
+  pPos += 1;
+  return pPos;
+}
+*/
+
+/*********************************************************************
+*
+*       _WriteHexStr()
+*
+*  Function description
+*    Replace substring at given position by hex string
+*    Return the position next of the last character replaced
+*/
+/*
+static char* _WriteHexStr(char* pPos, U32 Value, U8 Digitnum) {
+  U8   DigitValue;
+  char Ch;
+
+  while (Digitnum > 0) {
+    Digitnum -= 1;
+    DigitValue = (Value >> (Digitnum * 4)) & 0x0F;
+    Ch = _HEX_STR[DigitValue];
+    pPos = _ReplaceChar(pPos, Ch);
+  }
+  return pPos;
+}
+*/
+
+/*********************************************************************
+*
+*       _WriteDecStr()
+*
+*  Function description
+*    Replace substring at given position by decimal number
+*    Return the position next of the last character replaced
+*/
+/*
+static char* _WriteDecStr(char* pPos, U32 Value, U8 Digitnum) {
+  int  FirstNonZero;
+  U32  DecadeUnit;
+  U8   DigitValue;
+  U8   DecadeNum;
+  char Ch;
+  U8   i;
+
+  DecadeNum = 10;
+  FirstNonZero = 0;
+  while (DecadeNum > 0) {
+    DigitValue = 0;
+    i = DecadeNum;
+    DecadeUnit = 1;
+    while (i > 1) {
+      DecadeUnit *= 10;
+      i -= 1;
+    }
+    while (Value >= DecadeUnit) {
+      DigitValue += 1;
+      Value -= DecadeUnit;
+    }
+    if (DigitValue != 0) {
+      FirstNonZero = 1;
+    }
+    if ((FirstNonZero != 0) || (Digitnum >= DecadeNum)) {
+      Ch = _HEX_STR[DigitValue];
+      pPos = _ReplaceChar(pPos, Ch);
+    }
+    DecadeNum -= 1;
+  }
+  return pPos;
+}
+*/
+
+/*********************************************************************
+*
+*        _LogTimedResult()
+*
+*  Function description
+*    Logs a timed success or failure message for an operation.
+*
+*  Parameters
+*    Result:     Operation r to evaluate.
+*    tDelta:     Elapsed operation time in milliseconds.
+*    SuccessMsg: Message used when the operation succeeded.
+*    FailMsg:    Message used when the operation failed.
+*/
+/*
+static void  _LogTimedResult(int Result, int tDelta, char* SuccessMsg, char* FailMsg) {
+  char* pPos;
+
+  if (VERBOSE_LEVEL != 0) {
+    if (Result < 0) {
+      pPos = _ReplaceSubStr(&_LOG_STR[0], FailMsg);
+    } else {
+      pPos = _ReplaceSubStr(&_LOG_STR[0], SuccessMsg);
+    }
+    pPos = _ReplaceSubStr(pPos, _STR_TOOK);
+    pPos = _WriteDecStr(pPos, tDelta, 1);
+    pPos = _ReplaceSubStr(pPos, _STR_US);
+    pPos = _ReplaceChar(pPos, 0);
+    //_DebugMsg(&_LOG_STR[0]);
+  }
+}
+*/
+
+/*********************************************************************
+*
+*       _Handshake()
+*
+*  Function description
+*    Handshake: wait for debug interface to become enabled after device reset.
+*    In the worst case, when the boot code performs application HASH verification,
+*    boot time is around 2500ms and depends on CPU clock used by the boot code.
+*    For PowerCycle, timeout depends on the design schematic and must be longer.
+*
+*  Return value
+*    >= 0:  O.K.
+*     < 0:  Error
+*
+*  Notes
+*    (1) Must not use any high-level functions as it is also called from InitTarget() and uses non-standard APs etc.
+*/
+static int _Handshake(U32 Timeout) {
+  U32   PrevID;
+  int   tDelta;
+  char* pPos;
+  U32   v;
+  U32   t;
+  int   r;
+  U32   BitPos;
+
+  r = RESULT_ERR;
+  PrevID = 0xDECADE;
+  t = JLINK_GetTime();
+  if (JLINK_ActiveTIF == JLINK_TIF_JTAG) {
+    //
+    // If the interface was left in SWD by a previous session, try switching to JTAG once over the dormant state.
+    //
+    JLINK_JTAG_ReadWriteBits(&_aDir_SWDtoDS[0], &_aData_SWDtoDS[0], &_aDataOut[0], 9 * 8);
+    JLINK_JTAG_ReadWriteBits(&_aDir_DStoJTAG[0], &_aData_DStoJTAG[0], &_aDataOut[0], 20 * 8);
+  }
+  do {
+    if (JLINK_ActiveTIF == JLINK_TIF_JTAG) {
+      //
+      // Retrieves the JTAG-DP TAP identification from the JTAG IDCODE register.
+      // JLINK_JTAG_GetDeviceId can't be used here since it reads the value only once and retrieves it from cash on further read attempts.
+      //
+      JLINK_CORESIGHT_Configure("IRPre=0;DRPre=0;IRPost=0;DRPost=0;IRLenDevice=8;PerformTIFInit=0");  // Use the correct chain config for manual JTAG sequences
+      JLINK_JTAG_WriteClocks(30);
+      JTAG_StoreIR(0xFE);
+      BitPos = JTAG_StoreDR(0x0, 32);
+      v = JLINK_JTAG_GetU32(BitPos);
+      JLINK_CORESIGHT_Configure(JTAG_CHAIN_CONF_STR);                                                 // Reapply the workaround to make sure J-Link DLL can handle the JTAG chain
+    } else {
+      //
+      // JLINK_ActiveTIF == JLINK_TIF_SWD
+      // Switch to SWD over the dormant state
+      //
+      JLINK_SWD_ReadWriteBits(&_aData_JTAGtoDS[0], &_aDir_JTAGtoDS[0], &_aDataOut[0], 5 * 8);
+      JLINK_SWD_ReadWriteBits(&_aData_DStoSWD[0], &_aDir_DStoSWD[0], &_aDataOut[0], 25 * 8);
+      //
+      // Read IDCODE using low-level function
+      //
+      JLINK_SWD_ReadWriteBits(&_aData_ReadDPIDR[0], &_aDir_ReadDPIDR[0], &_aDataOut[0], 6 * 8);
+      //
+      // ID location in buffer:
+      //   1*8 bits read ID command.
+      //   3   bits Skip "ACK" from target.
+      //   => ID data can be read from Bitpos + 1*8 + 3 input buffer offset.
+      //
+      if (_SWD_BufGetACK(&_aDataOut[0], 1 * 8) == RESULT_OK) {
+        v = _SWD_BufGetU32(&_aDataOut[0], 1 * 8 + 3);
+      } else {
+        v = 0xFEE1DEAD;                                                    // Invalid value if ACK not received
+      }
+    }
+    if (PrevID != v) {
+      PrevID = v;
+      //if (VERBOSE_LEVEL != 0) {
+      //  pPos = _ReplaceSubStr(&_LOG_STR[0], _STR_IDCODE_PREFIX);
+      //  pPos = _WriteHexStr(pPos, v, 8);
+      //  pPos = _ReplaceChar(pPos, 0);
+      //  JLINK_SYS_Report(&_LOG_STR[0]); // Output changes in ID
+      //}
+    }
+    tDelta = JLINK_GetTime() - t;
+    //
+    // DAP is responsive if we can read IDCODE (0x4C013477 for SWD or 0x4BA07477 for JTAG)
+    //
+    if (((JLINK_ActiveTIF == JLINK_TIF_SWD) && (v == DP_IDCODE_SWD)) || ((JLINK_ActiveTIF == JLINK_TIF_JTAG) && (v == DP_IDCODE_JTAG))) {
+      r = RESULT_OK;
+      _DP_SELECT_LAST = 0xFFFFFFFF;                                     // Invalidate last used value of DP->SELECT
+      break;
+    }
+  } while (tDelta < Timeout);                                              // Timeout reached?
+  //_LogTimedResult(r, tDelta, _STR_HANDSHAKE_OK, _STR_HANDSHAKE_FAILED);
+  return r;
+}
+
+/*********************************************************************
+*
+*       _DAP_Init()
+*
+*  Function description
+*    Initialize the Debug Port for programming operations.
+*    Accepts Access Port number as input: 0 – System AP; 1 – CM33 AP
+*
+*  Return value
+*    >= 0:  O.K.
+*     < 0:  Error
+*
+*  Notes
+*    (1) Must not use any high-level functions as it is also called from InitTarget() and uses non-standard APs etc.
+*/
+static int _DAP_Init(U8 APNum, U32 Timeout) {
+  int r;
+  int t;
+  U32 v;
+  //
+  // Power up DAP using DP.CTRL/STAT: [30]:CSYSPWRUPREQ, [28]:CDBGPWRUPREQ
+  // Clear sticky errors:
+  // - SWD:  Using DP.ABORT register
+  // - JTAG: Using DP.CTRL/STAT: [5]:STICKYERR
+  //   For JTAG, sticky error bits are read-write enabled and writing '1' to these bits clears associated sticky errors.
+  //   For SWD, these bits are read-only and to clean the sticky errors, you should write to appropriate bits of DP.ABORT register
+  //
+  if (JLINK_ActiveTIF == JLINK_TIF_JTAG) {
+    r = JLINK_CORESIGHT_WriteDAP(JLINK_CORESIGHT_DP_REG_CTRL_STAT, ACC_DP, DP_CTRL_CSYSPWRUPREQ | DP_CTRL_CDBGPWRUPREQ | DP_CTRL_STICKYERR);
+  } else { // SWD
+    r = JLINK_CORESIGHT_WriteDAP(JLINK_CORESIGHT_DP_REG_ABORT, ACC_DP, DP_ABORT_ORUNERRCLR | DP_ABORT_WDERRCLR | DP_ABORT_STKERRCLR | DP_ABORT_STKCMPCLR);
+    if (r >= 0) {
+      r = JLINK_CORESIGHT_WriteDAP(JLINK_CORESIGHT_DP_REG_CTRL_STAT, ACC_DP, DP_CTRL_CSYSPWRUPREQ | DP_CTRL_CDBGPWRUPREQ);
+    }
+  }
+  if (r < 0) {
+    return r;
+  }
+  t = JLINK_GetTime();
+  do {
+    r = JLINK_CORESIGHT_ReadDAP(JLINK_CORESIGHT_DP_REG_CTRL_STAT, ACC_DP, &v);
+    if (r < 0) {
+      return r;
+    }
+    if ((v & (DP_CTRL_CSYSPWRUPACK | DP_CTRL_CDBGPWRUPACK)) ==
+        (DP_CTRL_CSYSPWRUPACK | DP_CTRL_CDBGPWRUPACK)) {
+      break;
+    }
+    if ((JLINK_GetTime() - t) >= Timeout) {
+      return RESULT_ERR;
+    }
+    JLINK_SYS_Sleep(1);
+  } while (1);
+  if (r >= 0) {
+    _DP_SELECT_LAST = 0xFFFFFFFF;                           // Invalidate last used value of DP->SELECT
+    r = _ReadAPv2(APNum, JLINK_CORESIGHT_APV2_REG_CSW, &v); // Read current CSW value
+    if (r >= 0) {
+      if ((v & AP_CSW_SDEVICE_EN) != 0) {
+        //
+        // Secure access is enabled.
+        //
+        r = _WriteAPv2(APNum, JLINK_CORESIGHT_APV2_REG_CSW, AP_CSW_PROT_VAL | AP_CSW_SIZE_WORD);
+      } else {
+        //
+        // Secure access is disabled.
+        //
+        r = _WriteAPv2(APNum, JLINK_CORESIGHT_APV2_REG_CSW, AP_CSW_PROT_NS_VAL | AP_CSW_SIZE_WORD);
+      }
+    }
+  }
+  return r;
+}
+
+/*********************************************************************
+*
+*       _DAP_HandshakeAndInit()
+*
+*  Function description
+*    Performs Handshake and Initializes the Debug Port
+*    Accepts Access Port number as input: 0 – System AP; 1 – CM33 AP
+*
+*  Return value
+*    >= 0:  O.K.
+*     < 0:  Error
+*
+*  Notes
+*    (1) Must not use any high-level functions as it is also called from InitTarget() and uses non-standard APs etc.
+*/
+static int _DAP_HandshakeAndInit(U8 APNum, U32 Timeout) {
+  int r;
+
+  r = _Handshake(Timeout);
+  if (r >= 0) {
+    r = _DAP_Init(APNum, TIMEOUT_HANDSHAKE);
+  }
+  return r;
+}
+
+/*********************************************************************
+*
+*       _DAP_ScanAP()
+*
+*  Function description
+*    Scans the Access Ports for the first available with CPU registers access.
+*
+*  Return value
+*    >= 0:  O.K.
+*     < 0:  Error
+*
+*  Notes
+*    (1) Must not use any high-level functions as it is also called from InitTarget() and uses non-standard APs etc.
+*/
+static int _DAP_ScanAP(U8* pAPNum) {
+  U32 v;
+  U8 CurrAP;
+  int r;
+  //
+  // Try all possible Access Ports
+  //
+  CurrAP = 0;
+  while (CurrAP <= AP_MAX) {
+    if (CurrAP != AP_SYS) {
+      //
+      // Initializes DAP and selects Access Port with provided number
+      //
+      r = _DAP_Init(CurrAP, TIMEOUT_HANDSHAKE);
+      if (r >= 0) {
+        //
+        // Try to read CPUID register @0xE000ED00
+        //
+        r = _ReadMem(CurrAP, CPUID_ADDR, &v);
+        //
+        // If the CPUID Implementer is ARM, the Access Port is correct (we have access to the ARM registers)
+        //
+        if ((r >= 0) && ((v & 0xFF000000) == 0x41000000)) {
+          *pAPNum = CurrAP;
+          return RESULT_OK;
+        }
+      }
+    }
+    CurrAP += 1;
+  }
+  return RESULT_ERR;
+}
+
+/*********************************************************************
+*
+*       _Reset();
+*
+*  Function description
+*    Resets the device using either of:
+*      1. Hardware reset by toggling XRES pin
+*      2. Software reset by setting the RES_SOFT_CTL.TRIGGER_SOFT bit
+*      3. Software reset by setting the AIRCR.SYSRESETREQ bit
+*      4. Software reset by setting the DP->CTRL/STAT.CDBGRSTREQ bit
+*
+*  Return value
+*    >= 0:  O.K.
+*     < 0:  Error
+*/
+static int _Reset(U8 ResetType, U8 APNum) {
+  int r;
+  int t;
+  U32 v;
+  //
+  // Attempt to reset the device with different methods
+  // Note1: do not check OK/WAIT/FAULT ACKs for the data write phase since the target immediately reboots
+  // Note2: caller code needs to do Handshake and DAP Init after reset or in case of failure
+  //
+  // 1. Hardware reset by toggling XRES pin
+  //
+  r = RESULT_ERR;
+  if ((ResetType & RST_TYPE_XRES) != 0) {
+    //_DebugMsg(_STR_RESET_XRES);
+    JLINK_JTAG_ResetPin = 0; // nRESET == LOW
+    JLINK_SYS_Sleep(50);     // Make sure that device recognizes the reset
+    JLINK_JTAG_ResetPin = 1; // nRESET == HIGH
+    r = RESULT_OK;
+  }
+  //
+  // 2. Software reset by setting the RES_SOFT_CTL.TRIGGER_SOFT bit:
+  //    This type of software reset can work via SYS-AP, so it is more preferable vs. SYSRESETREQ
+  //
+  if ((r < 0) && ((ResetType & RST_TYPE_RES_SOFT_CTL) != 0)) {
+    //_DebugMsg(_STR_RESET_RES_SOFT_CTL);
+    r = _WriteAPv2(APNum, JLINK_CORESIGHT_APV2_REG_TAR, SRSS_RES_SOFT_CTL);         // AP.TAR <- @(SRSS->RES_SOFT_CTL)
+    if (r < 0) {
+      r = _DAP_HandshakeAndInit(APNum, TIMEOUT_HANDSHAKE);
+      if (r >= 0) {
+        r = _WriteAPv2(APNum, JLINK_CORESIGHT_APV2_REG_TAR, SRSS_RES_SOFT_CTL);
+      }
+    }
+    if (r >= 0) {
+      _WriteAPv2(APNum, JLINK_CORESIGHT_APV2_REG_DRW, SRSS_RES_SOFT_CTL_TRIG_SOFT); // AP.DRW <- TRIGGER_SOFT bit
+    }
+  }
+  //
+  // 3. Software reset by setting the AIRCR.SYSRESETREQ bit
+  //
+  if ((r < 0) && ((ResetType & RST_TYPE_SYSRESETREQ) != 0) && (APNum != AP_SYS)) {
+    r = _WriteAPv2(APNum, JLINK_CORESIGHT_APV2_REG_TAR, AIRCR_ADDR);                // AP.TAR <- @(AIRCR 0xE000ED0C)
+    if (r < 0) {
+      r = _DAP_HandshakeAndInit(APNum, TIMEOUT_HANDSHAKE);
+      if (r >= 0) {
+        r = _WriteAPv2(APNum, JLINK_CORESIGHT_APV2_REG_TAR, AIRCR_ADDR);
+      }
+    }
+    if (r >= 0) {
+      _WriteAPv2(APNum, JLINK_CORESIGHT_APV2_REG_DRW, (AIRCR_VECTKEY_VAL | AIRCR_SYSRESETREQ)); // AP.DRW <- 0x05FA0004
+    }
+  }
+  //
+  // 4. Software reset by setting the DP->CTRL/STAT.CDBGRSTREQ bit
+  //    In the worst case, if standard software reset via SYSRESETREQ failed, it may mean that the firmware did
+  //    very bad things disabling the debug pins or AHB_AP access (anything behind the DAP).
+  //    However, if we still can access the DAP registers, the last thing we could try is to reset the target
+  //    via DP->CTRL/STAT.CDBGRSTREQ. In CAT1 and CAT2 devices, setting the CDBGRSTREQ bit will result in a
+  //    System-wide Debug DeepSleep reset, which also resets the Cortex core.
+  //    Deassert the request after acknowledgment, or after reconnect if the DP resets.
+  //    If such a case happens and we managed to reset the target using CDBGRSTREQ,
+  //    the next thing would be to halt the CPU as quickly as possible to prevent firmware to do the bad things again.
+  //
+  if ((r < 0) && ((ResetType & RST_TYPE_CDBGRSTREQ) != 0)) {
+    //_DebugMsg(_STR_RESET_CDBGRSTREQ);
+    r = _Handshake(TIMEOUT_HANDSHAKE);
+    if (r >= 0) {
+      JLINK_CORESIGHT_WriteDP(JLINK_CORESIGHT_DP_REG_CTRL_STAT, DP_CTRL_CSYSPWRUPREQ | DP_CTRL_CDBGPWRUPREQ | DP_CTRL_CDBGRSTREQ);
+      t = JLINK_GetTime();
+      do {
+        r = JLINK_CORESIGHT_ReadDAP(JLINK_CORESIGHT_DP_REG_CTRL_STAT, ACC_DP, &v);
+        if (r < 0) {
+          r = _Handshake(TIMEOUT_HANDSHAKE);
+          break;
+        }
+        if ((v & DP_CTRL_CDBGRSTACK) != 0) {
+          break;
+        }
+        if ((JLINK_GetTime() - t) >= TIMEOUT_HANDSHAKE) {
+          r = RESULT_ERR;
+          break;
+        }
+      } while (1);
+      //
+      // Clear even on timeout so a later attempt can generate a new request edge.
+      //
+      r = JLINK_CORESIGHT_WriteDP(JLINK_CORESIGHT_DP_REG_CTRL_STAT, DP_CTRL_CSYSPWRUPREQ | DP_CTRL_CDBGPWRUPREQ);
+      if (r < 0) {
+        r = RESULT_ERR;
+      }
+    }
+  }
+  return r;
+}
+
+/*********************************************************************
+*
+*       _HaltCPU()
+*
+*  Function description
+*    Enables debug and halts the CPU using the DHCSR register
+*
+*  Return value
+*    >= 0:  O.K.
+*     < 0:  Error
+*/
+static int _HaltCPU(void) {
+  int r;
+  U32 v;
+  //
+  // Enable debug, and halt the CPU using the DHCSR register: 0xE000EDF0 <- 0xA05F0003
+  //
+  r = _WriteMem(AP_TO_USE, DHCSR_ADDR, DHCSR_DBGKEY_VAL | DHCSR_C_HALT | DHCSR_C_DEBUGEN);
+  //
+  // Check S_HALT bit [17] in DHCSR register (@0xE000EDF0)
+  // *Most* time, S_HALT bit is set immediately and correct value is read here.
+  // This will eliminates excessive polling and keeps SWD traffic clear
+  //
+  if (r >= 0) {
+    r = _PollMem(DHCSR_ADDR, DHCSR_S_HALT, 0, DHCSR_S_HALT, TIMEOUT_HALT_CPU, 0, &v);
+  }
+  return r;
+}
+
+/*********************************************************************
+*
+*       _IsPCInROM()
+*
+*  Function description
+*    Reads PC and checks it points to address in ROM
+*
+*  Return value
+*    >= 0:  O.K.
+*     < 0:  Error
+*/
+static int _IsPCInROM(int HaltCPU) {
+  int r;
+  U32 v;
+  //
+  // CPU must be halted to read the PC
+  //
+  r = RESULT_OK;
+  if (HaltCPU) {
+    r = _HaltCPU();
+  }
+  if (r >= 0) {
+    r = _ReadCoreReg(DCRSR_REGSEL_PC, &v);
+    if ((r < 0) || (v < ROM_NS_START_ADDR) || ((v >= (ROM_NS_START_ADDR + MEM_SIZE_ROM)) && (v < ROM_S_START_ADDR)) || (v >= (ROM_S_START_ADDR + MEM_SIZE_ROM))) {
+      r = RESULT_ERR;
+    }
+  }
+  return r;
+}
+
+/*********************************************************************
+*
+*       _GetVectorTableData()
+*
+*  Function description
+*    Gets Reset Address and Initial SP values from application Vector Table
+*
+*  Return value
+*    >= 0:  O.K.
+*     < 0:  Error
+*/
+static int _GetVectorTableData(U32* pResetAddress, U32* pSP) {
+  int r;
+  U32 v;
+  U32 VectorTableBase;
+
+  *pResetAddress = 0;
+  *pSP = 0;
+  VectorTableBase = 0;
+  //
+  // Check Vector Table base address for Cortex core.
+  // Note: Zero in Vector Table base register or in reset address (reset handler + 4) likely indicates that
+  //       the target is in VIRGIN (preproduction) state, so the ROM boot code debugging is enabled.
+  //
+  r = _ReadMem(AP_TO_USE, VTOR_ADDR, &VectorTableBase);
+  if (VectorTableBase == 0) {
+    VectorTableBase = 0x20004000;
+  }
+  if ((r >= 0) && ((VectorTableBase & ERR_ADDR_MSK) != ERR_ADDR_MSK)) {
+    //
+    // Get Reset Address from Vector Table
+    //
+    r = _ReadMem(AP_TO_USE, VectorTableBase + 4, &v);
+    if ((r >= 0) && ((v & ERR_ADDR_MSK) != ERR_ADDR_MSK)) {
+      *pResetAddress = v;
+      //
+      // Get Initial SP value from Vector Table
+      //
+      r = _ReadMem(AP_TO_USE, VectorTableBase, &v);
+      if ((r >= 0) && (v != 0) && ((v & ERR_ADDR_MSK) != ERR_ADDR_MSK)) {
+        *pSP = v;
+      } else {
+        r = RESULT_ERR;
+      }
+    } else {
+      r = RESULT_ERR;
+    }
+  } else {
+    r = RESULT_ERR;
+  }
+  return r;
+}
+
+/*********************************************************************
+*
+*       _SetPCandSPFromVectorTable()
+*
+*  Function description
+*    Sets PC and SP getting the values from Vector Table
+*
+*  Return value
+*    >= 0:  O.K.
+*     < 0:  Error
+*/
+static int _SetPCandSPFromVectorTable(void) {
+  int r;
+  U32 v;
+  U32 PC;
+  U32 SP;
+  //
+  // Get PC and SP for the application in flash
+  //
+  r = _GetVectorTableData(&PC, &SP);
+  if ((r >= 0) && ((PC & ERR_ADDR_MSK) != ERR_ADDR_MSK) && ((SP & ERR_ADDR_MSK) != ERR_ADDR_MSK)) {
+    r = _WriteCoreReg(DCRSR_REGSEL_PC, PC);    // Set PC
+    if (r >= 0) {
+      r = _WriteCoreReg(DCRSR_REGSEL_MSP, SP); // Set MSP
+      if (r >= 0) {
+        //
+        // Read xPSR register, set the thumb bit, and restore modified value to xPSR register
+        //
+        r = _ReadCoreReg(DCRSR_REGSEL_xPSR, &v);
+        if (r >= 0) {
+          r = _WriteCoreReg(DCRSR_REGSEL_xPSR, (v | xPSR_T));
+        }
+      }
+    }
+  } else {
+    r = RESULT_ERR;
+  }
+  return r;
+}
+
+/*********************************************************************
+*
+*       _IsBootIdle()
+*
+*  Function description
+*    Check if the device is in IDLE or DEAD branches,
+*    what is a sufficient condition for programming
+*
+*  Return value
+*    >= 0:  O.K.
+*     < 0:  Error
+*/
+static int _IsBootIdle(U8 APNum, U32* pStopPolling) {
+  int r;
+  U32 v;
+
+  *pStopPolling = 0;
+  //
+  // Read SRSS->TST_DEBUG_CTL register and check the WFA bit is set, indicating a special mode with
+  // additional restrictions for debugger. Normal programming/debugging is not possible - need reset/acquire
+  //
+  r = _ReadMem(APNum, _SecureAddr(SRSS_TST_DEBUG_CTL), &v);
+  if (r >= 0) {
+    if ((v & SRSS_TST_DEBUG_CTL_DEBUG_WFA) != 0) {
+      *pStopPolling = 1; // WFA branch, no sense to continue polling - need to do reset/acquire
+      r = RESULT_ERR;
+    }
+  }
+  //
+  // Check the status reported by boot code in RAM. Both, DEAD and IDLE branches are sufficient for programming
+  //
+  if (r >= 0) {
+    r = _ReadMem(APNum, _SecureAddr(SRSS_BOOT_STATUS), &v);
+    if (r >= 0) {
+      if (((v & CYBOOT_ID_MSK) == CYBOOT_ID_SUCCESS) && ((v & CYBOOT_STATUS_MSK) == CYBOOT_NEXT_APP_LAUNCHED)) {
+        *pStopPolling = 1; // Not IDLE branch, application launched, no sense to continue polling
+        r = RESULT_ERR;
+      } else {
+        if (((v & CYBOOT_ID_MSK) != CYBOOT_ID_FAIL) && // Not DEAD branch
+            ((v & CYBOOT_ID_MSK) != CYBOOT_ID_SUCCESS)) {
+          r = RESULT_ERR; // No status word
+        }
+      }
+    }
+  }
+  return r;
+}
+
+/*********************************************************************
+*
+*       _WaitForBootIdle()
+*
+*  Function description
+*    Waits for the device to be in IDLE or DEAD branches
+*
+*  Return value
+*    >= 0:  O.K.
+*     < 0:  Error
+*/
+static int _WaitForBootIdle(U8 APNum, U32 Timeout, U8 CheckPCinROM) {
+  int   r;
+  int   t;
+  int   tDelta;
+  U32   StopPolling;
+  U32   v;
+
+  tDelta = -1;
+  r = _IsBootIdle(APNum, &StopPolling);
+  if ((r < 0) && (StopPolling == 0)) {
+    t = JLINK_GetTime();
+    do {
+      //
+      // Sleep between polling - let the target do its job and avoid too much garbage on SWD
+      //
+      JLINK_SYS_Sleep(1);
+      r = _IsBootIdle(APNum, &StopPolling);
+      if ((r >= 0) || (StopPolling != 0)) {
+        //
+        // Stop when boot is idle or further polling cannot help:
+        // in WFA branch or when the application is already launched (StopPolling != 0)
+        //
+        break;
+      }
+      tDelta = JLINK_GetTime() - t;
+    } while (tDelta < Timeout);
+  }
+  //
+  // Additionally, check PC points to address in ROM, but not in RAM or in FLASH
+  //
+  if ((r >= 0) && (CheckPCinROM != 0) && (APNum != AP_SYS)) {
+    r = _IsPCInROM(1); // HaltCPU = 1
+  }
+  _ReadMem(APNum, SRSS_BOOT_STATUS, &v);
+  //if (VERBOSE_LEVEL != 0) {
+  //  _LogTimedResult(r, tDelta, _STR_BOOT_IDLE_OK, _STR_BOOT_IDLE_FAILED);
+  //  //_DebugMsg1(_STR_BOOT_STATUS_PREFIX, v);
+  //}
+  return r;
+}
+
+/*********************************************************************
+*
+*       _IsCM33APOpen()
+*
+*  Function description
+*    Checks whether the CM33 access port is open.
+*
+*  Return value
+*      0: CM33 AP is open
+*    < 0: CM33 AP is closed or unavailable
+*/
+static int _IsCM33APOpen(void) {
+  int r;
+  U32 v;
+
+  r = _ReadAPv2(AP_CM33, JLINK_CORESIGHT_APV2_REG_CSW, &v);
+  if ((r >= 0) && ((v & AP_CSW_DEVICE_EN) == 0)) {
+    r = RESULT_ERR;
+  }
+  return r;
+}
+
+/*********************************************************************
+*
+*       _AcquireInWFA2Mode()
+*
+*  Function description
+*    Acquires the target in WFA2 mode for debug certificate upload.
+*
+*  Return value
+*      0: OK
+*    < 0: Error
+*/
+static int _AcquireInWFA2Mode(void) {
+  int r;
+  int t;
+  int tDelta;
+  U32 v;
+
+  r = _DAP_Init(AP_SYS, TIMEOUT_HANDSHAKE);
+  if (r < 0) {
+    goto Done;
+  }
+  r = _ReadMem(AP_SYS, SRSS_TST_DEBUG_STATUS, &v);
+  if (r >= 0) {
+    //
+    // Determine the security domain and clear a sticky DAP error if present.
+    //
+    r = JLINK_CORESIGHT_ReadDAP(JLINK_CORESIGHT_DP_REG_CTRL_STAT, ACC_DP, &v);
+    if ((r >= 0) && ((v & DP_CTRL_STICKYERR) != 0)) {
+      _DOMAIN_SECURE = 0;
+      if (JLINK_ActiveTIF == JLINK_TIF_JTAG) {
+        r = JLINK_CORESIGHT_WriteDAP(JLINK_CORESIGHT_DP_REG_CTRL_STAT, ACC_DP, DP_CTRL_CSYSPWRUPREQ | DP_CTRL_CDBGPWRUPREQ | DP_CTRL_STICKYERR);
+      } else {
+        r = JLINK_CORESIGHT_WriteDAP(JLINK_CORESIGHT_DP_REG_ABORT, ACC_DP, DP_ABORT_ORUNERRCLR | DP_ABORT_WDERRCLR | DP_ABORT_STKERRCLR | DP_ABORT_STKCMPCLR);
+      }
+    } else {
+      //
+      // Read failed? => The main M33 core is likely in secure state
+      // This is based on Infineons implementaion.
+      //
+      _DOMAIN_SECURE = 1;
+    }
+  } else {
+    _DOMAIN_SECURE = 0;
+  }
+  //
+  // Clear the persistent status.
+  //
+  r = _WriteMem(AP_SYS, _SecureAddr(SRSS_TST_DEBUG_STATUS), 0);
+  if (r < 0) {
+    goto Done;
+  }
+  r = _ReadMem(AP_SYS, _SecureAddr(SRSS_TST_DEBUG_CTL), &v);
+  if ((r >= 0) && ((v & SRSS_TST_DEBUG_CTL_DEBUG_WFA) != 0)) {
+    //_DebugMsg(_STR_PRE_RESET_DEBUG_CERT);
+    r = _WriteMem(AP_SYS, _SecureAddr(SRSS_TST_DEBUG_CTL), SRSS_TST_DEBUG_CTL_DEBUG_WFA);
+    if (r < 0) {
+      goto Done;
+    }
+    //
+    // The reset write may report an error because the target immediately becomes unresponsive.
+    //
+    _WriteMem(AP_SYS, _SecureAddr(SRSS_RES_SOFT_CTL), SRSS_RES_SOFT_CTL_TRIG_SOFT);
+    r = _DAP_HandshakeAndInit(AP_SYS, TIMEOUT_HANDSHAKE);
+    if (r < 0) {
+      goto Done;
+    }
+  }
+  //
+  // Request the configured debug certificate type and reset into WFA2.
+  //
+  //_DebugMsg(_STR_REQUEST_DEBUG_CERT);
+  r = _WriteMem(AP_SYS, _SecureAddr(SRSS_TST_DEBUG_CTL), DEBUG_CERT_TYPE);
+  if (r < 0) {
+    goto Done;
+  }
+  //
+  // The reset write may report an error because the target immediately becomes unresponsive.
+  //
+  _WriteMem(AP_SYS, _SecureAddr(SRSS_RES_SOFT_CTL), SRSS_RES_SOFT_CTL_TRIG_SOFT);
+  r = _DAP_HandshakeAndInit(AP_SYS, TIMEOUT_HANDSHAKE);
+  if (r < 0) {
+    goto Done;
+  }
+  //
+  // Wait until BootROM enters WFA2.
+  //
+  tDelta = -1;
+  r = RESULT_ERR;
+  t = JLINK_GetTime();
+  do {
+    tDelta = JLINK_GetTime() - t;
+    if (tDelta >= TIMEOUT_HANDSHAKE) {
+      r = RESULT_ERR;
+      break;
+    }
+    r = _ReadMem(AP_SYS, SRSS_TST_DEBUG_CTL, &v);
+    if (r < 0) {
+      break;
+    }
+  } while ((v & SRSS_TST_DEBUG_CTL_DEBUG_WFA) == 0);
+  //_LogTimedResult(r, tDelta, _STR_WFA2_MODE_OK, _STR_WFA2_MODE_FAILED);
+Done:
+  return r;
+}
+
+/*********************************************************************
+*
+*       _GetDebugCertWord()
+*
+*  Function description
+*    Packs four certificate bytes into one little-endian 32-bit word.
+*
+*  Parameters
+*    Offset: Byte offset in the certificate.
+*
+*  Return value
+*    Packed 32-bit word.
+*/
+static U32 _GetDebugCertWord(U32 Offset) {
+  U32 v;
+
+  v  = _aDebugCert[Offset + 0];
+  v |= _aDebugCert[Offset + 1] << 8;
+  v |= _aDebugCert[Offset + 2] << 16;
+  v |= _aDebugCert[Offset + 3] << 24;
+  return v;
+}
+
+/*********************************************************************
+*
+*       _UploadDebugCert()
+*
+*  Function description
+*    Uploads the built-in debug certificate to target SRAM.
+*
+*  Return value
+*      0: OK
+*    < 0: Error
+*/
+static int _UploadDebugCert(void) {
+  int r;
+  U32 Offset;
+  U32 Word;
+  U32 Size;
+
+  r = RESULT_OK;
+  Offset = 0;
+  Size = sizeof (_aDebugCert);
+  while (Offset < Size) {
+    Word = _GetDebugCertWord(Offset);
+    r = _WriteMem(AP_SYS, DEBUG_CERT_ADDR + Offset, Word);
+    if (r < 0) {
+      break;
+    }
+    Offset += 4;
+  }
+  if (r >= 0) {
+    r = _WriteMem(AP_SYS, SRSS_TST_DEBUG_CTL2, DEBUG_CERT_ADDR);
+  }
+  return r;
+}
+
+/*********************************************************************
+*
+*       _WaitForCM33AP()
+*
+*  Function description
+*    Waits for the CM33 access port to open after certificate processing.
+*
+*  Parameters
+*    Timeout: Maximum wait time in milliseconds.
+*
+*  Return value
+*      0: CM33 AP is open
+*    < 0: CM33 AP is closed
+*/
+static int _WaitForCM33AP(U32 Timeout) {
+  int r;
+  int t;
+  int tDelta;
+
+  t = JLINK_GetTime();
+  tDelta = 0;
+  do {
+    tDelta = JLINK_GetTime() - t;
+    r = _IsCM33APOpen();
+    if (r >= 0) {
+      break;
+    }
+  } while (tDelta < Timeout);
+  //_LogTimedResult(r, tDelta, _STR_CM33_AP_OPENED, _STR_CM33_AP_STILL_CLOSED);
+  return r;
+}
+
+/*********************************************************************
+*
+*       _WaitForDebugCertValidation()
+*
+*  Function description
+*    Waits until BootROM validates the debug certificate.
+*
+*  Parameters
+*    Timeout: Maximum wait time in milliseconds.
+*
+*  Return value
+*      0: OK
+*    < 0: Error
+*/
+static int _WaitForDebugCertValidation(U32 Timeout) {
+  int r;
+  int t;
+  int tDelta;
+  U32 v;
+
+  r = RESULT_ERR;
+  v = 0;
+  t = JLINK_GetTime();
+  do {
+    tDelta = JLINK_GetTime() - t;
+    r = _DAP_Init(AP_SYS, TIMEOUT_HANDSHAKE);
+    if (r < 0) {
+      continue;
+    }
+    r = _ReadMem(AP_SYS, SRSS_TST_DEBUG_STATUS, &v);
+    if (r < 0) {
+      continue;
+    }
+    if (v == (CYBOOT_ID_SUCCESS | CYBOOT_DEBUG_TOKEN_PASSED)) {
+      break;
+    }
+    r = RESULT_ERR;
+  } while (tDelta < Timeout);
+  //_LogTimedResult(r, tDelta, _STR_TOKEN_VALIDATION_OK, _STR_TOKEN_VALIDATION_FAILED);
+  return r;
+}
+
+/*********************************************************************
+*
+*       _IsSIDAllowed()
+*
+*  Function description
+*    Checks whether Secure Invasive Debug is allowed.
+*
+*  Return value
+*      0: Secure Invasive Debug is allowed
+*    < 0: Secure Invasive Debug is prohibited or inaccessible
+*/
+static int _IsSIDAllowed(void) {
+  int r;
+  U32 v;
+
+  r = _ReadMem(AP_TO_USE, DAUTHSTATUS_ADDR, &v);
+  if ((r >= 0) && ((v & DAUTHSTATUS_SID_MASK) == DAUTHSTATUS_SID_PROHIBITED)) {
+    //_DebugMsg(_STR_SID_PROHIBITED);
+    r = RESULT_ERR;
+  }
+  return r;
+}
+
+/*********************************************************************
+*
+*       _UploadCertAndValidate()
+*
+*  Function description
+*    Uploads and processes the debug certificate, then opens the CM33 AP.
+*
+*  Return value
+*      0: CM33 AP is open
+*    < 0: CM33 AP is closed or unavailable
+*/
+static int _UploadCertAndValidate(void) {
+  int r;
+  int t;
+  int tDelta;
+  U32 Timeout;
+  U32 TmAcq;
+  U32 v;
+  //
+  // Capture the TM Acquisition bit, as it will be cleared by the reset during the WFA request or debug certificate check
+  //
+  r = _ReadMemSecFallback(AP_SYS, SRSS_TST_MODE, &v);
+  if (r >= 0) {
+    TmAcq = v & SRSS_TST_MODE_TEST_MODE;
+  } else {
+    TmAcq = 0;
+  }
+  //
+  // 1. Acquire in WFA mode using request code for debug certificate
+  //
+  r = _AcquireInWFA2Mode();
+  if (r < 0) {
+    goto Done;
+  }
+  //
+  // 2. Upload the debug certificate to the target
+  //
+  r = _UploadDebugCert();
+  if (r < 0) {
+    goto Done;
+  }
+  //_DebugMsg(_STR_CERT_UPLOADED);
+  //
+  // Restore the TM Acquisition bit before cert processing
+  //
+  if (TmAcq != 0) {
+    r = _WriteMem(AP_SYS, SRSS_TST_MODE, TmAcq);
+    if (r < 0) {
+      goto Done;
+    }
+    //
+    // Clear the Boot Status register as it may contain old status from the previous acquisition attempt
+    //
+    r = _WriteMem(AP_SYS, SRSS_BOOT_STATUS, 0);
+    if (r < 0) {
+      goto Done;
+    }
+  }
+  //
+  // 3. Process the recently uploaded certificate.
+  //
+  r = _WriteMem(AP_SYS, SRSS_TST_DEBUG_CTL, DEBUG_CERT_TYPE);
+  if (r < 0) {
+    goto Done;
+  }
+  t = JLINK_GetTime();
+  Timeout = TIMEOUT_HANDSHAKE;
+  r = _DAP_HandshakeAndInit(AP_SYS, Timeout);
+  if (r < 0) {
+    goto Done;
+  }
+  r = _WaitForDebugCertValidation(Timeout);
+  if (r < 0) {
+    goto Error;
+  }
+  tDelta = JLINK_GetTime() - t;
+  if (tDelta <= Timeout) {
+    Timeout -= tDelta;
+    r = _WaitForCM33AP(Timeout);
+  } else {
+    r = RESULT_ERR;
+  }
+  if (r < 0) {
+    goto Error;
+  }
+  //_DebugMsg(_STR_CM33_AP_BECOME_AVAILABLE);
+  r = _DAP_Init(AP_CM33, TIMEOUT_HANDSHAKE);
+  goto Done;
+Error:
+  //
+  // Report the BootROM failure status when it is accessible.
+  //
+  r = _DAP_Init(AP_SYS, TIMEOUT_HANDSHAKE);
+  if (r >= 0) {
+    r = _ReadMem(AP_SYS, SRSS_TST_DEBUG_STATUS, &v);
+    if (r >= 0) {
+      //_DebugMsg1(_STR_CM33_AP_STILL_CLOSED_BOOT_STATUS, v);
+    }
+  }
+  r = RESULT_ERR;
+Done:
+  return r;
+}
+
+/*********************************************************************
+*
+*       _CheckAndOpenCM33()
+*
+*  Function description
+*    Opens the CM33 AP with the debug certificate when required and checks SID.
+*
+*  Return value
+*      0: OK
+*    < 0: Error
+*/
+static int _CheckAndOpenCM33(void) {
+  int r;
+  U32 CertLoaded;
+
+  CertLoaded = 0;
+  r = _IsCM33APOpen();
+  if (r < 0) {
+    //_DebugMsg(_STR_CM33_AP_CLOSED);
+    r = _UploadCertAndValidate();
+    CertLoaded = 1;
+  } else {
+    //_DebugMsg(_STR_CM33_AP_AVAILABLE);
+    r = _DAP_Init(AP_CM33, TIMEOUT_HANDSHAKE);
+  }
+  if (r < 0) {
+    goto Done;
+  }
+  r = _IsSIDAllowed();
+  if (r >= 0) {
+    //_DebugMsg(_STR_SID_ALLOWED_INITIALLY);
+    r = _DAP_Init(AP_CM33, TIMEOUT_HANDSHAKE);
+    goto Done;
+  }
+  if ((DEBUG_CERT_TYPE == DEBUG_CERT_TYPE_PROT_FW) && (DEBUG_CERT_REQUEST_SID != 0)) {
+    if (CertLoaded) {                                                                   // Certificate has been loaded, but SID is still not permitted? => Error.
+      r = RESULT_ERR;
+      goto Done;
+    }
+    //_DebugMsg(_STR_USE_PROT_FW_CERT);
+    r = _UploadCertAndValidate();
+    if (r < 0) {
+      goto Done;
+    }
+      r = _IsSIDAllowed();
+      if (r >= 0) {
+        //_DebugMsg(_STR_SID_ALLOWED_AFTER_PROT_FW);
+      } else {
+      //_DebugMsg(_STR_SID_STILL_PROHIBITED);
+      //_DebugMsg(_STR_CONTINUE_WITHOUT_SID);
+      r = RESULT_OK;
+    }
+  } else {
+    //_DebugMsg(_STR_SKIP_SID_REQUEST);
+    //_DebugMsg(_STR_CONTINUE_WITHOUT_SID);
+    r = RESULT_OK;
+  }
+Done:
+  return r;
+}
+
+/*********************************************************************
+*
+*       _AcquireTestMode()
+*
+*  Function description
+*    Performs device acquisition in test mode:
+*      1. Prereset (do hardware (XRES) or one of the software reset) and connect to the DAP
+*      2. Set TEST_MODE bit in TST_MODE SRSS register
+*      3. Poll for the IDLE status set by boot code in RAM
+*      4. Prepares target for debug
+*
+*  Return value
+*    >= 0:  O.K.
+*     < 0:  Error
+*
+* Notes
+*   (1) Must not use any high-level functions as it is also called from InitTarget() and uses non-standard APs etc.
+*/
+static int _AcquireTestMode(U8 ResetType, U8 APNum) {
+  int r;
+  U32 v;
+  U32 OrgTIFSpeed;
+  //
+  // Read DHCSR to clear sticky S_RESET_ST bit if it possible
+  //
+  _ReadMem(APNum, DHCSR_ADDR, &v);
+  //
+  // Make sure that J-Link is using a high target interface speed, so we can meet the timing requirements as per programming specifications
+  // Might be necessary for some IDEs that select a very slow interface speed by default and do not allow to change this
+  //
+  OrgTIFSpeed = JLINK_JTAG_Speed;
+  JLINK_JTAG_Speed = TEST_MODE_SWD_SPEED;
+  //
+  // Preconfigure some CoreSight settings as time is not critical at this point
+  // E.g. by default, when executing DAP API calls from within the firmware, J-Link will do a retry of the DAP transfer for some interfaces, if we got an invalid response from the DAP.
+  // As this costs valuable time here, we temporarily disable this behavior and restore it at the end of the call.
+  // Additionally, suppress output of the JTAG/SWD switching sequence init at the end of the CORESIGHT_Configure() call, as we do not need it and it only costs time
+  //
+  JLINK_CORESIGHT_Configure(_STR_CFG_RETRY_OFF);
+  //
+  // 1. Prereset (do hardware (XRES) or one of the software reset) and connect to the DAP
+  //
+  // a. Do hardware (XRES) or one of the software reset
+  //    It is critical for Test Mode acquisition, so stop in case of failure
+  // b. Handshake (wait for debug interface to become enabled after device reset),
+  //    initialize the Debug Port, and select the appropriate Access Port (AP)
+  //
+  r = _Reset(ResetType, APNum);
+  if (r >= 0) {
+    r = _DAP_HandshakeAndInit(AP_SYS, TIMEOUT_HANDSHAKE);
+  }
+  //
+  // 2. Set TEST_MODE bit in TST_MODE SRSS register
+  //
+  if (r >= 0) {
+    r = _WriteMem(AP_SYS, SRSS_TST_MODE, SRSS_TST_MODE_TEST_MODE);
+    if (r >= 0) {
+      //
+      // Read RDBUFF to make sure that the last AP write actually happens as SW-DP may buffer/delay it until next DAP access
+      //
+      JLINK_CORESIGHT_ReadDAP(JLINK_CORESIGHT_DP_REG_RDBUF, ACC_DP, &v);
+    }
+  }
+  //
+  // The steps above are time-critical and must be executed without delays immediately after reset.
+  // No hurry for further steps - target already acquired in Test mode
+  //
+  // Restore CORESIGHT settings (See beginning of this function call for more info) and restore original TIF speed
+  //
+  JLINK_CORESIGHT_Configure(_STR_CFG_RETRY_ON);
+  JLINK_JTAG_Speed = OrgTIFSpeed;
+  //
+  // 3. Poll for the IDLE status via System AP, then open the CPU access port
+  //
+  if (r >= 0) {
+    _DAP_HandshakeAndInit(AP_SYS, TIMEOUT_HANDSHAKE);
+    _WaitForBootIdle(AP_SYS, TIMEOUT_LISTEN_WND, 0 /* System AP cannot read PC */);
+    r = _CheckAndOpenCM33();
+    if (r >= 0) {
+      //
+      // Verify that the reset has taken place.
+      //
+      r = _PollMem(DHCSR_ADDR, DHCSR_S_RESET_ST, 0, DHCSR_S_RESET_ST, TIMEOUT_LISTEN_WND, 1, &v);
+      if (r >= 0) {
+        //
+        // Update Current Domain Secure
+        //
+        r = _ReadAndInitSecure();
+      }
+    }
+  }
+  //
+  // 4. Prepares target for debug
+  //
+  // a. Clear TEST_MODE bit in SRSS->TST_MODE.TEST_MODE register
+  // b. Set SP and PC values from the vector table
+  //    Needs to be done after Test mode acquisition to withdraw the target from the IDLE loop
+  //    Otherwise, such commands as "go" or "step" will not work after acquisition
+  //    Do not check for the result since there might be no valid application so no possibility
+  //    to set the PC to the ResetHandler, acquisition step is still succeeded
+  if (r >= 0) {
+    r = _WriteMem(APNum, SRSS_TST_MODE, 0);
+    if ((r >= 0) && (APNum != AP_SYS)) {
+      //
+      // Halt CPU before setting PC and SP values
+      //
+      r = _HaltCPU();
+      if (r >= 0) {
+        //if (VERBOSE_LEVEL != 0) {
+        //  r = _ReadCoreReg(DCRSR_REGSEL_PC, &v);
+        //  if (r >= 0) {
+        //    //_DebugMsg1(_STR_CORE_HALTED_AT_PREFIX, v);
+        //  }
+        //}
+        _SetPCandSPFromVectorTable();
+      }
+    }
+  }
+  return r;
+}
+
+/*********************************************************************
+*
+*       _PreresetAndConnect()
+*
+*  Function description
+*    Performs pre-reset handling and reconnects to the target.
+*
+*  Parameters
+*    ResetType: Reset method bit mask to use before reconnect.
+*    APNum: Access port index to use for reconnect.
+*
+*  Return value
+*    >= 0: OK
+*     < 0: Error
+*/
+static int _PreresetAndConnect(U8 ResetType, U8 APNum) {
+  int r;
+
+  if (APNum == AP_SYS) {
+    //
+    // It is not possible to handle CPU state (e.g. breakpoints) via the System Access Port
+    //
+    r = RESULT_ERR;
+  } else {
+    _Reset(ResetType, APNum);
+    r = _DAP_HandshakeAndInit(AP_SYS, TIMEOUT_HANDSHAKE);
+    if (r >= 0) {
+      r = _CheckAndOpenCM33();
+      if (r >= 0) {
+        //
+        // Update Current Domain Secure
+        //
+        r = _ReadAndInitSecure();
+      }
+    }
+  }
+  return r;
+}
+
+/*********************************************************************
+*
+*       _AcquireVectorCatch()
+*
+*  Function description
+*    Performs target acquisition using Vector Catch:
+*      1. Prereset (do hardware (XRES) or one of the software reset) and connect to the DAP
+*      2. Halt CPU, set DEMCR->VC_CORERESET, and issue software reset
+*      3. Connect to the DAP and check CPU is halted
+*
+*  Return value
+*    >= 0:  O.K.
+*     < 0:  Error
+*
+*  Notes
+*    (1) Must not use any high-level functions as it is also called from InitTarget() and uses non-standard APs etc.
+*/
+static int _AcquireVectorCatch(U8 ResetType, U8 APNum) {
+  int r;
+  int r1;
+  U32 v;
+
+  r = RESULT_OK;
+  //
+  // 1. Prereset and connect
+  // a. Prereset (do hardware (XRES) or one of the software reset) and connect to the DAP
+  //    Prereset is not critical for the Vector Catch acquisition,
+  //    so do not check for the result and do not stop if it is failed
+  // b. Handshake (wait for debug interface to become enabled after device reset),
+  //    initialize the Debug Port and select appropriate Access Port (AP) with the CPU access
+  //
+  r = _PreresetAndConnect(ResetType, APNum);
+  //
+  // 2. Halt CPU, set DEMCR->VC_CORERESET, and issue software reset
+  // a. Enable debug and halt CPU as quickly as possible right after Reset+Handshake+InitDAP
+  //    It is not mandatory to do this quickly, but there is a good chance to stop
+  //    in Listen window or at least prevent user application from doing too much "bad" stuff
+  // b. Set VC_CORERESET and TRCENA bits in DEMCR register
+  // c. Issue software reset
+  //
+  if (r >= 0) {
+    r = _HaltCPU();
+    if (r >= 0) {
+      //
+      // Set VC_CORERESET and TRCENA: DEMCR (0xE000EDFC) = 0x01000001
+      //
+      r = _WriteMem(APNum, DEMCR_ADDR, DEMCR_TRCENA | DEMCR_VC_CORERESET);
+      if (r >= 0) {
+        //
+        // Update Current Domain Secure
+        //
+        r = _ReadAndInitSecure();
+        if (r >= 0) {
+          r = _Reset(RST_TYPE_SOFT & RST_TYPES_ALLOWED, APNum);
+        }
+      }
+    }
+  }
+  //
+  // 3. Connect to the DAP and check CPU is halted
+  // a. Handshake and initialize the Debug Port
+  // b. Verify reset indeed occurred
+  // c. Verify CPU is halted and in debug mode.
+  //    It must be verified in separate step after the reset confirmation to avoid raise conditions
+  // d. Clear VC_CORERESET, but leave TRCENA bit enabled. Do it even in failed scenario
+  //
+  if (r >= 0) {
+    r = _DAP_HandshakeAndInit(AP_SYS, TIMEOUT_HANDSHAKE);
+    if (r >= 0) {
+      r = _CheckAndOpenCM33();
+    }
+    if (r >= 0) {
+      r = _PollMem(DHCSR_ADDR, DHCSR_S_RESET_ST, 0, DHCSR_S_RESET_ST, TIMEOUT_LISTEN_WND, 1, &v);
+      if (r >= 0) {
+        r = _PollMem(DHCSR_ADDR, DHCSR_S_HALT, 0, DHCSR_S_HALT, TIMEOUT_LISTEN_WND, 1, &v);
+      }
+    }
+    //if (VERBOSE_LEVEL != 0) {
+    //  if (r < 0) {
+    //    //_DebugMsg(_STR_VECTOR_CATCH_HALT_FAILED);
+    //  } else {
+    //    r1 = _ReadCoreReg(DCRSR_REGSEL_PC, &v);
+    //    if (r1 >= 0) {
+    //      //_DebugMsg1(_STR_CORE_HALTED_AT_PREFIX, v);
+    //    }
+    //  }
+    //}
+    r1 = _WriteMem(APNum, DEMCR_ADDR, DEMCR_TRCENA); // DEMCR (0xE000EDFC) <- TRCENA
+    if ((r1 < 0) && (r >= 0)) {
+      r = RESULT_ERR;
+    }
+  }
+  return r;
+}
+
+/*********************************************************************
+*
+*       _AcquireBreakpoint()
+*
+*  Function description
+*    Performs target acquisition using the alternate, breakpoint-based sequence:
+*      1. Pre-reset (do hardware (XRES) or one of the software reset) and connect to the DAP
+*      2. Halt CPU, set the hardware breakpoint at the reset address, and issue software reset
+*      3. Connect to the DAP and check CPU is halted at breakpoint being set at Reset Address
+*      4. Disable/clear breakpoint
+*
+*  Return value
+*    >= 0:  O.K.
+*     < 0:  Error
+*
+*  Notes
+*    (1) Must not use any high-level functions as it is also called from InitTarget() and uses non-standard APs etc.
+*/
+static int _AcquireBreakpoint(U8 ResetType, U8 APNum) {
+  int r;
+  int r1;
+  U32 v;
+  U32 v1;
+  U32 ResetAddress;
+  U32 SP;
+  U8  DisableBP;
+
+  DisableBP = 0;
+  //
+  // 1. Prereset and connect
+  // a. Prereset (do hardware (XRES) or one of the software reset) and connect to the DAP
+  //    Prereset is not critical for the Alternate/Breakpoint acquisition,
+  //    so do not check for the result and do not stop if it is failed
+  // b. Handshake (wait for debug interface to become enabled after device reset),
+  //    initialize the Debug Port and select appropriate Access Port (AP) with the CPU access
+  //
+  r = _PreresetAndConnect(ResetType, APNum);
+  //
+  // 2. Halt CPU, set the hardware breakpoint at the reset address, and issue software reset
+  // a. Enable debug and halt CPU as quickly as possible right after Reset+Handshake+InitDAP
+  //    It is not mandatory to do this quickly, but there is a good chance to stop
+  //    in Listen window or at least prevent user application from doing too much "bad" stuff
+  // b. Get Reset Address and Initial SP value from the vector table
+  //    Note: Zero in Vector Table base register or in reset address (reset handler + 4) likely indicates that
+  //    the target is in VIRGIN (preproduction) state, so the ROM boot code debugging is enabled.
+  // c. Enable Breakpoint unit
+  // d. Map the address bits to the breakpoint compare register bit-map, set the ENABLE and BPMATCH bits
+  //    and update the breakpoint compare register.
+  // e. Issue software reset
+  //
+  if (r >= 0) {
+    r = _HaltCPU();
+    if (r >= 0) {
+      //
+      // Update Current Domain Secure
+      //
+      r = _ReadAndInitSecure();
+      if (r >= 0) {
+        r = _GetVectorTableData(&ResetAddress, &SP);
+        if (r < 0) {
+          //_DebugMsg(_STR_READ_RESET_ADDR_FAILED);
+          r = _ReadCoreReg(DCRSR_REGSEL_PC, &ResetAddress);
+        }
+      }
+      if (r >= 0) {
+        //
+        // FPB->FP_CTRL (0xE0002000) = 0x00000003 (KEY == "1" | ENABLE == "1")
+        //
+        r = _WriteMem(APNum, FP_CTRL_ADDR, FP_CTRL_KEY | FP_CTRL_ENABLE);
+        if (r >= 0) {
+          DisableBP = 1;
+          //
+          // FPB->FP_COMP0 (0xE0002008) = ResetAddress | 0x00000001 (BPADDR == ResetAddress, BE == 1)
+          //
+          r = _WriteMem(APNum, FP_COMP0, ResetAddress | FP_COMP_BE);
+          if (r >= 0) {
+            r = _Reset(RST_TYPE_SOFT & RST_TYPES_ALLOWED, APNum);
+          }
+        }
+      }
+    }
+  }
+  //
+  // 3. Connect to the DAP and check CPU is halted at breakpoint being set at Reset Address
+  // a. Handshake and initialize the Debug Port
+  // b. Verify reset indeed occurred
+  // c. CPU is halted at breakpoint being set at Reset Address
+  //    Polling after the reset confirmation is required as a separate step to wait till the boot code finished execution
+  //    (Listen window closed) and CPU is halted at the user application entry
+  //
+  if (r >= 0) {
+    r = _DAP_HandshakeAndInit(AP_SYS, TIMEOUT_HANDSHAKE);
+    if (r >= 0) {
+      r = _CheckAndOpenCM33();
+    }
+    if (r >= 0) {
+      v = DHCSR_S_RESET_ST;
+      r = _PollMem(DHCSR_ADDR, v, 0, v, TIMEOUT_LISTEN_WND, 1, &v1);
+      if (r >= 0) {
+        v = DHCSR_S_HALT | DHCSR_C_DEBUGEN;
+        r = _PollMem(DHCSR_ADDR, v, 0, v, TIMEOUT_LISTEN_WND, 1, &v1);
+        if (r >= 0) {
+          r = _ReadCoreReg(DCRSR_REGSEL_PC, &v);
+          //if (VERBOSE_LEVEL != 0) {
+          //  if (r >= 0) {
+          //    //_DebugMsg1(_STR_CORE_HALTED_AT_PREFIX, v);
+          //  }
+          //}
+          if ((r >= 0) && ((v | 1) != (ResetAddress | 1))) {
+            //if (VERBOSE_LEVEL != 0) {
+            //  //_DebugMsg(_STR_BREAKPOINT_HALT_FAILED);
+            //}
+            r = RESULT_ERR;
+          }
+        }
+      }
+    }
+  }
+  //
+  // 4. Disable/clear breakpoint even in case of failure to avoid further problems with unexpected breakpoint
+  //
+  if (DisableBP != 0) {
+    //
+    // FPB->FP_COMP0 (0xE0002008) = 0 (BPADDR == 0, BE == 0)
+    //
+    r1 = _WriteMem(APNum, FP_COMP0, 0);
+    if (r1 >= 0) {
+      //
+      // FP_CTRL (0xE0002000) <- 0x00000002 (KEY == "1" | ENABLE == "0")
+      //
+      r1 = _WriteMem(APNum, FP_CTRL_ADDR, FP_CTRL_KEY);
+    }
+    if ((r1 < 0) && (r >= 0)) {
+      r = RESULT_ERR;
+    }
+  }
+  return r;
+}
+
+/*********************************************************************
+*
+*       _Acquire()
+*
+*  Function description
+*    Performs a variety of PSC3 chip acquisition attempts:
+*    1. Check if the device is already in IDLE or DEAD branches
+*    2. Try to acquire in Test mode (TM)
+*       This is recommended and the only 100% reliable method.
+*       But it will not work if the debugger cannot meet timing requirements or Listen window is disabled.
+*    3. Try to acquire using the alternate sequence (breakpoint in RAM)
+*    Acquisition methods may be invoked twice - with hardware (XRES) and software prereset.
+*    Note that an XRES connection is strongly required for the hardware reset.
+*    Otherwise, neither of the above methods will work if the firmware does "bad" things such as:
+*    - Repurposes the debug pins (intentionally or unintentionally)
+*    - Disables/Protects access ports and the Listen window is turned off or too short
+*    - Intentionally or unintentionally corrupts values in MMIO registers and the Listen window is turned off or too short
+*    In this case, there is no way for the debugger to establish even basic communication with the target
+*
+*  Return value
+*    >= 0:  O.K.
+*     < 0:  Error
+*
+*  Notes
+*    (1) Must not use any high-level functions as it is also called from InitTarget() and uses non-standard APs etc.
+*/
+static int _Acquire(U8* pAPNum) {
+  int r;
+  U8  v8;
+  U8  AcqMethods;
+  U32 v;
+
+  r = RESULT_ERR;
+  AcqMethods = ACQUIRE_METHODS_ALLOWED;
+  if (AcqMethods == 0) {
+    //_DebugMsg(_STR_NO_ACQUIRE_METHODS);
+    //
+    // Just init DAP if all acquisition methods are disabled
+    //
+    r = _DAP_HandshakeAndInit(*pAPNum, TIMEOUT_HANDSHAKE);
+  }
+  //
+  // 1. Check whether the device is already in IDLE or DEAD branch,
+  // what is sufficient condition for programming, so Reset/Acquire is not needed.
+  //
+  if ((AcqMethods & ACQUIRE_CHECK_IDLE) != 0) {
+    r = _DAP_HandshakeAndInit(*pAPNum, TIMEOUT_HANDSHAKE_SMALL);
+    if (r >= 0) {
+      //
+      // CYBOOT_ID_FAIL in SRSS->TST_DEBUG_STATUS register indicates that boot code
+      // reached the CORRUPTED branch - major system failure occurred (e.g. BIST failed).
+      // Debugger has limited MCU access (via System Access Port only), programming/debugging is not possible
+      //
+      //_DebugMsg(_STR_ACQUIRE_CHECK_IDLE);
+      r = _ReadMem(*pAPNum, SRSS_TST_DEBUG_STATUS, &v);
+      if (r >= 0) {
+        if ((v & CYBOOT_ID_MSK) == CYBOOT_ID_FAIL) {
+          r = RESULT_ERR_CRITICAL;
+        }
+      }
+    }
+    if (r >= 0) {
+      r = _WaitForBootIdle(*pAPNum, TIMEOUT_LISTEN_WND, 1);
+    }
+  }
+  //
+  // 2. Try to acquire in Test mode (TM)
+  // Note: this is time critical, so entire function executed in J-Link firmware and requires __probe attribute for caller
+  //
+  if ((r < 0) && (r != RESULT_ERR_CRITICAL) && ((AcqMethods & ACQUIRE_TEST_MODE) != 0)) {
+    //_DebugMsg(_STR_ACQUIRE_TEST_MODE_HW);
+    r = _AcquireTestMode(RST_TYPE_HARD & RST_TYPES_ALLOWED, *pAPNum);
+    if ((r < 0) && (r != RESULT_ERR_CRITICAL)) {
+      //
+      // If the acquisition failed for some reason (e.g. XRES is not connected), try to acquire in Test mode using software reset
+      // This should work if there is no valid user application so the ROM boot code is in WFA state
+      // or if the Listen window is wide enough and running application did not disabled or corrupted the debug infrastructure
+      //
+      //_DebugMsg(_STR_ACQUIRE_TEST_MODE_SW);
+      r = _AcquireTestMode(RST_TYPE_SOFT & RST_TYPES_ALLOWED, *pAPNum);
+    }
+  }
+  //
+  // 3. Try to acquire using the Vector Catch or the alternate sequence (breakpoint in RAM)
+  //
+  if ((r < 0) && (r != RESULT_ERR_CRITICAL) && ((AcqMethods & (ACQUIRE_BREAKPOINT | ACQUIRE_VECTOR_CATCH)) != 0)) {
+    r = RESULT_OK;
+    //
+    // If SYS-APP is not strictly preferred, try to find first available AP with CPU access
+    //
+    if (*pAPNum == AP_SYS) {
+      if (AP_TO_USE_STRICT != 0) {
+        r = RESULT_ERR;
+      } else {
+        r = _DAP_ScanAP(&v8);
+        if (r >= 0) {
+          *pAPNum = v8;
+        }
+      }
+    }
+    if (r >= 0) {
+      r = RESULT_ERR;
+      //
+      // 4. Try to acquire using the Vector Catch
+      //
+      if ((AcqMethods & ACQUIRE_VECTOR_CATCH) != 0) {
+      //_DebugMsg(_STR_ACQUIRE_VECTOR_CATCH_HW);
+        r = _AcquireVectorCatch(RST_TYPE_HARD & RST_TYPES_ALLOWED, *pAPNum);
+        if (r < 0) {
+        //_DebugMsg(_STR_ACQUIRE_VECTOR_CATCH_SW);
+          r = _AcquireVectorCatch(RST_TYPE_SOFT & RST_TYPES_ALLOWED, *pAPNum);
+        }
+      }
+      //
+      // 5. Try to acquire using the alternate sequence (breakpoint in RAM)
+      //
+      if ((r < 0) && (r != RESULT_ERR_CRITICAL) && ((AcqMethods & ACQUIRE_BREAKPOINT) != 0)) {
+      //_DebugMsg(_STR_ACQUIRE_BREAKPOINT_HW);
+        r = _AcquireBreakpoint(RST_TYPE_HARD & RST_TYPES_ALLOWED, *pAPNum);
+        if (r < 0) {
+        //_DebugMsg(_STR_ACQUIRE_BREAKPOINT_SW);
+          //
+          // Last chance is to acquire using the alternate method and software pre-reset
+          //
+          r = _AcquireBreakpoint(RST_TYPE_SOFT & RST_TYPES_ALLOWED, *pAPNum);
+        }
+      }
+    }
+  }
+  return r;
+}
+
+/*********************************************************************
+*
+*       _ReadSecureState()
+*
+*  Function description
+*    Reads and saves the secure state of the target.
+*
+*  Return value
+*    >= 0:  O.K.
+*     < 0:  Error
+*/
+static int _ReadSecureState(void) {
+  int r;
+  U8  APNum;
+  //
+  // Make sure that the static variable DOMAIN_SECURE is initialized.
+  // This is normally done in InitTarget(), but this function is executed directly
+  // on the probe using the __probe attribute.
+  // Unfortunately, the state of static variables is not retained when executing
+  // code on the probe, so DOMAIN_SECURE needs to be initialized again here.
+  //
+  APNum = AP_TO_USE;
+  r = _DAP_HandshakeAndInit(APNum, TIMEOUT_HANDSHAKE_SMALL);
+  if (r >= 0) {
+    r = _CheckAndOpenCM33();
+  }
+  if (r >= 0) {
+    r = _ReadAndInitSecure();
+  }
+  return r;
+}
+
+/*********************************************************************
+*
+*       Global functions
+*
+**********************************************************************
+*/
+
+/*********************************************************************
+*
+*       InitTarget()
+*
+*  Function description
+*    If present, called right before performing generic connect sequence.
+*    Usually used for targets which need a special connect sequence before communication via the debug interface is possible.
+*    Sample candidates: TI devices with ICEPick TAP on them where core TAP needs to be enabled via specific ICEPick sequences first
+*
+*  Return value
+*    >= 0:  O.K.
+*     < 0:  Error
+*
+*  Notes
+*    (1) MUST NOT use any MEM_ functions
+*    (2) For target interface JTAG, this device has to setup the JTAG chain + JTAG TAP Ids.
+*    (3) ConfigTargetSettings() supplies the CPU configuration.
+*/
+__probe int InitTarget(void) {
+  int r;
+  U8  APNum;
+
+  APNum = AP_TO_USE;
+  r = RESULT_OK;
+  //
+  // Handshake with small timeout for initial probing
+  // If DAP is not accessible, it is possible that the user's firmware repurposed the debug pins to be used as GPIO or did other bad staff
+  // disabling the debug port. In this case, acquire the device either in Test mode (TM) or using the alternate sequence.
+  // Note: TM sequence is time-critical, so executed in J-Link firmware and requires __probe attribute for the caller
+  //
+  // _ReadSecureState() may fail if the debug pins have been reconfigured.
+  // In that case, the default non-secure state is assumed. The acquisition must continue regardless.
+  //
+  _ReadSecureState();
+  r = _DAP_HandshakeAndInit(APNum, TIMEOUT_HANDSHAKE_SMALL);
+  if (r < 0) {
+    r = _Acquire(&APNum);
+  }
+  if (r >= 0) {
+    r = _CheckAndOpenCM33();
+  }
+  if (r >= 0) {
+    r = _ReadAndInitSecure();
+  }
+  if (JLINK_ActiveTIF == JLINK_TIF_JTAG) {
+    //
+    // Addressing a potential issue with an unsafe reading of IDCODE immediately after TLR without explicitly writing
+    // value 0b11111110 to IR while detecting the JTAG chain topology performed by J-Link DLL. Ref IEEE 1149.1 Table 7-1
+    //
+    JLINK_JTAG_SetDeviceId(0, DP_IDCODE_JTAG);
+  }
+  return r;
+}
+
+/*********************************************************************
+*
+*       ResetTarget()
+*
+*  Function description
+*    If present, replaces the standard reset strategy.
+*    No matter what reset type is selected in the DLL, if this function is present, it will be called instead of the selected reset.
+*
+*  Return value
+*    >= 0:  O.K.
+*     < 0:  Error
+*
+*  Notes
+*    (1) Expects target CPU to be halted / in debug mode, when leaving this function
+*    (2) MEM_ functions may be used
+*    (3) The caller ensures that the J-Link SW / FW caches are invalidated after this function
+*/
+__probe int ResetTarget(void) {
+  int r;
+  U8 APNum;
+
+  APNum = AP_TO_USE;
+  r = RESULT_OK;
+  r = _ReadSecureState();
+  if (r < 0) {
+    return r;
+  }
+  //
+  // Acquire target in Test mode (TM) or use the alternate acquisition method (e.g. breakpoint at reset address).
+  // Note: TM acquisition is time-critical, so entire function executed in J-Link firmware and requires __probe attribute for caller
+  //
+  r = _Acquire(&APNum);
+  if (r >= 0) {
+    r = _HaltCPU();
+    if (r >= 0) {
+      //
+      // Enable DWT, ITM, TPIU, and ETM units by setting TRCENA bit in DEMCR register
+      //
+      r = _WriteMem(AP_TO_USE, DEMCR_ADDR, DEMCR_TRCENA); // DEMCR (0xE000EDFC) <- TRCENA
+    }
+  }
+  return r;
+}
+
+/*********************************************************************
+*
+*       HandleAfterFlashProg()
+*
+*  Function description
+*    Called after actual flash programming is performed.
+*
+*  Return value
+*    >= 0:  O.K.
+*     < 0:  Error
+*
+*  Notes
+*    (1) May use high-level API functions like JLINK_MEM_ etc.
+*    (2) Called ONCE per flash programming, NOT for each bank
+*    (3) Implicit writes to flash cache via JLINK_MEM_ functions will not work here, as this function is called too late in the process.
+*/
+__probe int HandleAfterFlashProg(void) {
+  U8 APNum;
+  int r;
+
+  APNum = AP_TO_USE;
+  r = _ReadSecureState();
+  if (r < 0) {
+    return r;
+  }
+  //
+  // Do hardware or software reset.
+  // Otherwise, device remains acquired because the reset command sent by IDE after programming,
+  // calls the ResetTarget function, which will acquire the target again.
+  // This is required to start the application for normal execution and for "Attach" actions after programming.
+  //
+  r = _Acquire(&APNum);
+  if (r >= 0) {
+    //
+    // Enable DWT, ITM, TPIU, and ETM units by setting TRCENA bit in DEMCR register
+    //
+    r = _WriteMem(APNum, DEMCR_ADDR, DEMCR_TRCENA); // DEMCR (0xE000EDFC) <- TRCENA
+  }
+  return r;
+}
+
+/*************************** end of file ****************************/
